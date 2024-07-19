@@ -1,0 +1,22 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base", ":timezone(Asia/Tokyo)"],
+  "labels": ["📦️ build"],
+  "schedule": ["after 10pm and before 5am every weekend"],
+  "dependencyDashboard": true,
+  "automerge": true,
+  "rangeStrategy": "pin",
+  "semanticCommitType": "build: 📦 ",
+  "semanticCommits": "enabled",
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "groupName": "Dev dependencies"
+    },
+    {
+      "matchDepTypes": ["dependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "Minor dependencies"
+    }
+  ]
+}

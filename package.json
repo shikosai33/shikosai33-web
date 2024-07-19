@@ -1,0 +1,42 @@
+{
+  "name": "shikosai33-web",
+  "version": "0.1.0",
+  "repository": "https://github.com/shikosai33/shikosai33-web.git",
+  "license": "GPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "dev": "bunx --bun astro dev",
+    "build": "bunx --bun astro check && bunx --bun astro build",
+    "preview": "bunx --bun astro preview",
+    "check": "bun biome check ./**/*.{*js*,*ts*}",
+    "check:fix": "bun biome check --write",
+    "check:astro": "bun astro check",
+    "test": "bun test",
+    "test:e2e": "bun playwright test"
+  },
+  "dependencies": {
+    "astro": "4.11.6",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "schema-dts": "1.1.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.8.2",
+    "@astrojs/react": "3.6.0",
+    "@astrojs/sitemap": "3.1.6",
+    "@astrojs/tailwind": "5.1.0",
+    "@axe-core/playwright": "4.9.1",
+    "@biomejs/biome": "1.8.3",
+    "@playwright/test": "1.45.2",
+    "@sentry/astro": "7.118.0",
+    "@spotlightjs/astro": "1.0.20",
+    "@types/bun": "latest",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "lefthook": "1.7.2",
+    "tailwindcss": "3.4.6",
+    "tailwindcss-animate": "1.0.7",
+    "typescript": "5.5.3"
+  },
+  "module": "index.ts"
+}

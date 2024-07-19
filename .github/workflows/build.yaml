@@ -1,0 +1,40 @@
+name: ビルド
+
+on:
+  - pull_request
+
+jobs:
+  build:
+    timeout-minutes: 40
+    runs-on: ubuntu-latest
+    steps:
+      - name: チェックアウト
+        uses: actions/checkout@v4
+
+      - name: Bunを導入する
+        uses: moonrepo/setup-toolchain@v0
+        with:
+          # protoとmoonの環境をセットアップするGitHubアクションです。
+          # - protoをグローバルにインストールし、インストールされたツールをグローバルで実行できるようにします。
+          # - ツールチェーン（~/.proto）をキャッシュし、後続の実行が高速化されます。
+          # - .prototoolsと.moon/toolchain.ymlファイルのハッシュを使用して一意のキャッシュキーを生成します。
+          # - キャッシュする前にツールチェーンをクリーンアップして、未使用または古いツールを削除します。
+          # 参照: https://github.com/moonrepo/setup-toolchain
+          auto-install: true
+
+      - name: Bunのキャッシュディレクトリを取得する
+        id: get-bun-cache-directory
+        run: echo "STORE_PATH=$(bun pm cache)" >> $GITHUB_OUTPUT
+
+      - name: 依存関係のキャッシュを設定する
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.get-bun-cache-directory.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-bun-dependencies-${{ hashFiles('**/bun.lockb') }}
+          restore-keys: ${{ runner.os }}-bun-dependencies-
+
+      - name: 依存関係をインストールする
+        run: bun install --frozen-lockfile
+
+      - name: Astroのビルド
+        run: bun build

@@ -1,0 +1,38 @@
+# 依存関係
+node_modules
+.pnp
+.pnp.js
+.pnpm-store
+
+# テストのレポート関連
+coverage
+playwright-report
+test-results
+
+# デバッグ用ファイル
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# 機密情報を含むローカル環境設定ファイル
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ビルドの成果物
+dist/
+
+# Astroのビルド成果物
+.astro/
+
+# モノレポ管理ツールTurborepo
+.turbo
+
+# Storybookのビルド成果物
+storybook-static
+
+# その他
+.DS_Store
+*.pem

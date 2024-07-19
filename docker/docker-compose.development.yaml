@@ -1,0 +1,11 @@
+services:
+  app:
+    container_name: shikosai33-web-app
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile.development
+    volumes:
+      - type: bind
+        source: ../
+        target: /workspaces/shikosai33-web/
+    tty: true

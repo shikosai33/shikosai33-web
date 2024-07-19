@@ -1,0 +1,15 @@
+# ドキュメントはこちらを参照:
+# https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
+
+pre-commit:
+  parallel: true
+  commands:
+    # リントとフォーマット (Biome)
+    prettier:
+      glob: "*.{tsx,ts,mts,mjs,cjs,js,json,yml,yaml}"
+      run: |
+        bun run check:fix {staged_files}
+      stage_fixed: true # 書き込み修正を行なった差分をステージングする
+      skip: # すでに整形済みのファイルであるため、再度の整形を行わない
+        - merge
+        - rebase
