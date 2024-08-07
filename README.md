@@ -10,7 +10,6 @@
 - **Astro** 🚀 静的サイト生成用
 - **Tailwind CSS** 💨 トークンを用いたデザインシステムの構築
 - ~~**Storybook** 📕 アクセシビリティやインタラクションテストの実行と見た目の確認~~
-- **Playwright** 🎭 E2E テストの実行
 - **Biome** 🌊 リンター・フォーマッター
 
 ## 環境構築の手順
@@ -31,7 +30,6 @@
 proto use
 bun i
 bun lefthook install # コミット時チェックのGitフック管理ツールのインストール (初回のみ)
-bun playwright install --with-deps # StorybookのインタラクションテストのCLI実行 & E2Eテストの実行に必要
 ```
 
 #### 各種タスクの実行
@@ -48,5 +46,4 @@ bun check:fix # リントとフォーマットの自動修正可能なエラー�
 bun check:astro # Astroが提供するリント
 
 bun run test # ユニットテストの実行
-bun test:e2e # E2Eテストの実行
 ```
