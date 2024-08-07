@@ -39,6 +39,9 @@ jobs:
       - name: Playwrightをインストールする
         run: bun playwright install --with-deps
 
+      - name: Astroのビルド
+        run: bun run build
+
       - name: E2Eテストの実行
         run: bun test:e2e
 
