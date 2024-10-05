@@ -3,6 +3,45 @@ import "../styles/global.css"
 import { Image } from "astro:assets";
 import Shikosai33 from "../assets/shikosai33.png";
 import Niticlogo from "../assets/kosen_logo.svg"
+
+const sponsors = [
+  ["株式会社ミリオンスポーツ",""],
+  ["有限会社 早川金属工業","https://hayakawakinzoku.com/"],
+  ["唐揚げ専門店 Starting Over","https://startingover2016.jimdofree.com/"],
+  ["株式会社 インフォメーション・ディベロプメント","https://www.idnet.co.jp/"],
+  ["株式会社 日立ビルシステム水戸事業所","https://www.hbs.co.jp/"],
+  ["株式会社 海野ガーデン","https://www.uminogarden.com/"],
+  ["ごぜんやまらーめん 有限会社 軍司麺業",""],
+  ["株式会社 シーアンドエーソリューション","http://canda.co.jp/"],
+  ["有限会社 関東タクシー",""],
+  ["インターソシオシステム株式会社","https://www.socio.co.jp/"],
+  ["株式会社 SAYコンピュータ","https://www.saycom.jp/"],
+  ["株式会社 アサイン","https://www.assign.co.jp/"],
+  ["株式会社 シード","https://www.seed-sys.co.jp/"],
+  ["株式会社 フロンティアシステム","https://www.frontier-system.co.jp/about/"],
+  ["ひたちなかIT企業協議会","https://dotcoi.jimdofree.com/"],
+  ["株式会社 ティー・エイ・シー","https://www.tac-netweb.co.jp/"],
+  ["Smile洋菓子店",""],
+  ["すし蔵",""],
+  ["ひたちなか自動車学校","https://hitachinaka-ds.co.jp/"],
+  ["有限会社 勝田ラジコン模型","https://www.katsutaragicon.com/"],
+  ["有限会社 菊池寝具店","https://kikuchi-shingu.com/"],
+  ["株式会社 エムシー","https://www.mc-inc.co.jp/"],
+  ["株式会社飯村ストアー",""],
+  ["キッチン芥子屋",""],
+  ["株式会社 秀建ホーム","https://www.shuken-home.jp/"],
+  ["株式会社 ロッキー",""],
+  ["ファミリーマートひたちなか昭和通り店","https://www.family.co.jp/"],
+  ["オートバックスひたちなか店","https://www.autobacs.com/"],
+  ["Dr.DriveセルフHAPPYチェリオ店 (株)照沼商事","https://terunumasyouji.com/"],
+  ["株式会社 シフォンケーキ工房樹里","https://www.chiffon-juri.com/"],
+  ["ローソンひたちなか北中根店","https://www.lawson.co.jp/"],
+  ["有限会社 ホームシック スタイルショップ ひたちなか店","https://www.homesic.com/"],
+  ["株式会社 LIXILリアルティマイルーム館 勝田営業所","https://lixilfudousan-mito.lixil-realty.com/"],
+  ["カットハウスアロマ",""],
+  ["パン工房ぐるぐる ひたちなか店","https://www.e-guruguru.net/"],
+  ["株式会社 グレートリーフ","https://cake-leaf.com/"]
+]
 ---
 
 <div
@@ -45,15 +84,19 @@ import Niticlogo from "../assets/kosen_logo.svg"
       <div>
         <h2 class="text-zinc-200 font-Dela">公式SNS</h2>
         <a
-        class="text-zinc-200 font-Dela underline"
         href="https://twitter.com/shikosai33/"
+        class="text-zinc-200 font-Dela underline"
+        target="_blank"
+        rel="noopener noreferrer"
         >
           X(Twitter)
         </a>
         <br>
         <a
-        class="text-zinc-200 font-Dela underline"
         href="https://instagram.com/shikosai33/"
+        class="text-zinc-200 font-Dela underline"
+        target="_blank"
+        rel="noopener noreferrer"
         >
           Instagram
         </a>
@@ -148,47 +191,20 @@ import Niticlogo from "../assets/kosen_logo.svg"
     <h2 class="my-8 text-2xl text-zinc-200 font-Dela">協賛</h2>
   </div>
 
-  <div class="px-16 pb-8">
-    <a class="text-zinc-200 font-Dela">株式会社ミリオンスポーツ</a>
-    <a href="https://hayakawakinzoku.com/" class="text-zinc-200 font-Dela underline">有限会社 早川金属工業</a>
-    <a href="https://startingover2016.jimdofree.com/" class="text-zinc-200 font-Dela underline">唐揚げ専門店 Starting Over</a>
-    <a href="https://www.idnet.co.jp/" class="text-zinc-200 font-Dela underline">株式会社 インフォメーション・ディベロプメント</a>
-    <a href="https://www.hbs.co.jp/" class="text-zinc-200 font-Dela underline">株式会社 日立ビルシステム水戸事業所</a>
-    <a href="https://www.uminogarden.com/" class="text-zinc-200 font-Dela underline">株式会社 海野ガーデン</a>
-    <a class="text-zinc-200 font-Dela">ごぜんやまらーめん 有限会社 軍司麺業</a>
-    <a href="http://canda.co.jp/" class="text-zinc-200 font-Dela underline">株式会社 シーアンドエーソリューション</a>
-    <a class="text-zinc-200 font-Dela">有限会社 関東タクシー</a>
-    <a href="https://www.socio.co.jp/" class="text-zinc-200 font-Dela underline">インターソシオシステム株式会社</a>
-    <a href="https://www.saycom.jp/" class="text-zinc-200 font-Dela underline">株式会社 SAYコンピュータ</a>
-    <a href="https://www.assign.co.jp/" class="text-zinc-200 font-Dela underline">株式会社 アサイン</a>
-    <a href="https://www.seed-sys.co.jp/" class="text-zinc-200 font-Dela underline">株式会社 シード</a>
-    <a href="https://www.frontier-system.co.jp/about/" class="text-zinc-200 font-Dela underline">株式会社 フロンティアシステム</a>
-    <a href="https://dotcoi.jimdofree.com/" class="text-zinc-200 font-Dela underline">ひたちなかIT企業協議会</a>
-    <a href="https://www.tac-netweb.co.jp/" class="text-zinc-200 font-Dela underline">株式会社 ティー・エイ・シー</a>
-    <a class="text-zinc-200 font-Dela">Smile洋菓子店</a>
-    <a class="text-zinc-200 font-Dela">すし蔵</a>
-    <a href="https://hitachinaka-ds.co.jp/" class="text-zinc-200 font-Dela underline">ひたちなか自動車学校</a>
-    <a href="https://www.katsutaragicon.com/" class="text-zinc-200 font-Dela underline">有限会社 勝田ラジコン模型</a>
-    <a href="https://kikuchi-shingu.com/" class="text-zinc-200 font-Dela underline">有限会社 菊池寝具店</a>
-    <a href="https://www.mc-inc.co.jp/" class="text-zinc-200 font-Dela underline">株式会社 エムシー</a>
-    <a class="text-zinc-200 font-Dela">株式会社飯村ストアー</a>
-    <a class="text-zinc-200 font-Dela">キッチン芥子屋</a>
-    <a href="https://www.shuken-home.jp/" class="text-zinc-200 font-Dela underline">株式会社 秀建ホーム</a>
-    <a class="text-zinc-200 font-Dela">株式会社 ロッキー</a>
-    <a href="https://www.family.co.jp/" class="text-zinc-200 font-Dela underline">ファミリーマートひたちなか昭和通り店</a>
-    <a href="https://www.autobacs.com/" class="text-zinc-200 font-Dela underline">オートバックスひたちなか店</a>
-    <a href="https://terunumasyouji.com/" class="text-zinc-200 font-Dela underline">Dr.DriveセルフHAPPYチェリオ店　(株)照沼商事</a>
-    <a href="https://www.chiffon-juri.com/" class="text-zinc-200 font-Dela underline">株式会社 シフォンケーキ工房樹里</a>
-    <a href="https://www.lawson.co.jp/" class="text-zinc-200 font-Dela underline">ローソンひたちなか北中根店</a>
-    <a href="https://www.homesic.com/" class="text-zinc-200 font-Dela underline">有限会社 ホームシック スタイルショップ ひたちなか店</a>
-    <a href="https://lixilfudousan-mito.lixil-realty.com/" class="text-zinc-200 font-Dela underline">株式会社 LIXILリアルティマイルーム館 勝田営業所</a>
-    <a class="text-zinc-200 font-Dela">カットハウスアロマ</a>
-    <a href="https://www.e-guruguru.net/" class="text-zinc-200 font-Dela underline">パン工房ぐるぐる ひたちなか店</a>
-    <a href="https://cake-leaf.com/" class="text-zinc-200 font-Dela underline">株式会社 グレートリーフ</a>
+  <div class="px-16 pb-8 ">
+    {
+      sponsors.map((sponsor)=>(
+        sponsor[1]===""?
+          <a class="text-zinc-200 font-Dela px-2">{sponsor[0]}</a>
+        :
+          <a href={sponsor[1]} target="_blank" class="text-zinc-200 font-Dela px-2 underline">{sponsor[0]}</a>
+      ))
+    }
   </div>
 
   <div class="flex flex-col justify-center md:justify-normal md:flex-row">
-    <a href="https://www.ibaraki-ct.ac.jp/">
+    <a href="https://www.ibaraki-ct.ac.jp/" target="_blank" rel="noopener noreferrer"
+    >
       <Image src={Niticlogo} alt="第33回茨香祭のロゴ" class="w-auto px-16 pt-18 pb-4"/>
     </a>
     <p class="text-zinc-200 pl-16 pb-8">
