@@ -1,0 +1,201 @@
+---
+import "../styles/global.css"
+import { Image } from "astro:assets";
+import Shikosai33 from "../assets/shikosai33.png";
+import Niticlogo from "../assets/kosen_logo.svg"
+---
+
+<div
+  class="rounded-3xl overflow-hidden bg-zinc-800 md:m-2"
+>
+  <div class="flex">
+    <div class="w-1/5 h-3 bg-pink-400" />
+    <div class="w-1/5 h-3 bg-yellow-300" />
+    <div class="w-1/5 h-3 bg-violet-400" />
+    <div class="w-1/5 h-3 bg-orange-400" />
+    <div class="w-1/5 h-3 bg-sky-300" />
+  </div>
+  <div class="flex">
+    <div class="w-1/12 h-12 bg-pink-400">
+      <div class="w-full h-12 bg-gradient-to-b from-zinc-700 to-zinc-900 opacity-90" />
+    </div>
+    <div class="w-5/12 h-12 bg-gradient-to-r from-pink-400 via-yellow-300 to-violet-400">
+      <div class="w-full h-12 bg-gradient-to-b from-zinc-700 to-zinc-900 opacity-90" />
+    </div>
+    <div class="w-5/12 h-12 bg-gradient-to-r from-violet-400  via-orange-400 to-sky-300">
+      <div class="w-full h-12 bg-gradient-to-b from-zinc-700 to-zinc-900 opacity-90" />
+    </div>
+    <div class="w-1/12 h-12 bg-sky-300">
+      <div class="w-full h-12 bg-gradient-to-b from-zinc-700 to-zinc-900 opacity-90" />
+    </div>
+  </div>
+
+  <div class="md:flex pb-8">
+
+    <div class="flex flex-col items-center pb-8 md:pr-16">
+      <a href="/">
+        <Image src={Shikosai33} alt="第33回茨香祭のロゴ" class="max-w-80 px-4 py-1"/>
+      </a>
+      <p class="text-zinc-400">
+        &copy;2024 Shikosai Exective Committee<br> All Rights Reserved.
+      </p>
+    </div>
+
+    <div class="flex justify-center gap-4 md:pr-8 md:gap-8">
+      <div>
+        <h2 class="text-zinc-200 font-Dela">公式SNS</h2>
+        <a
+        class="text-zinc-200 font-Dela underline"
+        href="https://twitter.com/shikosai33/"
+        >
+          X(Twitter)
+        </a>
+        <br>
+        <a
+        class="text-zinc-200 font-Dela underline"
+        href="https://instagram.com/shikosai33/"
+        >
+          Instagram
+        </a>
+      </div>
+
+      <div>
+        <h2 class="text-zinc-200 font-Dela">サークル</h2>
+        <a
+        class="text-zinc-200 font-Dela underline"
+        href="/"
+        >
+          学年ごとに見る
+        </a>
+        <br>
+        <a
+        class="text-zinc-200 font-Dela underline"
+        href="/"
+        >
+          区分ごとに見る
+        </a>
+        <br>
+        <a
+        class="text-zinc-200 font-Dela underline"
+        href="/"
+        >
+          場所ごとに見る
+        </a>
+      </div>
+    </div>
+
+    <div class="flex justify-center gap-4 md:gap-8">
+      <div>
+        <h2 class="text-zinc-200 font-Dela">イベント</h2>
+        <a
+        class="text-zinc-200 font-Dela underline"
+        href="/"
+        >
+          1日目(10月26日)
+        </a>
+        <br>
+        <a
+        class="text-zinc-200 font-Dela underline"
+        href="/"
+        >
+          2日目(10月27日)
+        </a>
+      </div>
+
+      <div>
+        <h2 class="text-zinc-200 font-Dela">その他のページ</h2>
+        <a
+        class="text-zinc-200 font-Dela underline"
+        href="/"
+        >
+          スタッフ
+        </a>
+        <br>
+        <a
+        class="text-zinc-200 font-Dela underline"
+        href="/"
+        >
+          アクセス
+        </a>
+        <br>
+        <a
+        class="text-zinc-200 font-Dela underline"
+        href="/"
+        >
+          プライバシーポリシー
+        </a>
+        <br>
+        <a
+        class="text-zinc-200 font-Dela underline"
+        href="/"
+        >
+          お問い合わせ
+        </a>
+        <br>
+        <a
+        class="text-zinc-200 font-Dela underline"
+        href="/"
+        >
+          来場者アンケート
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="flex justify-center w-auto mx-8 boader border-t-2 border-zinc-400">
+    <h2 class="my-8 text-2xl text-zinc-200 font-Dela">協賛</h2>
+  </div>
+
+  <div class="px-16 pb-8">
+    <a class="text-zinc-200 font-Dela">株式会社ミリオンスポーツ</a>
+    <a href="https://hayakawakinzoku.com/" class="text-zinc-200 font-Dela underline">有限会社 早川金属工業</a>
+    <a href="https://startingover2016.jimdofree.com/" class="text-zinc-200 font-Dela underline">唐揚げ専門店 Starting Over</a>
+    <a href="https://www.idnet.co.jp/" class="text-zinc-200 font-Dela underline">株式会社 インフォメーション・ディベロプメント</a>
+    <a href="https://www.hbs.co.jp/" class="text-zinc-200 font-Dela underline">株式会社 日立ビルシステム水戸事業所</a>
+    <a href="https://www.uminogarden.com/" class="text-zinc-200 font-Dela underline">株式会社 海野ガーデン</a>
+    <a class="text-zinc-200 font-Dela">ごぜんやまらーめん 有限会社 軍司麺業</a>
+    <a href="http://canda.co.jp/" class="text-zinc-200 font-Dela underline">株式会社 シーアンドエーソリューション</a>
+    <a class="text-zinc-200 font-Dela">有限会社 関東タクシー</a>
+    <a href="https://www.socio.co.jp/" class="text-zinc-200 font-Dela underline">インターソシオシステム株式会社</a>
+    <a href="https://www.saycom.jp/" class="text-zinc-200 font-Dela underline">株式会社 SAYコンピュータ</a>
+    <a href="https://www.assign.co.jp/" class="text-zinc-200 font-Dela underline">株式会社 アサイン</a>
+    <a href="https://www.seed-sys.co.jp/" class="text-zinc-200 font-Dela underline">株式会社 シード</a>
+    <a href="https://www.frontier-system.co.jp/about/" class="text-zinc-200 font-Dela underline">株式会社 フロンティアシステム</a>
+    <a href="https://dotcoi.jimdofree.com/" class="text-zinc-200 font-Dela underline">ひたちなかIT企業協議会</a>
+    <a href="https://www.tac-netweb.co.jp/" class="text-zinc-200 font-Dela underline">株式会社 ティー・エイ・シー</a>
+    <a class="text-zinc-200 font-Dela">Smile洋菓子店</a>
+    <a class="text-zinc-200 font-Dela">すし蔵</a>
+    <a href="https://hitachinaka-ds.co.jp/" class="text-zinc-200 font-Dela underline">ひたちなか自動車学校</a>
+    <a href="https://www.katsutaragicon.com/" class="text-zinc-200 font-Dela underline">有限会社 勝田ラジコン模型</a>
+    <a href="https://kikuchi-shingu.com/" class="text-zinc-200 font-Dela underline">有限会社 菊池寝具店</a>
+    <a href="https://www.mc-inc.co.jp/" class="text-zinc-200 font-Dela underline">株式会社 エムシー</a>
+    <a class="text-zinc-200 font-Dela">株式会社飯村ストアー</a>
+    <a class="text-zinc-200 font-Dela">キッチン芥子屋</a>
+    <a href="https://www.shuken-home.jp/" class="text-zinc-200 font-Dela underline">株式会社 秀建ホーム</a>
+    <a class="text-zinc-200 font-Dela">株式会社 ロッキー</a>
+    <a href="https://www.family.co.jp/" class="text-zinc-200 font-Dela underline">ファミリーマートひたちなか昭和通り店</a>
+    <a href="https://www.autobacs.com/" class="text-zinc-200 font-Dela underline">オートバックスひたちなか店</a>
+    <a href="https://terunumasyouji.com/" class="text-zinc-200 font-Dela underline">Dr.DriveセルフHAPPYチェリオ店　(株)照沼商事</a>
+    <a href="https://www.chiffon-juri.com/" class="text-zinc-200 font-Dela underline">株式会社 シフォンケーキ工房樹里</a>
+    <a href="https://www.lawson.co.jp/" class="text-zinc-200 font-Dela underline">ローソンひたちなか北中根店</a>
+    <a href="https://www.homesic.com/" class="text-zinc-200 font-Dela underline">有限会社 ホームシック スタイルショップ ひたちなか店</a>
+    <a href="https://lixilfudousan-mito.lixil-realty.com/" class="text-zinc-200 font-Dela underline">株式会社 LIXILリアルティマイルーム館 勝田営業所</a>
+    <a class="text-zinc-200 font-Dela">カットハウスアロマ</a>
+    <a href="https://www.e-guruguru.net/" class="text-zinc-200 font-Dela underline">パン工房ぐるぐる ひたちなか店</a>
+    <a href="https://cake-leaf.com/" class="text-zinc-200 font-Dela underline">株式会社 グレートリーフ</a>
+  </div>
+
+  <div class="flex flex-col justify-center md:justify-normal md:flex-row">
+    <a href="https://www.ibaraki-ct.ac.jp/">
+      <Image src={Niticlogo} alt="第33回茨香祭のロゴ" class="w-auto px-16 pt-18 pb-4"/>
+    </a>
+    <p class="text-zinc-200 pl-16 pb-8">
+      〒312-8508 茨城県 ひたちなか市 中根866<br>TEL 029-272-5201
+    </p>
+  </div>
+
+
+
+</div>
