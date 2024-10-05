@@ -1,0 +1,60 @@
+---
+import "../styles/global.css"
+import { Image } from "astro:assets";
+import Shikosai33 from "../assets/shikosai33.png";
+---
+
+
+<div class="fixed left-0 top-0 mx-0 my-3 w-auto flex items-end rounded-3xl overflow-hidden bg-white md:static md:w-auto md:mx-2">
+  <div class="group w-1/5">
+    <a href="/">
+      <Image
+      src={Shikosai33}
+      alt="第33回茨香祭のロゴ"
+      class="max-w-full px-4 py-1"
+      />
+      <div class="mb-0 h-2 bg-pink-400 object-cover transition-all duration-300 transform origin-bottom scale-y-100 group-hover:scale-y-0"></div>
+    </a>
+  </div>
+
+  <div class="group w-1/5">
+    <a href="/">
+      <h2 class="my-3 text-xl text-center font-Dela bg-gradient-to-b from-black to-yellow-500 bg-clip-text text-transparent md:text-2xl">
+        サークル
+      </h2>
+    <div class="mb-0 h-2 bg-yellow-300 transition-all duration-300 transform origin-bottom scale-y-100 group-hover:scale-y-0"></div>
+    </a>
+  </div>
+
+  <div class="group w-1/5">
+    <a href="/">
+      <h2 class="my-3 text-xl text-center font-Dela  bg-gradient-to-b from-black to-violet-600 bg-clip-text text-transparent md:text-2xl">
+        イベント
+      </h2>
+    <div class="mb-0 h-2 bg-violet-400 transition-all duration-300 transform origin-bottom scale-y-100 group-hover:scale-y-0"></div>
+    </a>
+  </div>
+
+  <div class="group w-1/5">
+    <a href="/">
+      <h2 class="my-3 text-xl text-center font-Dela  bg-gradient-to-b from-black to-orange-600 bg-clip-text text-transparent md:text-2xl">
+        スタッフ
+      </h2>
+    <div class="mb-0 h-2 bg-orange-400 transition-all duration-300 transform origin-bottom scale-y-100 group-hover:scale-y-0"></div>
+    </a>
+  </div>
+
+  <div class="group w-1/5">
+    <a
+    href="https://www.ibaraki-ct.ac.jp/access/"
+    target="_blank"
+    rel="noopener noreferrer"
+    >
+      <h2 class="my-3 text-xl text-center font-Dela  bg-gradient-to-b from-black to-sky-500 bg-clip-text text-transparent md:text-2xl">
+        アクセス
+      </h2>
+    <div class="mb-0 h-2 bg-sky-300 transition-all duration-300 transform origin-bottom scale-y-100 group-hover:scale-y-0"></div>
+    </a>
+  </div>
+
+</div>
