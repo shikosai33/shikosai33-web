@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "bunx --bun astro dev",
     "build": "bunx --bun astro check && bunx --bun astro build",
+    "sync": "bunx --bun astro sync",
     "preview": "bunx --bun astro preview",
     "check": "bun biome check ./**/*.{*js*,*ts*}",
     "check:fix": "bun biome check --write",
@@ -17,7 +18,8 @@
     "astro": "4.11.6",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "schema-dts": "1.1.2"
+    "schema-dts": "1.1.2",
+    "swiper": "11.1.14"
   },
   "devDependencies": {
     "@astrojs/check": "0.8.2",
