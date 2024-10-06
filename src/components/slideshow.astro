@@ -7,35 +7,30 @@ import Poster from '../assets/poster.png';
 <div class="swiper flex justify-center items-center w-3/5">
   <div class="swiper-wrapper">
     <div class="swiper-slide">
-        <Image
-        src={Cover}
-        alt="第33回茨香祭パンフレットの表紙"
-        />
+      <Image src={Cover} alt="第33回茨香祭パンフレットの表紙" />
     </div>
     <div class="swiper-slide">
-      <Image
-      src={Poster}
-      alt="第33回茨香祭のポスター"
-      />
+      <Image src={Poster} alt="第33回茨香祭のポスター" />
     </div>
   </div>
   <div class="swiper-pagination"></div>
 </div>
 
 <script>
-import Swiper from 'swiper/bundle';
-import { Pagination } from 'swiper/modules';
-import 'swiper/css/bundle';
+  import Swiper from 'swiper/bundle';
+  import { Pagination } from 'swiper/modules';
+  import 'swiper/css/bundle';
+  //@ts-ignore TS6133: ts(6133): 'swiper' is declared but its value is never read.
   const swiper = new Swiper('.swiper', {
-  modules: [Pagination],
-  loop: true,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  speed: 1000,
+    modules: [Pagination],
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    speed: 1000,
     autoplay: {
       delay: 10000,
     },
-});
+  });
 </script>
