@@ -153,6 +153,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "files.encoding": "utf8",
   "files.eol": "\n",
+  "headwind.runOnSave": true,
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
