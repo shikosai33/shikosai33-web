@@ -11,8 +11,7 @@
     "check": "bun biome check ./**/*.{*js*,*ts*}",
     "check:fix": "bun biome check --write",
     "check:astro": "bun astro check",
-    "test": "bun test",
-    "test:e2e": "bun playwright test"
+    "test": "bun test"
   },
   "dependencies": {
     "astro": "4.11.6",
@@ -25,9 +24,7 @@
     "@astrojs/react": "3.6.0",
     "@astrojs/sitemap": "3.1.6",
     "@astrojs/tailwind": "5.1.0",
-    "@axe-core/playwright": "4.9.1",
     "@biomejs/biome": "1.8.3",
-    "@playwright/test": "1.45.2",
     "@sentry/astro": "7.118.0",
     "@spotlightjs/astro": "1.0.20",
     "@types/bun": "latest",
