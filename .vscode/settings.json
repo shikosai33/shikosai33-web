@@ -1,0 +1,178 @@
+{
+  "commit-message-editor.tokens": [
+    {
+      "label": "Type",
+      "name": "type",
+      "type": "enum",
+      "description": "変更の種類。",
+      "combobox": true,
+      "options": [
+        {
+          "label": "feat: ✨",
+          "value": "feat: ✨",
+          "description": "機能の実装。"
+        },
+        {
+          "label": "feat: ⚰️",
+          "value": "feat: ⚰️",
+          "description": "機能の削除。"
+        },
+        {
+          "label": "fix: 🐛",
+          "value": "fix: 🐛",
+          "description": "バグの修正。"
+        },
+        {
+          "label": "fix: 🐞",
+          "value": "fix: 🐞",
+          "description": "バグほどではない小さな問題の修正。"
+        },
+        {
+          "label": "fix: 🚑️",
+          "value": "fix: 🚑️",
+          "description": "重大なバグの修正。"
+        },
+        {
+          "label": "patch: 🩹",
+          "value": "patch: 🩹",
+          "description": "パッチの追加。"
+        },
+        {
+          "label": "doc: 📝",
+          "value": "doc: 📝",
+          "description": "ドキュメントの追加・更新。"
+        },
+        {
+          "label": "typo: 🖋️",
+          "value": "typo: 🖋️",
+          "description": "タイポグラフィーの追加・更新。"
+        },
+        {
+          "label": "style: 💄",
+          "value": "style: 💄",
+          "description": "UIやスタイルファイルの変更。"
+        },
+        {
+          "label": "refactor: ♻️",
+          "value": "refactor: ♻️",
+          "description": "コードのフォーマットやリファクタリング。"
+        },
+        {
+          "label": "test: 🧪",
+          "value": "test: 🧪",
+          "description": "テストの追加・更新。"
+        },
+        {
+          "label": "ci: 🦺",
+          "value": "ci: 🦺",
+          "description": "CIの変更。"
+        },
+        {
+          "label": "build: 📦️",
+          "value": "build: 📦️",
+          "description": "ビルドシステムや依存関係の変更。"
+        },
+        {
+          "label": "chore: 🔧",
+          "value": "chore: 🔧",
+          "description": "設定ファイルの変更。"
+        },
+        {
+          "label": "chore: 🔨",
+          "value": "chore: 🔨",
+          "description": "開発スクリプトの変更。"
+        },
+        {
+          "label": "chore: 🍱",
+          "value": "chore: 🍱",
+          "description": "アセットの変更。"
+        },
+        {
+          "label": "revert: ⏪️",
+          "value": "revert: ⏪️",
+          "description": "変更の取り消し。"
+        },
+        {
+          "label": "wip: 🚧",
+          "value": "wip: 🚧",
+          "description": "squashされる変更のコミット。"
+        },
+        {
+          "label": "initial: 🎉",
+          "value": "initial: 🎉",
+          "description": "最初のコミット。"
+        }
+      ]
+    },
+    {
+      "label": "Scope",
+      "name": "scope",
+      "type": "text",
+      "description": "変更の範囲。 例: `astro.config.ts`・`<NavBar>`・`/privacy-policy`",
+      "prefix": " (",
+      "suffix": ")"
+    },
+    {
+      "label": "Short Description",
+      "name": "description",
+      "type": "text",
+      "description": "コミットの要約。\n\n例:\n・認証を実装\n・認証画面のスタイルが崩れるバグを修正"
+    },
+    {
+      "label": "Issue",
+      "name": "issue",
+      "type": "text",
+      "description": "関連するIssue番号。 e.g. #47, #53, ...",
+      "prefix": " (",
+      "suffix": ")"
+    },
+    {
+      "label": "Body",
+      "name": "body",
+      "type": "text",
+      "description": "コミットの詳細な説明。\ndescriptionと内容が一致する場合は省略しても良い。\n\n例:\n・CSSにタイポがあったため、それらを修正した。",
+      "maxLines": 10,
+      "multiline": true,
+      "lines": 5
+    },
+    {
+      "label": "Footer",
+      "name": "footer",
+      "description": "破壊的変更についての説明。または署名。",
+      "type": "text",
+      "multiline": true
+    }
+  ],
+  "commit-message-editor.staticTemplate": ["{type}{scope} {description} {issue}", "", "{body}", "", "{footer}"],
+  "commit-message-editor.dynamicTemplate": ["{type}{scope} {description} {issue}", "", "{body}", "", "{footer}"],
+  "commit-message-editor.view.defaultView": "form",
+  "editor.codeActionsOnSave": {
+    "quickfix.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "headwind.runOnSave": true,
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
+}

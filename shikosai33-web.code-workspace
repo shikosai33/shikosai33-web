@@ -150,36 +150,8 @@
         "multiline": true
       }
     ],
-    "commit-message-editor.dynamicTemplate": ["{type}{scope}{description}", "", "{body}", "", "{footer}"],
-    "commit-message-editor.staticTemplate": ["label: emoji (scope) short-description", "", "body", "", "footer"],
-    "commit-message-editor.view.defaultView": "form",
-    "editor.codeActionsOnSave": {
-      "quickfix.biome": "explicit",
-      "source.organizeImports.biome": "explicit"
-    },
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "files.encoding": "utf8",
-    "files.eol": "\n",
-    "[astro]": {
-      "editor.defaultFormatter": "astro-build.astro-vscode"
-    },
-    "[javascript]": {
-      "editor.defaultFormatter": "biomejs.biome"
-    },
-    "[javascriptreact]": {
-      "editor.defaultFormatter": "biomejs.biome"
-    },
-    "[json]": {
-      "editor.defaultFormatter": "biomejs.biome"
-    },
-    "[jsonc]": {
-      "editor.defaultFormatter": "biomejs.biome"
-    },
-    "[typescript]": {
-      "editor.defaultFormatter": "biomejs.biome"
-    },
-    "[typescriptreact]": {
-      "editor.defaultFormatter": "biomejs.biome"
-    }
+    "commit-message-editor.staticTemplate": ["{type}{scope} {description} {issue}", "", "{body}", "", "{footer}"],
+    "commit-message-editor.dynamicTemplate": ["{type}{scope} {description} {issue}", "", "{body}", "", "{footer}"],
+    "commit-message-editor.view.defaultView": "form"
   }
 }
