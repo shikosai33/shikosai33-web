@@ -1,8 +1,7 @@
+import cloudflare from '@astrojs/cloudflare';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
-import sentry from '@sentry/astro';
-import spotlightjs from '@spotlightjs/astro';
 import { defineConfig } from 'astro/config';
 
 /**
@@ -18,7 +17,7 @@ const getSite = (): URL => {
   }
   // ローカル開発環境の場合
   if (import.meta.env.DEV === true) {
-    return new URL('https://localhost:4321');
+    return new URL('http://localhost:4321');
   }
   // わからない時
   return new URL('https://33.shikosai.net');
@@ -27,14 +26,8 @@ const getSite = (): URL => {
 console.info('🌐 The site origin was set to:', getSite().origin);
 
 export default defineConfig({
+  output: 'server',
   prefetch: true,
   site: getSite().origin,
-  integrations: [
-    react(),
-    // NOTE: Sentry SDK is installed to use Spotlight in the local environment, so it is disabled in the production environment.
-    sentry({ enabled: import.meta.env.DEV === true }),
-    sitemap(),
-    spotlightjs(),
-    tailwind(),
-  ],
+  integrations: [react(), sitemap(), tailwind(), cloudflare()],
 });

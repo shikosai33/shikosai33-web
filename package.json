@@ -15,6 +15,10 @@
     "test": "bun test"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "11.1.0",
+    "@astrojs/react": "3.6.0",
+    "@astrojs/sitemap": "3.1.6",
+    "@astrojs/tailwind": "5.1.0",
     "astro": "4.11.6",
     "astro-seo": "0.8.4",
     "react": "18.3.1",
@@ -23,12 +27,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.8.2",
-    "@astrojs/react": "3.6.0",
-    "@astrojs/sitemap": "3.1.6",
-    "@astrojs/tailwind": "5.1.0",
     "@biomejs/biome": "1.8.3",
-    "@sentry/astro": "7.118.0",
-    "@spotlightjs/astro": "1.0.20",
     "@types/bun": "latest",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
