@@ -12,11 +12,11 @@ import { defineConfig } from 'astro/config';
 const getSite = (): URL => {
   // デプロイ先がCloudflare Pagesの場合
   // @see https://developers.cloudflare.com/pages/configuration/build-configuration/
-  if (import.meta.env.CF_PAGES === '1' && import.meta.env.PAGES_URL) {
-    return new URL(import.meta.env.PAGES_URL);
+  if (typeof import.meta.env.CF_PAGES_URL === 'string') {
+    return new URL(import.meta.env.CF_PAGES_URL);
   }
   // ローカル開発環境の場合
-  if (import.meta.env.DEV === true) {
+  if (import.meta.env.DEV) {
     return new URL('http://localhost:4321');
   }
   // わからない時
