@@ -6,7 +6,7 @@ pre-commit:
   commands:
     # リントとフォーマット (Biome)
     biome:
-      glob: "*.{tsx,ts,mts,mjs,cjs,js,json,yml,yaml}"
+      glob: "*.{tsx,ts,mts,mjs,cjs,js,json}"
       run: |
         bun run check:fix {staged_files}
       stage_fixed: true # 書き込み修正を行なった差分をステージングする
