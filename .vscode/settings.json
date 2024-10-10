@@ -150,7 +150,7 @@
     "quickfix.biome": "explicit",
     "source.organizeImports.biome": "explicit"
   },
-  "editor.defaultFormatter": "biomejs.biome",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "files.encoding": "utf8",
   "files.eol": "\n",
   "headwind.runOnSave": true,
