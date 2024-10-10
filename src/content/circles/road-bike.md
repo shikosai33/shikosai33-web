@@ -17,7 +17,7 @@ category: 技術系
 summary: ロードバイクに乗って自分の実力を試そう!
 
 # サークルの場所
-location: 1号館裏通路
+location: outdoor-passage
 
 # X, Instagramなどの外部リンク
 # urls:

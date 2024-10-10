@@ -17,7 +17,7 @@ category: 文化系
 summary: 弓道で使用する弓と矢を使った的あてです。子供から大人まで奮ってご参加ください。
 
 # サークルの場所
-location: グラウンド(道路側)
+location: outdoor-tent
 
 # X, Instagramなどの外部リンク
 # urls:

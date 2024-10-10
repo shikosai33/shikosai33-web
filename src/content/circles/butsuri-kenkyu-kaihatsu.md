@@ -17,7 +17,7 @@ category: 文化系
 summary: 物理のやつ展示中。
 
 # サークルの場所
-location: グラウンド
+location: outdoor-tent
 
 # X, Instagramなどの外部リンク
 # urls:

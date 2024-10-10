@@ -17,7 +17,7 @@ category: 技術系
 summary: 学生たちの自主的なモノづくり活動を推進する団体です。
 
 # サークルの場所
-location: マルチメディア
+location: multi-media-room
 
 # X, Instagramなどの外部リンク
 # urls:

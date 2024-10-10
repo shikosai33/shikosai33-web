@@ -17,7 +17,7 @@ category: 飲食系
 summary: お点前を披露し、お菓子やお茶をふるまいます。
 
 # サークルの場所
-location: ベンチャーラボ
+location: venture-lab
 
 # X, Instagramなどの外部リンク
 # urls:

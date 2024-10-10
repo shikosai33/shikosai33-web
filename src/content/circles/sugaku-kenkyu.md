@@ -17,7 +17,7 @@ category: 文化系
 summary: 問題と景品を用意しました。ぜひ解きに来てください！
 
 # サークルの場所
-location: マルチメディア
+location: multi-media-room
 
 # X, Instagramなどの外部リンク
 # urls:

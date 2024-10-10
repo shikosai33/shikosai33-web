@@ -17,7 +17,7 @@ category: 文化系
 summary: ジャグリングの様々な道具にチャレンジしてみませんか？成功すれば景品もあります！
 
 # サークルの場所
-location: グラウンド(看板前)
+location: outdoor-tent
 
 # X, Instagramなどの外部リンク
 # urls:

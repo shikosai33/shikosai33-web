@@ -1,0 +1,10 @@
+# 仕様: https://www.notion.so/shikosai33/8345f5b29cea40aaa2cc9fd6ab79c6a6?pvs=4#d807a577a28c499b81715893ee0fbfa8
+
+# 建物の名前 (第一体育館, 1号館, 2号館, ..., 10号館, グラウンド, etc.) `src/content/config.ts`を参照
+building-name: 共用部室
+
+# 階数 (1階建てや屋外の場合は省略)
+# floor: 1
+
+# 部屋の名前 (2年2組教室, 屋外ステージ, 屋内ステージ, etc.)
+room-name: 創作活動室

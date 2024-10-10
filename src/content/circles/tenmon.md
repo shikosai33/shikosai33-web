@@ -18,7 +18,7 @@ summary: 私たちのサークルでは宇宙やISSをテーマにした科学�
 是非お越しください。
 
 # サークルの場所
-location: 物理第一
+location: physics-laboratory
 
 # X, Instagramなどの外部リンク
 # urls:

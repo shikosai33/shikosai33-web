@@ -17,7 +17,7 @@ category: 文化系
 summary: ラケットで的あてをしよう
 
 # サークルの場所
-location: 第二体育館
+location: martial-arts-hall
 
 # X, Instagramなどの外部リンク
 # urls:

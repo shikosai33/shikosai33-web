@@ -17,7 +17,7 @@ category: 文化系
 summary: ホットケーキ喰うな！
 
 # サークルの場所
-location: 1号館ロビー
+location: bldg1-lobby
 
 # X, Instagramなどの外部リンク
 # urls:

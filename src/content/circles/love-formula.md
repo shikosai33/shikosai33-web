@@ -17,7 +17,7 @@ category: 飲食系
 summary: かわいいメイドさんがあなたをおもてなし。可愛い軽食と空間で癒されていきませんか?
 
 # サークルの場所
-location: セミナー交流
+location: seminar-room
 
 # X, Instagramなどの外部リンク
 # urls:

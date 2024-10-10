@@ -17,7 +17,7 @@ category: 飲食系
 summary: 海外の食べ物を試してみよう！東南アジアやインドなどの料理を販売しています。
 
 # サークルの場所
-location: 外テント
+location: outdoor-tent
 
 # X, Instagramなどの外部リンク
 # urls:

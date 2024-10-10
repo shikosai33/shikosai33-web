@@ -17,7 +17,7 @@ category: 文化系
 summary: まんけんの部員が制作したイラストを展示・販売します！ぜひ気軽にお越しください。
 
 # サークルの場所
-location: マルチメディア
+location: multi-media-room
 
 # X, Instagramなどの外部リンク
 # urls:

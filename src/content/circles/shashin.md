@@ -17,7 +17,7 @@ category: 文化系
 summary: 部員が見つけた一瞬を集めました。その一瞬の世界からあなたの世界をひろげてみては？
 
 # サークルの場所
-location: 8号館2階ゼミ室(206)
+location: bldg8-seminar-room
 
 # X, Instagramなどの外部リンク
 # urls:

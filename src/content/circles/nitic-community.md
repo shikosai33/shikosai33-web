@@ -18,7 +18,7 @@ summary: 思い出を形に残そう！茨城高専文化祭限定！オリジ�
 
 
 # サークルの場所
-location: マルチメディア
+location: multi-media-room
 
 # X, Instagramなどの外部リンク
 # urls:

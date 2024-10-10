@@ -17,7 +17,7 @@ category: 飲食系
 summary: ソフトテニス部伝統の焼きそばが復活！その味をご賞味あれ！
 
 # サークルの場所
-location: 外テント
+location: outdoor-tent
 
 # X, Instagramなどの外部リンク
 # urls:

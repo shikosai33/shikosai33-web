@@ -17,7 +17,7 @@ category: 文化系
 summary: (アンテナづくり)やらないか♂
 
 # サークルの場所
-location: マルチメディア
+location: multi-media-room
 
 # X, Instagramなどの外部リンク
 # urls:

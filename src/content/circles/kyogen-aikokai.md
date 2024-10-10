@@ -17,7 +17,7 @@ category: 文化系
 summary: 茨城高専の七不思議（嘘）をツアー形式でご紹介
 
 # サークルの場所
-location: 8号館ロビー
+location: bldg8-lounge
 
 # X, Instagramなどの外部リンク
 # urls:

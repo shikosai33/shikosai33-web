@@ -17,7 +17,7 @@ category: 飲食系
 summary: 見た目も味も楽しめるバスケットボール鈴カステラ＆ワッフル
 
 # サークルの場所
-location: 外テント
+location: outdoor-tent
 
 # X, Instagramなどの外部リンク
 # urls:

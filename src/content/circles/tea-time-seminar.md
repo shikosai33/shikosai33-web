@@ -17,7 +17,7 @@ category: 飲食系
 summary: 「なつかしい」「そんなのあったね」と言われそうな商品を提供させていただきます笑
 
 # サークルの場所
-location: 45326
+location: 2-4
 
 # X, Instagramなどの外部リンク
 # urls:

@@ -17,7 +17,7 @@ category: 技術系
 summary: ロボットを使った射的やロボットの操縦体験ができます。
 
 # サークルの場所
-location: 創作活動室
+location: activity-room
 
 # X, Instagramなどの外部リンク
 # urls:

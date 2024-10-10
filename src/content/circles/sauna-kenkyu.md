@@ -17,7 +17,7 @@ category: 文化系
 summary: 茨香祭で「型抜きマスター」の称号を手に入れるチャンス到来！
 
 # サークルの場所
-location: グラウンド
+location: outdoor-tent
 
 # X, Instagramなどの外部リンク
 # urls:

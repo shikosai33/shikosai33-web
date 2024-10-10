@@ -17,7 +17,7 @@ category: 技術系
 summary: 唯物論と矛盾しないカタチの魂の解放を模索せよ
 
 # サークルの場所
-location: マルチメディア
+location: multi-media-room
 
 # X, Instagramなどの外部リンク
 # urls:

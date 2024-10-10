@@ -17,7 +17,7 @@ category: 文化系
 summary: 優雅な空間で皆様をお待ちしております。家族や友人とお気軽にお越しください。
 
 # サークルの場所
-location: ベンチャーラボ
+location: venture-lab
 
 # X, Instagramなどの外部リンク
 # urls:

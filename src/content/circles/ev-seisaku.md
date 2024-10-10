@@ -17,7 +17,7 @@ category: 技術系
 summary: 電気系の有志でつくった電気自動車に無料で試乗できます!進路相談もぜひ。
 
 # サークルの場所
-location: 寮食堂周辺
+location: bldg10-front
 
 # X, Instagramなどの外部リンク
 # urls:

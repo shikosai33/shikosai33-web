@@ -17,7 +17,7 @@ category: 技術系
 summary: 大人気！対戦型エアホッケーゲームが待望のリリース！みんなもせんせいとあそぼう！
 
 # サークルの場所
-location: マルチメディア
+location: multi-media-room
 
 # X, Instagramなどの外部リンク
 # urls:

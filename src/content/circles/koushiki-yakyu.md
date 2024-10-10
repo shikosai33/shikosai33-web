@@ -17,7 +17,7 @@ category: 文化系
 summary: 色々な種類の的にボールを投げて、条件クリアで景品をゲットしよう！
 
 # サークルの場所
-location: グラウンド
+location: outdoor-tent
 
 # X, Instagramなどの外部リンク
 # urls:
