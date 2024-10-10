@@ -1,8 +1,8 @@
 ---
-import "../styles/global.css";
-import "../styles/colors.css";
-import { SEO } from "astro-seo";
-import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
+import '@/styles/global.css';
+import '@/styles/colors.css';
+import { GoogleFontsOptimizer } from 'astro-google-fonts-optimizer';
+import { SEO } from 'astro-seo';
 
 /**
  *メタデータやOpengraph、Twitterカードの情報を設定するためのレイアウト。
@@ -51,14 +51,11 @@ export interface Props {
 }
 
 const DEFAULT_DESCRIPTION =
-  "2024年10月26日~27日に茨城工業高等専門学校で開催される、第33回茨香祭の公式ウェブサイトです。" as const;
-const DEFAULT_OPENGRAPH_IMAGE_URL = new URL(
-  "/opengraph-image.png",
-  import.meta.env.SITE
-).href;
+  '2024年10月26日~27日に茨城工業高等専門学校で開催される、第33回茨香祭の公式ウェブサイトです。' as const;
+const DEFAULT_OPENGRAPH_IMAGE_URL = new URL('/opengraph-image.png', import.meta.env.SITE).href;
 const DEFAULT_OPENGRAPH_IMAGE_ALT =
-  "第33回茨香祭のパンフレットの表紙をあしらった、かわいらしい、ちゃあみぃ！なサムネイル。" as const;
-const DEFAULT_TWITTER_CREATOR = "@shikosai33" as const;
+  '第33回茨香祭のパンフレットの表紙をあしらった、かわいらしい、ちゃあみぃ！なサムネイル。' as const;
+const DEFAULT_TWITTER_CREATOR = '@shikosai33' as const;
 
 const {
   title,
