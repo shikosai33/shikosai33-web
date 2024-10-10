@@ -9,8 +9,8 @@
     "build": "bunx --bun astro check && bunx --bun astro build",
     "sync": "bunx --bun astro sync",
     "preview": "bunx --bun astro preview",
-    "check": "bun biome check ./**/*.{*js*,*ts*}",
-    "check:fix": "bun biome check --write",
+    "check": "bun biome check .",
+    "check:fix": "bun biome check --write .",
     "check:astro": "bun astro check",
     "test": "bun test"
   },
