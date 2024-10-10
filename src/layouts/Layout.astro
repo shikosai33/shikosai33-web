@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import "../styles/colors.css";
 import { SEO } from "astro-seo";
+import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 
 /**
  *メタデータやOpengraph、Twitterカードの情報を設定するためのレイアウト。
@@ -103,6 +104,11 @@ const {
         imageAlt: imageAlt,
         creator: twitterCreator,
       }}
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <GoogleFontsOptimizer
+      url="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap"
     />
   </head>
   <body>
