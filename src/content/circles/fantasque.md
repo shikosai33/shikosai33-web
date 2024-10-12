@@ -14,8 +14,7 @@ organizer-name: fantasque
 category: 文化系
 
 # サークルの概要
-summary: ディズニーの名曲を中心に演奏します！休憩室としても開放しているのでぜ
-ひ来てね♡
+summary: ディズニーの名曲を中心に演奏します！休憩室としても開放しているのでぜひ来てね♡
 
 # サークルの場所
 location: scs
