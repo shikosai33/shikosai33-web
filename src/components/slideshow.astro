@@ -1,9 +1,10 @@
 ---
 import { Image } from 'astro:assets';
-import Cover from '../assets/cover.png';
-import Poster from '../assets/poster.png';
+import Cover from '@/assets/cover.png';
+import Poster from '@/assets/poster.png';
 ---
 
+<script src="./scripts/slideshow.tsx"></script>
 <div class="swiper flex justify-center items-center w-3/5">
   <div class="swiper-wrapper">
     <div class="swiper-slide">
@@ -15,22 +16,3 @@ import Poster from '../assets/poster.png';
   </div>
   <div class="swiper-pagination"></div>
 </div>
-
-<script>
-  import Swiper from 'swiper/bundle';
-  import { Pagination } from 'swiper/modules';
-  import 'swiper/css/bundle';
-  //@ts-ignore TS6133: ts(6133): 'swiper' is declared but its value is never read.
-  const swiper = new Swiper('.swiper', {
-    modules: [Pagination],
-    loop: true,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    speed: 1000,
-    autoplay: {
-      delay: 10000,
-    },
-  });
-</script>
