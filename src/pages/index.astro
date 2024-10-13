@@ -1,8 +1,9 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro';
 import Slideshow from "../components/slideshow.astro";
-import { Image } from "astro:assets";
-import Shikosai33 from "../assets/shikosai33_logo.png";
+import { Image } from 'astro:assets';
+import Shikosai33 from '../assets/shikosai33_logo.png';
+import Footer from '../components/footer.astro';
 ---
 
 <Layout title="トップページ">
@@ -15,18 +16,6 @@ import Shikosai33 from "../assets/shikosai33_logo.png";
       >
         第33回茨香祭&nbsp;2024年10月26日,27日
       </h1>
-      <div
-        class="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none"
-      >
-        <a
-          class="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-          href="https://www.ibaraki-ct.ac.jp/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          茨城工業高等専門学校
-        </a>
-      </div>
     </div>
 
     <div
@@ -109,6 +98,7 @@ import Shikosai33 from "../assets/shikosai33_logo.png";
       </a>
     </div>
   </main>
+  <Footer />
 </Layout>
 
 <style>
