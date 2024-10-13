@@ -1,25 +1,112 @@
 ---
-import "../styles/global.css";
-import "../styles/colors.css";
-interface Props {
+import '@/styles/global.css';
+import '@/styles/colors.css';
+import { GoogleFontsOptimizer } from 'astro-google-fonts-optimizer';
+import { SEO } from 'astro-seo';
+
+/**
+ *メタデータやOpengraph、Twitterカードの情報を設定するためのレイアウト。
+ *受け取るPropsの目的は、`astro-seo`の仕様に従う。
+ * @see https://github.com/jonasmerlin/astro-seo
+ */
+export interface Props {
+  /**
+   * ページのタイトル。「茨香祭」のようなこのサイト全体の名称は含めないこと。
+   * サークル名やイベント名を指定する。
+   * @example "Club Season"
+   */
   title: string;
+
+  /**
+   * ページの説明文。
+   * サークルやイベントの要約文を指定する。
+   * @example "可愛いキャストと一緒にたくさんお話ししましょ♡"
+   */
+  description?: string;
+
+  /**
+   * Opengraphで使用する画像のURL。`http://` `https://` から始まり、オリジンを含む絶対URLを指定する。
+   * 以下のように、`import.meta.env.SITE`を使ってデプロイ先のオリジンを取得することができる。
+   * ```ts
+   * new URL("/route/to/opengraph-image.png", import.meta.env.SITE).href;
+   * ```
+   * Xのカードと大きさを揃えるため、解像度は必ず1200x675pxにする。
+   * @example "https://<DEPLOY_ORIGIN>/opengraph-image.png"
+   * @see https://docs.astro.build/ja/guides/environment-variables/
+   */
+  image?: string;
+
+  /**
+   * Opengraphで使用する画像のaltテキスト。
+   * @example "Club Seasonのサークルカット。黒と金色基調の高級感あふれるデザインのアイコン。"
+   */
+  imageAlt?: string;
+
+  /**
+   * このページのコンテンツを作成したTwitterアカウントのユーザー名。
+   * このサイト全体のアカウントではなく、このページのコンテンツを作成したアカウント - つまりサークルやバンドのアカウントを指定する。
+   * @example "@potus"
+   */
+  twitterCreator?: `@${string}`;
 }
 
-const { title } = Astro.props;
+const DEFAULT_DESCRIPTION =
+  '2024年10月26日~27日に茨城工業高等専門学校で開催される、第33回茨香祭の公式ウェブサイトです。' as const;
+const DEFAULT_OPENGRAPH_IMAGE_URL = new URL('/opengraph-image.png', import.meta.env.SITE).href;
+const DEFAULT_OPENGRAPH_IMAGE_ALT =
+  '第33回茨香祭のパンフレットの表紙をあしらった、かわいらしい、ちゃあみぃ！なサムネイル。' as const;
+const DEFAULT_TWITTER_CREATOR = '@shikosai33' as const;
+
+const {
+  title,
+  description = DEFAULT_DESCRIPTION,
+  image = DEFAULT_OPENGRAPH_IMAGE_URL,
+  imageAlt = DEFAULT_OPENGRAPH_IMAGE_ALT,
+  twitterCreator = DEFAULT_TWITTER_CREATOR,
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="ja">
   <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="2024年10月26日~27日に茨城工業高等専門学校で開催される、第33回茨香祭の公式ウェブサイトです。"
+    <SEO
+      title={title}
+      titleTemplate="%s | 第33回茨香祭"
+      description={description}
+      charset="UTF-8"
+      openGraph={{
+        basic: {
+          title: `${title} | 第33回茨香祭`,
+          type: "website",
+          image: image,
+          url: Astro.request.url,
+        },
+        image: {
+          url: image,
+          alt: imageAlt,
+          width: 1200,
+          height: 675,
+        },
+        optional: {
+          locale: "ja_JP",
+          siteName: "第33回茨香祭",
+        },
+      }}
+      twitter={{
+        card: "summary_large_image",
+        site: "@shikosai33",
+        title: `${title} | 第33回茨香祭`,
+        description: description,
+        image: image,
+        imageAlt: imageAlt,
+        creator: twitterCreator,
+      }}
     />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <GoogleFontsOptimizer
+      url="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap"
+    />
   </head>
   <body>
     <slot />
