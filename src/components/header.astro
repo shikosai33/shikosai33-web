@@ -1,0 +1,67 @@
+---
+import '../styles/global.css';
+import { Image } from 'astro:assets';
+import Shikosai33 from '../assets/shikosai33_logo.png';
+---
+
+<header
+  class="fixed left-0 top-0 my-3 rounded-3xl overflow-hidden bg-mauve-1 border-2 border-mauve-6 md:static md:mx-2"
+>
+  <nav>
+    <ul class="grid grid-cols-5">
+      <li class="flex justify-center items-center border-b-8 border-pink-9">
+        <a href="/">
+          <Image
+            src={Shikosai33}
+            alt="第33回茨香祭のロゴ"
+            class="w-2/3 mx-auto my-1"
+          />
+        </a>
+      </li>
+
+      <li class="flex justify-center items-center border-b-8 border-yellow-9">
+        <a href="/">
+          <h2
+            class="text-sm font-Dela bg-gradient-to-b from-yellow-12 to-yellow-11 bg-clip-text text-transparent md:text-xl"
+          >
+            サークル
+          </h2>
+        </a>
+      </li>
+
+      <li class="flex justify-center items-center border-b-8 border-violet-9">
+        <a href="/">
+          <h2
+            class="text-sm font-Dela bg-gradient-to-b from-violet-12 to-violet-11 bg-clip-text text-transparent md:text-xl"
+          >
+            イベント
+          </h2>
+        </a>
+      </li>
+
+      <li class="flex justify-center items-center border-b-8 border-orange-9">
+        <a href="/">
+          <h2
+            class="text-sm font-Dela bg-gradient-to-b from-orange-12 to-orange-11 bg-clip-text text-transparent md:text-xl"
+          >
+            スタッフ
+          </h2>
+        </a>
+      </li>
+
+      <li class="flex justify-center items-center border-b-8 border-blue-9">
+        <a
+          href="https://www.ibaraki-ct.ac.jp/access/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h2
+            class="text-sm font-Dela bg-gradient-to-b from-blue-12 to-blue-11 bg-clip-text text-transparent md:text-xl"
+          >
+            アクセス
+          </h2>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
