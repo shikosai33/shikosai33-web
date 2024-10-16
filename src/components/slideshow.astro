@@ -1,0 +1,18 @@
+---
+import { Image } from 'astro:assets';
+import Cover from '@/assets/cover.png';
+import Poster from '@/assets/poster.png';
+---
+
+<script src="./scripts/slideshow.tsx"></script>
+<div class="swiper flex justify-center items-center w-3/5">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <Image src={Cover} alt="第33回茨香祭パンフレットの表紙" />
+    </div>
+    <div class="swiper-slide">
+      <Image src={Poster} alt="第33回茨香祭のポスター" />
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+</div>

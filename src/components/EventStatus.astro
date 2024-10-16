@@ -1,0 +1,67 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { AlarmClockCheck } from 'lucide-astro';
+
+/**
+ * イベント(バンドのライブなど)の開催状態を表示するコンポーネント。
+ * 表示なし、開演中、終演の3つの状態のどれかを表示する。
+ * @see https://www.notion.so/8345f5b29cea40aaa2cc9fd6ab79c6a6?pvs=4#9ae1134163bc41fca64fb5161acf4e19
+ */
+export interface Props extends HTMLAttributes<'span'> {
+  /**
+   * イベントが開始する日時。
+   */
+  startsAt: Date;
+
+  /**
+   * イベントが終了する日時。
+   */
+  endsAt: Date;
+}
+
+type EventStatus = 'before' | 'during' | 'after';
+
+const { class: className, startsAt, endsAt, ...props } = Astro.props;
+
+const getEventStatus = (startsAt: Date, endsAt: Date): EventStatus => {
+  const now = new Date();
+  if (now < startsAt) {
+    return 'before';
+  }
+  if (now < endsAt) {
+    return 'during';
+  }
+  return 'after';
+};
+
+const eventStatus = getEventStatus(startsAt, endsAt);
+---
+
+{eventStatus === 'before' ? null : (
+  <span
+  role="status"
+  aria-live="polite"
+  class:list={[
+    "flex px-2 py-0.5 gap-1 justify-center items-center bg-mauve-1 border-mauve-6 border rounded-md font-Dela text-sm",
+    className,
+  ]}
+  {...props}
+>
+  {eventStatus === 'during' && (
+    <span class="relative flex h-2.5 w-2.5" aria-hidden>
+    <span
+      class="absolute inline-flex w-full h-full rounded-full animate-ping bg-violet-6"
+    ></span>
+    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-violet-9"
+    ></span>
+  </span>
+  <span class="text-violet-11">開演中</span>
+  )}
+  {eventStatus === 'after' && (
+    <span class="text-mauve-11">
+      <AlarmClockCheck class="inline w-4 h-4 stroke-[3px]" />
+      終演
+    </span>
+  )}
+</span>
+)}

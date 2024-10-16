@@ -1,0 +1,185 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { getEntry } from 'astro:content';
+import { formatDateTimeRange } from '@/utils/datetime/formatDateTimeRange';
+import type { HTMLAttributes } from 'astro/types';
+import { Clock, Globe, Instagram, Twitter, Youtube } from 'lucide-astro';
+import EventStatus from './EventStatus.astro';
+
+/**
+ * イベント(バンドのライブなど)の情報を表示するカード。
+ * @see https://www.notion.so/8345f5b29cea40aaa2cc9fd6ab79c6a6?pvs=4#9ae1134163bc41fca64fb5161acf4e19
+ */
+export interface Props extends HTMLAttributes<'article'> {
+  /**
+   * カードの大きさを柔軟に変えるためのクラス名。
+   * @example "w-36 lg:w-48"
+   */
+  class?: string;
+
+  /**
+   * カードの見出しのデザインを指定するためのクラス名。
+   * @example "text-sm"
+   */
+  headingClass?: string;
+
+  /**
+   * カードのデザインを指定する。
+   * グリッド表示`grid`の場合に、画像の大きさを変えるには、`class`に`w-36`などの幅指定クラスを追加する。
+   * リスト表示`list`の場合に、画像の大きさを変えるには、`class`に`h-36`などの高さ指定クラスを追加する。
+   * @example "grid" | "list"
+   */
+  type: 'grid' | 'list';
+
+  /**
+   * イベントのスラグ。
+   * イベントの詳細ページへのリンクに使用する。
+   * @example "gasaire-plankton" "plushie"
+   */
+  slug: CollectionEntry<'events'>['slug'];
+}
+
+const { class: className, headingClass, type = 'grid', slug, ...props } = Astro.props;
+
+const {
+  data: { name, image, summary, urls, youtube, 'starts-at': startsAt, 'ends-at': endsAt },
+} = await getEntry('events', slug);
+
+const { startsAtText, endsAtText } = formatDateTimeRange(startsAt, endsAt);
+
+const hasExternalLinks = (urls && urls?.length > 0) || !!youtube;
+
+const eventNameHeadingId = `event-name-${slug}`;
+const eventHref = `/event/${slug}`;
+---
+
+<article
+  aria-labelledby={eventNameHeadingId}
+  class:list={[
+    "flex p-0 justify-start items-stretch",
+    type === "grid" && "flex-col gap-2 w-40",
+    type === "list" && "flex-row gap-4 h-[140px]",
+    className,
+  ]}
+  {...props}
+>
+  <a
+    href={eventHref}
+    class:list={[
+      "flex flex-shrink-0 aspect-square rounded-lg border border-mauve-3 shadow-mauve-6 shadow-bump overflow-hidden box-content hover:shadow-bump-lg relative top-0 hover:-top-1 transition-all",
+      type === "grid" && "w-full",
+      type === "list" && "h-full",
+    ]}
+  >
+    <figure class="relative h-full aspect-square">
+      <Image
+        src={image}
+        widths={[140, 180, 280, 360, 420, 540, image.width]}
+        sizes={`(max-width: 640px) 140px, 180px`}
+        alt={`${name}のアーティスト写真またはサムネイル`}
+        loading="lazy"
+        class="h-full m-0 aspect-square"
+      />
+      <figcaption class="absolute bottom-2.5 right-2.5">
+        <EventStatus startsAt={startsAt} endsAt={endsAt} />
+      </figcaption>
+    </figure>
+  </a>
+  <div
+    class:list={[
+      "flex flex-grow flex-col gap-2 justify-start items-stretch",
+      type === "list" && "h-full",
+    ]}
+  >
+    <h4
+      id={eventNameHeadingId}
+      class:list={[
+        "flex flex-col justify-center font-Dela leading-tight bg-gradient-to-r from-violet-12 to-violet-11 bg-clip-text text-transparent hover:to-violet-12",
+        type === "grid" && "h-10 line-clamp-2",
+        headingClass,
+      ]}
+    >
+      <a href={eventHref}>{name}</a>
+    </h4>
+    <p class="text-sm font-bold text-mauve-11">
+      <Clock class="w-4 h-4 inline stroke-[3px] mr-1.5" /><time
+        datetime={startsAt.toISOString()}>{startsAtText}</time
+      > ~ <time datetime={endsAt.toISOString()}>{endsAtText}</time>
+    </p>
+    {
+      type === "list" && (
+        <>
+          <hr class="h-px text-mauve-6" />
+          {/* HACK: `line-clamp-*`で与えられる`overflow: hidden;`により、テキストのストロークがpタグの大きさで切り取られてしまうため、左右の端が見切れないように`-mx-1 px-1`で左右に4px伸ばす */}
+          <p
+            class:list={[
+              "-mx-1 px-1 text-xs leading-tight font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11 paint-sfm flex-shrink",
+              hasExternalLinks ? "line-clamp-3" : "line-clamp-5",
+            ]}
+          >
+            {summary}
+          </p>
+          {hasExternalLinks && (
+            <nav
+              aria-label={`${name}の外部リンク`}
+              class="flex flex-row items-end justify-end flex-grow -mt-1 text-xs text-mauve-11 font-Dela"
+            >
+              {urls?.sort().map((url) => {
+                const hostname = new URL(url).hostname;
+                if (hostname.endsWith("x.com")) {
+                  return (
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener"
+                      aria-label={`${name}をXでフォローする`}
+                      class="p-1 transition-colors rounded hover:bg-mauve-3 active:bg-mauve-4"
+                    >
+                      <Twitter class="inline w-4 h-4 stroke-[3px]" />
+                    </a>
+                  );
+                }
+                if (hostname.endsWith("instagram.com")) {
+                  return (
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener"
+                      aria-label={`${name}をInstagramでフォローする`}
+                      class="p-1 transition-colors rounded hover:bg-mauve-3 active:bg-mauve-4"
+                    >
+                      <Instagram class="inline w-4 h-4 stroke-[3px]" />
+                    </a>
+                  );
+                }
+                return (
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener"
+                    class="p-1 rounded transition-color hover:bg-mauve-3 active:bg-mauve-4"
+                  >
+                    <Globe class="inline w-4 h-4 stroke-[3px]" />
+                  </a>
+                );
+              })}
+              {youtube && (
+                <a
+                  href={youtube}
+                  target="_blank"
+                  rel="noopener"
+                  class="text-pink-11 transition-colors inline-flex flex-row items-center gap-0.5 p-1 rounded hover:bg-pink-3 active:bg-pink-4"
+                  aria-label={`${name}の動画・ライブ配信をYoutubeで見る`}
+                >
+                  <Youtube class="inline w-4 h-4 stroke-[3px]" />
+                  Youtube
+                </a>
+              )}
+            </nav>
+          )}
+        </>
+      )
+    }
+  </div>
+</article>

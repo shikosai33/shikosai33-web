@@ -1,0 +1,190 @@
+---
+import '@/styles/global.css';
+import { Image } from 'astro:assets';
+import Niticlogo from '@/assets/kosen_logo.svg';
+import Shikosai33 from '@/assets/shikosai33_logo.png';
+
+const SPONSORS = [
+  ['株式会社ミリオンスポーツ', null],
+  ['有限会社 早川金属工業', 'https://hayakawakinzoku.com/'],
+  ['唐揚げ専門店 Starting Over', 'https://startingover2016.jimdofree.com/'],
+  ['株式会社 インフォメーション・ディベロプメント', 'https://www.idnet.co.jp/'],
+  ['株式会社 日立ビルシステム水戸事業所', 'https://www.hbs.co.jp/'],
+  ['株式会社 海野ガーデン', 'https://www.uminogarden.com/'],
+  ['ごぜんやまらーめん 有限会社 軍司麺業', null],
+  ['株式会社 シーアンドエーソリューション', 'http://canda.co.jp/'],
+  ['有限会社 関東タクシー', null],
+  ['インターソシオシステム株式会社', 'https://www.socio.co.jp/'],
+  ['株式会社 SAYコンピュータ', 'https://www.saycom.jp/'],
+  ['株式会社 アサイン', 'https://www.assign.co.jp/'],
+  ['株式会社 シード', 'https://www.seed-sys.co.jp/'],
+  ['株式会社 フロンティアシステム', 'https://www.frontier-system.co.jp/about/'],
+  ['ひたちなかIT企業協議会', 'https://dotcoi.jimdofree.com/'],
+  ['株式会社 ティー・エイ・シー', 'https://www.tac-netweb.co.jp/'],
+  ['Smile洋菓子店', null],
+  ['すし蔵', null],
+  ['ひたちなか自動車学校', 'https://hitachinaka-ds.co.jp/'],
+  ['有限会社 勝田ラジコン模型', 'https://www.katsutaragicon.com/'],
+  ['有限会社 菊池寝具店', 'https://kikuchi-shingu.com/'],
+  ['株式会社 エムシー', 'https://www.mc-inc.co.jp/'],
+  ['株式会社飯村ストアー', null],
+  ['キッチン芥子屋', null],
+  ['株式会社 秀建ホーム', 'https://www.shuken-home.jp/'],
+  ['株式会社 ロッキー', null],
+  ['ファミリーマートひたちなか昭和通り店', 'https://www.family.co.jp/'],
+  ['オートバックスひたちなか店', 'https://www.autobacs.com/'],
+  ['Dr.DriveセルフHAPPYチェリオ店 (株)照沼商事', 'https://terunumasyouji.com/'],
+  ['株式会社 シフォンケーキ工房樹里', 'https://www.chiffon-juri.com/'],
+  ['ローソンひたちなか北中根店', 'https://www.lawson.co.jp/'],
+  ['有限会社 ホームシック スタイルショップ ひたちなか店', 'https://www.homesic.com/'],
+  ['株式会社 LIXILリアルティマイルーム館 勝田営業所', 'https://lixilfudousan-mito.lixil-realty.com/'],
+  ['カットハウスアロマ', null],
+  ['パン工房ぐるぐる ひたちなか店', 'https://www.e-guruguru.net/'],
+  ['株式会社 グレートリーフ', 'https://cake-leaf.com/'],
+] as const satisfies [string, `https://${string}` | `http://${string}` | null][];
+---
+
+<footer
+  class="p-6 flex flex-col gap-6 rounded-t-3xl overflow-hidden border border-solid border-mauve-6 bg-mauve-12 md:rounded-3xl"
+>
+  <div class="grid grid-cols-5 h-2 -m-6">
+    <div class="bg-pink-9"></div>
+    <div class="bg-yellow-9"></div>
+    <div class="bg-violet-9"></div>
+    <div class="bg-orange-9"></div>
+    <div class="bg-blue-9"></div>
+  </div>
+  <div class="grid grid-cols-5 h-6 bg-mauve-12 -mx-6">
+    <div class="blur-[32px] bg-pink-9"></div>
+    <div class="blur-[32px] bg-yellow-9"></div>
+    <div class="blur-[32px] bg-violet-9"></div>
+    <div class="blur-[32px] bg-orange-9"></div>
+    <div class="blur-[32px] bg-blue-9"></div>
+  </div>
+  <nav class="flex flex-col items-center gap-6 self-stretch md:flex-row">
+    <div class="flex flex-col items-center my-3">
+      <a href="/">
+        <Image
+          src={Shikosai33}
+          alt="第33回茨香祭のロゴ"
+          class="w-full max-h-full md:max-h-24 aspect-[13/8]"
+        />
+      </a>
+      <p class="text-xs text-mauve-9 text-center break-keep whitespace-pre">
+        &copy;2024 Shikosai Exective Committee<wbr /> All Rights Reserved.
+      </p>
+    </div>
+
+    <ul class="grid grid-cols-2 gap-6 md:grid-cols-4">
+      <li class="justify-self-end md:justify-self-start">
+        <h2 class="text-sm text-mauve-4 font-Dela">公式SNS</h2>
+        <ul>
+          <li>
+            <a
+              href="https://twitter.com/shikosai33/"
+              class="text-sm text-mauve-4 font-Dela underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              X(Twitter)
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://instagram.com/shikosai33/"
+              class="text-sm text-mauve-4 font-Dela underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <h2 class="text-sm text-mauve-4 font-Dela">サークル</h2>
+        <a class="text-sm text-mauve-4 font-Dela underline" href="/">
+          学年ごとに見る
+        </a>
+        <br />
+        <a class="text-sm text-mauve-4 font-Dela underline" href="/">
+          区分ごとに見る
+        </a>
+        <br />
+        <a class="text-sm text-mauve-4 font-Dela underline" href="/">
+          場所ごとに見る
+        </a>
+      </li>
+
+      <li class="justify-self-end md:justify-self-start">
+        <h2 class="text-sm text-mauve-4 font-Dela">イベント</h2>
+        <a class="text-sm text-mauve-4 font-Dela underline" href="/">
+          1日目(10月26日)
+        </a>
+        <br />
+        <a class="text-sm text-mauve-4 font-Dela underline" href="/">
+          2日目(10月27日)
+        </a>
+      </li>
+
+      <li>
+        <h2 class="text-sm text-mauve-4 font-Dela">その他のページ</h2>
+        <a class="text-sm text-mauve-4 font-Dela underline" href="/">
+          スタッフ
+        </a>
+        <br />
+        <a class="text-sm text-mauve-4 font-Dela underline" href="/">
+          アクセス
+        </a>
+        <br />
+        <a class="text-sm text-mauve-4 font-Dela underline" href="/">
+          プライバシーポリシー
+        </a>
+        <br />
+        <a class="text-sm text-mauve-4 font-Dela underline" href="/">
+          お問い合わせ
+        </a>
+        <br />
+        <a class="text-sm text-mauve-4 font-Dela underline" href="/">
+          来場者アンケート
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <hr class="h-px bg-mauve-11 border-0" />
+
+  <div class="text-center">
+    <h2 class="text-sm text-center text-mauve-4 font-Dela">協賛</h2>
+    {
+      SPONSORS.map((sponsor) =>
+        sponsor[1] === null ? (
+          <a class="text-sm text-mauve-4 font-Dela">{sponsor[0]}</a>
+        ) : (
+          <a
+            href={sponsor[1]}
+            class="text-sm text-mauve-4 font-Dela"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {sponsor[0]}
+          </a>
+        ),
+      )
+    }
+  </div>
+
+  <div class="w-full flex flex-col md:flex-row md:justify-between">
+    <a
+      href="https://www.ibaraki-ct.ac.jp/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Image src={Niticlogo} alt="第33回茨香祭のロゴ" class="w-auto" />
+    </a>
+    <p class="text-mauve-4 md:text-end pt-6 md:pt-0">
+      〒312-8508 茨城県 ひたちなか市 中根866<br />TEL 029-272-5201
+    </p>
+  </div>
+</footer>
