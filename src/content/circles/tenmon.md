@@ -14,8 +14,7 @@ organizer-name: 天文部
 category: 技術系
 
 # サークルの概要
-summary: 私たちのサークルでは宇宙やISSをテーマにした科学実験を体験できます。
-是非お越しください。
+summary: 私たちのサークルでは宇宙やISSをテーマにした科学実験を体験できます。是非お越しください。
 
 # サークルの場所
 location: physics-laboratory
