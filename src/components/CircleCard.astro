@@ -1,0 +1,195 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { getEntry } from 'astro:content';
+import { getLocationLocale } from '@/utils/location/getLocationLocale';
+import type { HTMLAttributes } from 'astro/types';
+import { ArrowRight, MapPin, PartyPopper } from 'lucide-astro';
+import { Globe, Instagram, Twitter } from 'lucide-astro';
+
+/**
+ * サークルの情報を表示するカード。
+ * @see https://www.notion.so/8345f5b29cea40aaa2cc9fd6ab79c6a6?pvs=4#9ae1134163bc41fca64fb5161acf4e19
+ */
+export interface Props extends HTMLAttributes<'article'> {
+  /**
+   * カードの大きさを柔軟に変えるためのクラス名。
+   * @example "w-36 lg:w-48"
+   */
+  class?: string;
+
+  /**
+   * カードの見出しのデザインを指定するためのクラス名。
+   * @example "text-sm"
+   */
+  headingClass?: string;
+
+  /**
+   * カードのデザインを指定する。
+   * グリッド表示`grid`の場合に、画像の大きさを変えるには、`class`に`w-36`などの幅指定クラスを追加する。
+   * リスト表示`list`の場合に、画像の大きさを変えるには、`class`に`h-36`などの高さ指定クラスを追加する。
+   * @example "grid" | "list"
+   */
+  type: 'grid' | 'list';
+
+  /**
+   * サークルのスラグ。
+   * サークルの詳細ページへのリンクに使用する。
+   * @example "club-season" "kosen4cuts"
+   */
+  slug: CollectionEntry<'circles'>['slug'];
+}
+
+const { class: className, headingClass, type = 'grid', slug, ...props } = Astro.props;
+
+const {
+  data: {
+    name,
+    image,
+    'organizer-name': organizerName,
+    location: { id: locationSlug },
+    summary,
+    urls,
+  },
+} = await getEntry('circles', slug);
+
+const { data: location } = await getEntry('locations', locationSlug);
+
+const hasExternalLinks = urls && urls?.length > 0;
+const isOrganizerNameUnique = organizerName !== name;
+
+const circleNameHeadingId = `circle-name-${slug}`;
+const circleHref = `/circle/${slug}`;
+---
+
+<article
+  aria-labelledby={circleNameHeadingId}
+  class:list={[
+    "group flex p-0 justify-start items-stretch",
+    type === "grid" && "flex-col gap-2 w-40",
+    type === "list" && "flex-row gap-4 h-[140px]",
+    className,
+  ]}
+  {...props}
+>
+  <a
+    href={circleHref}
+    class:list={[
+      "flex flex-shrink-0 aspect-square rounded-lg border border-mauve-3 shadow-mauve-6 shadow-bump overflow-hidden box-content hover:shadow-bump-lg relative top-0 hover:-top-1 transition-all",
+      type === "grid" && "w-full",
+      type === "list" && "h-full",
+    ]}
+  >
+    <Image
+      src={image}
+      widths={[140, 180, 280, 360, 420, 540, image.width]}
+      sizes={`(max-width: 640px) 140px, 180px`}
+      alt={`${name}のサークルカット`}
+      loading="lazy"
+      class="h-full m-0 aspect-square"
+    />
+  </a>
+  <div
+    class:list={[
+      "flex flex-grow flex-col gap-2 justify-start items-stretch",
+      type === "list" && "h-full",
+    ]}
+  >
+    <h4
+      id={circleNameHeadingId}
+      class:list={[
+        "flex flex-col justify-center font-Dela leading-tight h-10 shrink-0",
+        headingClass,
+      ]}
+    >
+      <a
+        href={circleHref}
+        class="relative bg-gradient-to-r from-yellow-12 to-yellow-11 bg-clip-text text-transparent hover:to-yellow-12 line-clamp-2"
+      >
+        {name}
+        <span
+          aria-hidden
+          class="absolute aspect-square justify-center h-fit -bottom-1 items-center inline-flex z-1 bg-mauve-1 rounded-full p-1 text-mauve-11 right-2 opacity-0 group-hover:opacity-100 transition-all group-hover:right-0"
+        >
+          <ArrowRight class="w-4 h-4 inline stroke-[3px]" />
+        </span>
+      </a>
+    </h4>
+    {
+      organizerName && (isOrganizerNameUnique || type === "grid") && (
+        <p class="text-sm font-bold text-mauve-11 line-clamp-1 shrink-0 leading-tight">
+          <PartyPopper class="w-4 h-4 inline stroke-[3px] mr-1.5" />
+          {organizerName}
+        </p>
+      )
+    }
+    {
+      type === "list" && (
+        <>
+          <p class="text-sm font-bold text-mauve-11 line-clamp-1 shrink-0 leading-tight">
+            <MapPin class="w-4 h-4 inline stroke-[3px] mr-1.5" />
+            {getLocationLocale(location)}
+          </p>
+          <hr class="h-px text-mauve-6" />
+          {/* HACK: `line-clamp-*`で与えられる`overflow: hidden;`により、テキストのストロークがpタグの大きさで切り取られてしまうため、左右の端が見切れないように`-mx-1 px-1`で左右に4px伸ばす */}
+          <div class="flex flex-grow flex-col justify-start items-stretch">
+            <p
+              class:list={[
+                "-mx-1 px-1 text-xs leading-tight font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11 paint-sfm",
+                isOrganizerNameUnique ? "line-clamp-2" : "line-clamp-3",
+              ]}
+            >
+              {summary}
+            </p>
+            {hasExternalLinks && (
+              <nav
+                aria-label={`${name}の外部リンク`}
+                class="flex flex-row items-end justify-end flex-grow text-xs text-mauve-11 font-Dela"
+              >
+                {urls?.sort().map((url) => {
+                  const hostname = new URL(url).hostname;
+                  if (hostname.endsWith("x.com")) {
+                    return (
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener"
+                        aria-label={`${name}をXでフォローする`}
+                        class="p-1 w-6 h-6 flex items-center transition-colors rounded hover:bg-mauve-3 active:bg-mauve-4"
+                      >
+                        <Twitter class="inline w-4 h-4 stroke-[3px]" />
+                      </a>
+                    );
+                  }
+                  if (hostname.endsWith("instagram.com")) {
+                    return (
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener"
+                        aria-label={`${name}をInstagramでフォローする`}
+                        class="p-1 w-6 h-6 flex items-center transition-colors rounded hover:bg-mauve-3 active:bg-mauve-4"
+                      >
+                        <Instagram class="inline w-4 h-4 stroke-[3px]" />
+                      </a>
+                    );
+                  }
+                  return (
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener"
+                      class="p-1 w-6 h-6 flex items-center rounded transition-color hover:bg-mauve-3 active:bg-mauve-4"
+                    >
+                      <Globe class="inline w-4 h-4 stroke-[3px]" />
+                    </a>
+                  );
+                })}
+              </nav>
+            )}
+          </div>
+        </>
+      )
+    }
+  </div>
+</article>
