@@ -1,0 +1,99 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+import TaxiImage from "@/assets/access_taxi.png";
+import BusImage from "@/assets/access_bus.png";
+import Hero from "@/components/Hero.astro";
+import LayoutGridButton from "@/components/LayoutGridButton.astro";
+---
+
+<Layout title="アクセス">
+  <Hero
+    title="アクセス"
+    childrenRootClass="from-blue-9 via-blue-5 to-blue-1"
+    titleClass="before:from-blue-11 before:to-blue-12"
+  >
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4022.053516903501!2d140.55073074446793!3d36.39699021221313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60222faa16bfeb1b%3A0x8ee69992b50722b8!2z6Iyo5Z-O5bel5qWt6auY562J5bCC6ZaA5a2m5qCh!5e0!3m2!1sja!2sjp!4v1729150639038!5m2!1sja!2sjp"
+      width="600"
+      height="450"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      class="w-full"></iframe>
+  </Hero>
+  <div class="flex gap-6 justify-center my-6 lg:hidden">
+    <LayoutGridButton
+      text="Google Map"
+      href="https://maps.app.goo.gl/ZqS8dawqKPTDENz19"
+      blank
+    />
+    <LayoutGridButton
+      text="Apple Map"
+      href="https://maps.apple.com/?address=%E3%80%92312-0011,%20%E8%8C%A8%E5%9F%8E%E7%9C%8C%E3%81%B2%E3%81%9F%E3%81%A1%E3%81%AA%E3%81%8B%E5%B8%82,%20%E4%B8%AD%E6%A0%B9866&auid=7819629652125356506&ll=36.400508,140.551520&lsp=9902&q=%E8%8C%A8%E5%9F%8E%E5%B7%A5%E6%A5%AD%E9%AB%98%E7%AD%89%E5%B0%82%E9%96%80%E5%AD%A6%E6%A0%A1"
+      blank
+    />
+  </div>
+  <div class="flex flex-col lg:flex-row gap-6 my-6">
+    <div
+      class="border border-blue-6 rounded-3xl p-6 mx-1 flex-1 shadow-md shadow-blue-9"
+    >
+      <h2 class="relative text-center">
+        <span
+          data-text="車・タクシーでのご来校"
+          class:list={[
+            "inline-block text-2xl font-Dela text-blue-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6",
+            "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-[#0079aa] before:to-[#003f5e] before:bg-clip-text before:pointer-events-none",
+          ]}
+        >
+          車・タクシーでのご来校
+        </span>
+      </h2>
+      <div class="my-3">
+        <p
+          class="text-lg font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11"
+        >
+          JR勝田駅東口から昭和通りを使い、西に向かってください。
+        </p>
+        <p
+          class="text-lg font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11"
+        >
+          タクシーの方は、正門を入って正面のロータリーで降車するようお願いします。
+        </p>
+      </div>
+      <Image src={TaxiImage} alt="タクシーでのアクセス" class="mx-auto" />
+    </div>
+    <div
+      class="border border-blue-6 rounded-3xl p-6 mx-1 flex-1 shadow-md shadow-blue-9"
+    >
+      <h2 class="relative text-center">
+        <span
+          data-text="バスでのご来校"
+          class:list={[
+            "inline-block text-2xl font-Dela text-blue-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6",
+            "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-[#0079aa] before:to-[#003f5e] before:bg-clip-text before:pointer-events-none",
+          ]}
+        >
+          バスでのご来校
+        </span>
+      </h2>
+      <div class="my-3">
+        <p
+          class="text-lg font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11"
+        >
+          JR勝田駅東口を出て左側にある、茨城交通バス2番乗り場から、いずれかのバスにお乗りください。
+        </p>
+        <p
+          class="text-lg font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11"
+        >
+          茨城高専前で下車し、北へ進むと正門となります。
+        </p>
+      </div>
+      <Image src={BusImage} alt="勝田駅バスロータリー" class="mx-auto" />
+    </div>
+  </div>
+  <div class="flex justify-center lg:hidden my-6">
+    <LayoutGridButton text="トップページへ戻る" href="/" />
+  </div>
+</Layout>
