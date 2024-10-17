@@ -7,6 +7,71 @@ import Footer from '../components/footer.astro';
 
 import { BookOpen, MapPinned } from 'lucide-astro';
 import EventCard from '@/components/EventCard.astro';
+
+const SLUGS_INDOOR_DAY1 = [
+  'dance-club',
+  'biscuit',
+  'musica',
+  'hit-on-limit',
+  'jeryco',
+  'aeinz',
+  'gasaire-plankton',
+  'flip-flop-fullerene',
+  'kingfrog',
+  'mi-media-naranja',
+  'shelly-coco',
+  'marks',
+  'crazy-butter-knife',
+  'i-scream',
+] as const satisfies string[];
+
+const SLUGS_INDOOR_DAY2 = [
+  'd-c',
+  'nanashi',
+  'm1-band',
+  'shichimi-mayonnaise',
+  'high-side',
+  'gatchiri-mutchiri-pandars',
+  'mmmmic',
+  'plushie',
+  'yoacopi',
+  'negiduction',
+  'snowy',
+  'bright-night',
+] as const satisfies string[];
+
+const SLUGS_OUTDOOR_DAY1 = [
+  'chuonikizu',
+  'niowase',
+  'seki-tomohiro',
+  // 'osu-penguin1',
+  'txit1',
+  // 'brass-band',
+  'whats-in-the-box',
+  // 'osu-penguin2',
+  'syoten',
+  'isador',
+  'alpaca1',
+  'nida-ira',
+] as const satisfies string[];
+
+const SLUGS_OUTDOOR_DAY2 = [
+  'alpaca2',
+  'txit2',
+  'speed-eating',
+  'sasaki',
+  'kemo',
+  'kosensei-no-shucho',
+  'cosplay-show',
+  'himitsu-bakuro',
+  'kintokisan',
+] as const satisfies string[];
+
+const SLUGS_OTHERS = [
+  'stamp-rally',
+  'id-lottery',
+  'fireworks',
+] as const satisfies string[];
 ---
 
 <Layout title="イベント">
@@ -33,9 +98,7 @@ import EventCard from '@/components/EventCard.astro';
 
     <Slideshow />
     <!-- ここから -->
-    <div class="w-full flex flex-col items-center gap-6 p-6 bg-white">
-      <!-- あとでbg-white消す -->
-
+    <div class="w-full flex flex-col items-center gap-6 p-6">
       <div
         class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-[#FDFCFD] to-[#FCFCFF] shadow-[0px_4px_16px_0px_rgba(51, 0, 255, 0.06)], shadow-[0px_4px_0px_0px_#A78BFA]"
       >
@@ -78,6 +141,11 @@ import EventCard from '@/components/EventCard.astro';
             class="w-full font-Dela text-sm text-center text-violet-11 p-2.5 rounded-lg bg-violet-3"
             >屋外ステージ2日目 <span class="text-pink-11">(日曜日)</span></a
           >
+          <a
+            href="#others"
+            class="w-full font-Dela text-sm text-center text-violet-11 p-2.5 rounded-lg bg-violet-3"
+            >その他</a
+          >
         </div>
       </div>
 
@@ -85,7 +153,7 @@ import EventCard from '@/components/EventCard.astro';
         class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-[#FDFCFD] to-[#FCFCFF] shadow-[0px_4px_16px_0px_rgba(51, 0, 255, 0.06)], shadow-[0px_4px_0px_0px_#A78BFA]"
       >
         <div class="w-full flex flex-col md:flex-row items-center gap-9">
-          <h2 class='whitespace-nowrap'>
+          <h2 class="whitespace-nowrap">
             <span
               data-text="屋内ステージ"
               class:list={[
@@ -118,7 +186,7 @@ import EventCard from '@/components/EventCard.astro';
             </p>
           </div>
         </div>
-        <div class="w-full flex flex-col gap-9 lg:flex-row">
+        <div class="w-full grid grid-cols-1 gap-9 lg:grid-cols-2">
           <div class="flex flex-col gap-6 items-center">
             <h3 id="indoor-1" class="inline-block rounded-lg bg-mauve-a-3">
               <span
@@ -140,8 +208,11 @@ import EventCard from '@/components/EventCard.astro';
                 (土)
               </span>
             </h3>
-            <EventCard type="list" slug="gasaire-plankton" class="w-full" />
-            <EventCard type="list" slug="plushie" class="w-full" />
+            {
+              SLUGS_INDOOR_DAY1.map((slug) => (
+                <EventCard type="list" slug={slug} class="w-full" />
+              ))
+            }
           </div>
           <div class="flex flex-col gap-6 items-center">
             <h3 id="indoor-2" class="inline-block rounded-lg bg-mauve-a-3">
@@ -164,8 +235,11 @@ import EventCard from '@/components/EventCard.astro';
                 (日)
               </span>
             </h3>
-            <EventCard type="list" slug="gasaire-plankton" class="w-full" />
-            <EventCard type="list" slug="plushie" class="w-full" />
+            {
+              SLUGS_INDOOR_DAY2.map((slug) => (
+                <EventCard type="list" slug={slug} class="w-full" />
+              ))
+            }
           </div>
         </div>
       </div>
@@ -207,7 +281,7 @@ import EventCard from '@/components/EventCard.astro';
             </p>
           </div>
         </div>
-        <div class="w-full flex flex-col gap-9 lg:flex-row">
+        <div class="w-full grid grid-cols-1 gap-9 lg:grid-cols-2">
           <div class="flex flex-col gap-6 items-center">
             <h3 id="outdoor-1" class="inline-block rounded-lg bg-mauve-a-3">
               <span
@@ -229,8 +303,11 @@ import EventCard from '@/components/EventCard.astro';
                 (土)
               </span>
             </h3>
-            <EventCard type="list" slug="gasaire-plankton" class="w-full" />
-            <EventCard type="list" slug="plushie" class="w-full" />
+            {
+              SLUGS_OUTDOOR_DAY1.map((slug) => (
+                <EventCard type="list" slug={slug} class="w-full" />
+              ))
+            }
           </div>
           <div class="flex flex-col gap-6 items-center">
             <h3 id="outdoor-2" class="inline-block rounded-lg bg-mauve-a-3">
@@ -253,9 +330,51 @@ import EventCard from '@/components/EventCard.astro';
                 (日)
               </span>
             </h3>
-            <EventCard type="list" slug="gasaire-plankton" class="w-full" />
-            <EventCard type="list" slug="plushie" class="w-full" />
+            {
+              SLUGS_OUTDOOR_DAY2.map((slug) => (
+                <EventCard type="list" slug={slug} class="w-full" />
+              ))
+            }
           </div>
+        </div>
+      </div>
+      <div
+        class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-[#FDFCFD] to-[#FCFCFF] shadow-[0px_4px_16px_0px_rgba(51, 0, 255, 0.06)], shadow-[0px_4px_0px_0px_#A78BFA]"
+      >
+        <div class="w-full flex flex-col md:flex-row items-center gap-9">
+          <h2 class="whitespace-nowrap" id="others">
+            <span
+              data-text="その他"
+              class:list={[
+                'inline-block text-4xl font-Dela text-violet-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6',
+                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-[#6C4DB6] before:to-[#371B6B] before:bg-clip-text before:pointer-events-none",
+              ]}
+            >
+              その他
+            </span>
+          </h2>
+          <div class="flex flex-col items-center md:items-start">
+            <p
+              class="text-mauve-3 text-stroke-[1px] text-stroke-mauve-11 font-Dela text-base text-center md:text-start"
+            >
+              <span
+                data-text="屋外ステージでは、学生有志が主催するイベントが楽しめます！"
+                class:list={[
+                  'inline-block text-base font-Dela text-mauve-3 text-stroke-mauve-11 text-stroke-2 paint-sfm',
+                  "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-3 before:bg-clip-text before:pointer-events-none",
+                ]}
+              >
+                屋外ステージでは、学生有志が主催するイベントが楽しめます！
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 gap-x-9 gap-y-3 lg:grid-cols-2">
+          {
+            SLUGS_OTHERS.map((slug) => (
+              <EventCard type="list" slug={slug} class="w-full" />
+            ))
+          }
         </div>
       </div>
     </div>
