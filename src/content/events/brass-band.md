@@ -2,7 +2,7 @@
 # 仕様: https://www.notion.so/shikosai33/8345f5b29cea40aaa2cc9fd6ab79c6a6?pvs=4#9ae1134163bc41fca64fb5161acf4e19
 
 # イベントのアイコン画像 (アー写)
-# image: 
+image: ./_images/brass-band.jpg
 
 # イベントの名前 (バンドの名前)
 name: 吹奏楽演奏会
@@ -11,7 +11,7 @@ name: 吹奏楽演奏会
 organizer-name: 吹奏楽部
 
 # イベントの概要 (バンドからのコメント)
-# summary: 
+summary: 野外ステージにて、“ちゃあみぃ”な演奏をお届けします。ぜひ、お立ち寄りください！
 
 # イベントの場所 (ステージ名)
 location: outdoor-stage

@@ -11,7 +11,7 @@ name: KingFROG
 # organizer-name: 
 
 # イベントの概要 (バンドからのコメント)
-summary: 様々なジャンルをコピーしているバンドです。<br>#トノサマガエル＃蛙化の王様
+summary: "様々なジャンルをコピーしているバンドです。 #トノサマガエル #蛙化の王様"
 
 # イベントの場所 (ステージ名)
 location: indoor-stage

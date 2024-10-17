@@ -11,7 +11,7 @@ name: 愛SCREAM
 # organizer-name: 
 
 # イベントの概要 (バンドからのコメント)
-summary: 「愛scream」— 闇から生まれし音の化身。絶望と狂気を解き放ち、世界を終焉へと誘う破滅の旋律を聴け。<br>by田中隼生
+summary: 「愛scream」— 闇から生まれし音の化身。絶望と狂気を解き放ち、世界を終焉へと誘う破滅の旋律を聴け。 by田中隼生
 
 # イベントの場所 (ステージ名)
 location: indoor-stage

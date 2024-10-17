@@ -20,7 +20,9 @@ summary: かわいいメイドさんがあなたをおもてなし。可愛い�
 location: seminar-room
 
 # X, Instagramなどの外部リンク
-# urls:
+urls:
+- https://www.instagram.com/maidcafe.love4
+- https://x.com/maidcafe_love4
 # - https://x.com/example
 # - https://instagram.com/example
 ---

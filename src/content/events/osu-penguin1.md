@@ -2,7 +2,7 @@
 # 仕様: https://www.notion.so/shikosai33/8345f5b29cea40aaa2cc9fd6ab79c6a6?pvs=4#9ae1134163bc41fca64fb5161acf4e19
 
 # イベントのアイコン画像 (アー写)
-# image: 
+image: ./_images/no-image.png
 
 # イベントの名前 (バンドの名前)
 name: お笑いステージ（オスペンギン）
@@ -11,7 +11,7 @@ name: お笑いステージ（オスペンギン）
 organizer-name: オスペンギン
 
 # イベントの概要 (バンドからのコメント)
-# summary: 
+summary: 茨城県住みます芸人のオスペンギンによるお笑いステージ！
 
 # イベントの場所 (ステージ名)
 location: outdoor-stage

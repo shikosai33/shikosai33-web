@@ -20,7 +20,8 @@ summary: 可愛いキャストと一緒にたくさんお話ししましょ♡
 location: seminar-room
 
 # X, Instagramなどの外部リンク
-# urls:
+urls:
+- https://instagram.com/club_season
 # - https://x.com/example
 # - https://instagram.com/example
 ---

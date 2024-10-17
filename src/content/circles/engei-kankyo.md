@@ -17,10 +17,11 @@ category: 文化系
 summary: 海洋プラスチックを使ったアクセサリー作りと、自家製野菜の直売を行います！
 
 # サークルの場所
-location: 3C
+location: 3c
 
 # X, Instagramなどの外部リンク
-# urls:
+urls:
+- https://instagram.com/nitic_engei_kankyo
 # - https://x.com/example
 # - https://instagram.com/example
 ---
