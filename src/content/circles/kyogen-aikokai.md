@@ -20,7 +20,11 @@ summary: 茨城高専の七不思議（嘘）をツアー形式でご紹介
 location: bldg8-lounge
 
 # X, Instagramなどの外部リンク
-# urls:
+urls:
+- https://x.com/nitic_usotour
+- https://www.instagram.com/nitic_usotour/
+- https://lit.link/usotour
+- https://niticusotour.doorkeeper.jp/events/178035
 # - https://x.com/example
 # - https://instagram.com/example
 ---
