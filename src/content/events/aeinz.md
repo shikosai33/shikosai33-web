@@ -23,7 +23,9 @@ starts-at: 2024-10-26T13:00:00+0900
 ends-at: 2024-10-26T13:30:00+0900
 
 # X, Instagramなどの外部リンク
-# urls:
+urls:
+- https://x.com/seinamusic23
+- https://instagram.com/seina.music
 # - https://x.com/example
 # - https://instagram.com/example
 

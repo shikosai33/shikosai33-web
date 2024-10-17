@@ -11,7 +11,7 @@ name: mmmmic
 # organizer-name: 
 
 # イベントの概要 (バンドからのコメント)
-summary: mmmmicと書いてミミックと読みます。<br>メンバー増えたのでｍ増やしました。頑張ります。
+summary: mmmmicと書いてミミックと読みます。メンバー増えたのでm増やしました。頑張ります。
 
 # イベントの場所 (ステージ名)
 location: indoor-stage

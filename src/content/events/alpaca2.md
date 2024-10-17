@@ -5,7 +5,7 @@
 image: ./_images/alpaca.jpg
 
 # イベントの名前 (バンドの名前)
-name: 秘儀披露
+name: 秘儀披露 - あるぱか
 
 # イベントの開催者の名前 (団体の名前) - バンドの場合は省略
 organizer-name: あるぱか

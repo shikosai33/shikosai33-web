@@ -20,7 +20,10 @@ summary: 私たちのサークルでは宇宙やISSをテーマにした科学�
 location: physics-laboratory
 
 # X, Instagramなどの外部リンク
-# urls:
+urls:
+- https://x.com/nitic_astronomy
+- https://instagram.com/nitic_astronomy
+- https://niticastronomy.myportfolio.com
 # - https://x.com/example
 # - https://instagram.com/example
 ---

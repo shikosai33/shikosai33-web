@@ -11,7 +11,7 @@ name: ダンス部
 # organizer-name: 
 
 # イベントの概要 (バンドからのコメント)
-summary: 茨城高専ダンス部です!<br>k-popを中心としたカバーダンスを披露します!<br>ぜひぜひ一緒に楽しみましょう!
+summary: 茨城高専ダンス部です!k-popを中心としたカバーダンスを披露します!ぜひぜひ一緒に楽しみましょう!
 
 # イベントの場所 (ステージ名)
 location: indoor-stage
@@ -23,7 +23,8 @@ starts-at: 2024-10-26T09:30:00+0900
 ends-at: 2024-10-26T10:00:00+0900
 
 # X, Instagramなどの外部リンク
-# urls:
+urls:
+- https://instagram.com/nitic_dance
 # - https://x.com/example
 # - https://instagram.com/example
 

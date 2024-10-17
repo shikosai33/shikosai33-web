@@ -11,7 +11,7 @@ name: フリップフロップフラーレン
 # organizer-name: 
 
 # イベントの概要 (バンドからのコメント)
-summary: Kitaca メイド in NITIC<br>優柔不断な炭素の同素体<br>#4年<br>#ガールズバンド<br>#平成ソング
+summary: "Kitaca メイド in NITIC 優柔不断な炭素の同素体 #4年 #ガールズバンド #平成ソング"
 
 # イベントの場所 (ステージ名)
 location: indoor-stage
