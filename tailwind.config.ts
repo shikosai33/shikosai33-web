@@ -1,11 +1,39 @@
 import type { Config } from 'tailwindcss';
 import tailwindcssAnimatePlugin from 'tailwindcss-animate';
+// @ts-expect-error `tailwindcss-text-fill-stroke`プラグインの型定義が存在しないため、`@ts-expect-error`で型エラーを無視している。
+import tailwindcssTextFillStrokePlugin from 'tailwindcss-text-fill-stroke';
+import plugin from 'tailwindcss/plugin';
+
+const tailwindcssTextShadowPlugin = plugin(({ matchUtilities, theme }) => {
+  matchUtilities(
+    {
+      'text-shadow': value => ({
+        textShadow: value,
+      }),
+    },
+    { values: theme('textShadow')! },
+  );
+});
 
 const config: Config = {
   content: ['./src/**/*.{astro,mdx,tsx}'],
-  plugins: [tailwindcssAnimatePlugin],
+  plugins: [tailwindcssAnimatePlugin, tailwindcssTextFillStrokePlugin, tailwindcssTextShadowPlugin],
   darkMode: 'class',
   theme: {
+    extend: {
+      boxShadow: {
+        bump: '0px 4px 0px 0px var(--tw-shadow-color)',
+        'bump-lg': '0px 8px 0px 0px var(--tw-shadow-color)',
+      },
+      dropShadow: {
+        bump: '0px 4px 0px var(--tw-shadow-color)',
+        'bump-lg': '0px 8px 0px var(--tw-shadow-color)',
+      },
+      textShadow: {
+        bump: '0px 4px 0px var(--tw-shadow-color)',
+        'bump-lg': '0px 8px 0px var(--tw-shadow-color)',
+      },
+    },
     fontFamily: {
       Dela: ['"Dela Gothic One"', 'sans-serif'],
     },

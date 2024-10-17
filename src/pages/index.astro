@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Slideshow from "../components/slideshow.astro";
 import { Image } from 'astro:assets';
 import Shikosai33 from '../assets/shikosai33_logo.png';
 import Footer from '../components/footer.astro';
@@ -35,6 +36,8 @@ import Header from "../components/header.astro";
         class="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
       />
     </div>
+
+    <Slideshow />
 
     <div
       class="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left"

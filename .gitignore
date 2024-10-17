@@ -36,6 +36,9 @@ dist
 # Storybookのビルド成果物
 storybook-static
 
+# Wranglerの一次ファイル
+.wrangler
+
 # その他
 .DS_Store
 *.pem
