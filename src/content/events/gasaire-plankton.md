@@ -23,7 +23,8 @@ starts-at: 2024-10-26T13:40:00+0900
 ends-at: 2024-10-26T14:05:00+0900
 
 # X, Instagramなどの外部リンク
-# urls:
+urls:
+- https://x.com/gasaireplankton
 # - https://x.com/example
 # - https://instagram.com/example
 

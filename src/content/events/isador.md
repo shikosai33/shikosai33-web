@@ -5,7 +5,7 @@
 image:  ./_images/isador.jpeg
 
 # イベントの名前 (バンドの名前)
-name: 秘儀披露
+name: 秘儀披露 - ISADOR
 
 # イベントの開催者の名前 (団体の名前) - バンドの場合は省略
 organizer-name: ISADOR

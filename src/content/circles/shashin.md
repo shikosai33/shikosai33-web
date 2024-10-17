@@ -2,7 +2,7 @@
 # 仕様: https://www.notion.so/shikosai33/8345f5b29cea40aaa2cc9fd6ab79c6a6?pvs=4#5438a1577b604f39a67658a72f2283b8
 
 # サークルカットの画像
-image: ./_images/syashin.png
+image: ./_images/shashin.png
 
 # サークルの名前
 name: 写真部
