@@ -2,7 +2,7 @@
 # 仕様: https://www.notion.so/shikosai33/8345f5b29cea40aaa2cc9fd6ab79c6a6?pvs=4#9ae1134163bc41fca64fb5161acf4e19
 
 # イベントのアイコン画像 (アー写)
-image: ./_images/kosen-claims.png
+image: ./_images/kosensei-no-shucho.png
 
 # イベントの名前 (バンドの名前)
 name: 高専生の主張
