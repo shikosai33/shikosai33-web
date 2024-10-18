@@ -1,9 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Slideshow from '../components/slideshow.astro';
+import Layout from '@/layouts/Layout.astro';
+import Slideshow from '@/components/slideshow.astro';
 import { Image } from 'astro:assets';
-import Shikosai33 from '../assets/shikosai33_logo.png';
-import Footer from '../components/footer.astro';
+import Shikosai33 from '@/assets/shikosai33_logo.png';
+import Footer from '@/components/footer.astro';
 
 import { BookOpen, MapPinned } from 'lucide-astro';
 import EventCard from '@/components/EventCard.astro';
@@ -103,7 +103,7 @@ const SLUGS_OTHERS = [
         class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-[#FDFCFD] to-[#FCFCFF] shadow-[0px_4px_16px_0px_rgba(51, 0, 255, 0.06)], shadow-[0px_4px_0px_0px_#A78BFA]"
       >
         <div class="w-full flex justify-between items-center">
-          <h2>
+          <h2 class="relative">
             <span
               data-text="イベント"
               class:list={[
@@ -120,7 +120,7 @@ const SLUGS_OTHERS = [
           </div>
         </div>
 
-        <div class="w-full grid grid-cols-2 grid-rows-2 gap-3">
+        <div class="w-full grid grid-cols-2 gap-3">
           <a
             href="#indoor-1"
             class="w-full font-Dela text-sm text-center text-violet-11 p-2.5 rounded-lg bg-violet-3"
@@ -143,7 +143,7 @@ const SLUGS_OTHERS = [
           >
           <a
             href="#others"
-            class="w-full font-Dela text-sm text-center text-violet-11 p-2.5 rounded-lg bg-violet-3"
+            class="col-span-2 w-full font-Dela text-sm text-center text-violet-11 p-2.5 rounded-lg bg-violet-3"
             >その他</a
           >
         </div>
@@ -153,7 +153,7 @@ const SLUGS_OTHERS = [
         class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-[#FDFCFD] to-[#FCFCFF] shadow-[0px_4px_16px_0px_rgba(51, 0, 255, 0.06)], shadow-[0px_4px_0px_0px_#A78BFA]"
       >
         <div class="w-full flex flex-col md:flex-row items-center gap-9">
-          <h2 class="whitespace-nowrap">
+          <h2 class="relative whitespace-nowrap">
             <span
               data-text="屋内ステージ"
               class:list={[
@@ -171,9 +171,7 @@ const SLUGS_OTHERS = [
                 第一体育館 屋内ステージ
               </p>
             </div>
-            <p
-              class="text-mauve-3 text-stroke-[1px] text-stroke-mauve-11 font-Dela text-base text-center md:text-start"
-            >
+            <p class="relative">
               <span
                 data-text="屋内ステージでは、学生有志が結成した様々なバンド•ダンスサークルによる披露が楽しめます！"
                 class:list={[
@@ -188,7 +186,10 @@ const SLUGS_OTHERS = [
         </div>
         <div class="w-full grid grid-cols-1 gap-9 lg:grid-cols-2">
           <div class="flex flex-col gap-6 items-center">
-            <h3 id="indoor-1" class="inline-block rounded-lg bg-mauve-a-3">
+            <h3
+              id="indoor-1"
+              class="relative inline-block rounded-lg bg-mauve-a-3"
+            >
               <span
                 data-text="1日目-10月26日"
                 class:list={[
@@ -215,7 +216,10 @@ const SLUGS_OTHERS = [
             }
           </div>
           <div class="flex flex-col gap-6 items-center">
-            <h3 id="indoor-2" class="inline-block rounded-lg bg-mauve-a-3">
+            <h3
+              id="indoor-2"
+              class="relative inline-block rounded-lg bg-mauve-a-3"
+            >
               <span
                 data-text="2日目-10月27日"
                 class:list={[
@@ -248,7 +252,7 @@ const SLUGS_OTHERS = [
         class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-[#FDFCFD] to-[#FCFCFF] shadow-[0px_4px_16px_0px_rgba(51, 0, 255, 0.06)], shadow-[0px_4px_0px_0px_#A78BFA]"
       >
         <div class="w-full flex flex-col md:flex-row items-center gap-9">
-          <h2 class="whitespace-nowrap">
+          <h2 class="relative whitespace-nowrap">
             <span
               data-text="屋外ステージ"
               class:list={[
@@ -266,9 +270,7 @@ const SLUGS_OTHERS = [
                 正門ロータリー 屋外ステージ
               </p>
             </div>
-            <p
-              class="text-mauve-3 text-stroke-[1px] text-stroke-mauve-11 font-Dela text-base text-center md:text-start"
-            >
+            <p class="relative">
               <span
                 data-text="屋外ステージでは、学生有志が主催するイベントが楽しめます！"
                 class:list={[
@@ -283,7 +285,10 @@ const SLUGS_OTHERS = [
         </div>
         <div class="w-full grid grid-cols-1 gap-9 lg:grid-cols-2">
           <div class="flex flex-col gap-6 items-center">
-            <h3 id="outdoor-1" class="inline-block rounded-lg bg-mauve-a-3">
+            <h3
+              id="outdoor-1"
+              class="relative inline-block rounded-lg bg-mauve-a-3"
+            >
               <span
                 data-text="1日目-10月26日"
                 class:list={[
@@ -310,7 +315,10 @@ const SLUGS_OTHERS = [
             }
           </div>
           <div class="flex flex-col gap-6 items-center">
-            <h3 id="outdoor-2" class="inline-block rounded-lg bg-mauve-a-3">
+            <h3
+              id="outdoor-2"
+              class="relative inline-block rounded-lg bg-mauve-a-3"
+            >
               <span
                 data-text="2日目-10月27日"
                 class:list={[
@@ -342,7 +350,7 @@ const SLUGS_OTHERS = [
         class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-[#FDFCFD] to-[#FCFCFF] shadow-[0px_4px_16px_0px_rgba(51, 0, 255, 0.06)], shadow-[0px_4px_0px_0px_#A78BFA]"
       >
         <div class="w-full flex flex-col md:flex-row items-center gap-9">
-          <h2 class="whitespace-nowrap" id="others">
+          <h2 class="relative whitespace-nowrap" id="others">
             <span
               data-text="その他"
               class:list={[
@@ -354,9 +362,7 @@ const SLUGS_OTHERS = [
             </span>
           </h2>
           <div class="flex flex-col items-center md:items-start">
-            <p
-              class="text-mauve-3 text-stroke-[1px] text-stroke-mauve-11 font-Dela text-base text-center md:text-start"
-            >
+            <p class="relative">
               <span
                 data-text="グラウンドや学校全体で行われるイベントです！ぜひお楽しみください！"
                 class:list={[
