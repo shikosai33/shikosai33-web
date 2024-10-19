@@ -1,0 +1,115 @@
+---
+import { Image } from 'astro:assets';
+import ShikosaiLogo from '@/assets/shikosai33_logo.png';
+import type { HTMLAttributes } from 'astro/types';
+
+/**
+ * 文化祭に携わった学生の情報を表示するカード。
+ * @see https://www.notion.so/shikosai33/8345f5b29cea40aaa2cc9fd6ab79c6a6?pvs=4#b1de7af21a574893b574d384beb20cf5
+ */
+export interface Props extends HTMLAttributes<'article'> {
+  /**
+   * カードの大きさを柔軟に変えるためのクラス名。
+   * @example "w-36 lg:w-48"
+   */
+  class?: string;
+
+  /**
+   * カードの見出しのデザインを指定するためのクラス名。
+   * @example "text-sm"
+   */
+  headingClass?: string;
+
+  /**
+   * カードのo表示する情報の量を指定する。
+   * `small`の場合は、イニシャルのみ表示したい場合に使用する。
+   * @example "default" | "small"
+   */
+  size?: 'default' | 'small';
+
+  /**
+   * 学生の名前。
+   */
+  name: string;
+
+  /**
+   * 学生の名前の発音。ふりがな
+   */
+  pronounciation?: string;
+
+  /**
+   * 学生の肩書き。
+   * @example "部署長" "副部署長"
+   */
+  title?: string;
+}
+
+const { class: className, headingClass, size = 'default', name, pronounciation, title, ...props } = Astro.props;
+
+const studentNameHeadingId = `student-name-${name}`;
+---
+
+<article
+  aria-labelledby={studentNameHeadingId}
+  class:list={["flex flex-col justify-start items-stretch", className]}
+  {...props}
+>
+  <div class="flex flex-row justify-between gap-3 items-stretch">
+    <div
+    class:list={["flex justify-center items-center rounded-full bg-mauve-3 flex-shrink-0", size === 'default' && 'h-12 w-12', size === 'small' && 'h-9 w-9']}
+    >
+    <Image
+      src={ShikosaiLogo}
+      widths={[42, 84, 126, ShikosaiLogo.width]}
+      sizes={`42px`}
+      alt={`${name}のアイコン`}
+      loading="lazy"
+      class:list={[
+        "mix-blend-color-burn saturate-0 brightness-[0.4]",
+        size === 'default' && "w-[42px]",
+        size === "small" && "w-[30px]",
+      ]}
+    />
+  </div>
+  <hgroup class="flex flex-row grow gap-3 items-center">
+    <h4
+    id={studentNameHeadingId}
+    class:list={[
+      "flex text-lg flex-col justify-center font-Dela bg-gradient-to-r from-orange-12 to-orange-11 bg-clip-text text-transparent",
+      headingClass,
+    ]}
+  >
+    <ruby>
+      {name}
+      {
+        pronounciation && (
+          <>
+            <rp>{"("}</rp>
+            <rt class="text-sm">{pronounciation}</rt>
+            <rp>{")"}</rp>
+          </>
+        )
+      }
+    </ruby>
+  </h4>
+  {
+    title && (
+      <div class="h-px bg-mauve-6 grow"></div>
+      <p class="font-bold text-mauve-11">
+        {title}
+      </p>
+    )
+  }
+  </hgroup>
+  </div>
+  {Astro.slots.has("default") && (
+    <svg aria-hidden width="48" height="14" viewBox="0 0 48 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="-mb-px relative z-1 fill-orange-1 stroke-orange-4">
+      <path d="M26.1651 5.75C25.2028 4.08333 22.7972 4.08333 21.8349 5.75L14.0407 19.25C13.0785 20.9167 14.2813 23 16.2058 23H31.7942C33.7187 23 34.9215 20.9167 33.9593 19.25L26.1651 5.75Z" />
+    </svg>
+    <div class="p-px flex justify-center items-center w-full bg-gradient-to-b from-orange-4 to-orange-6 rounded-lg">
+      <div class="p-4 flex justify-start items-center w-full bg-gradient-to-b from-orange-1 to-orange-2 text-orange-12 rounded-[7px]">
+        <slot />
+      </div>
+    </div>
+  )}
+</article>
