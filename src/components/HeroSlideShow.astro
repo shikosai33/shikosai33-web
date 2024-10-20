@@ -1,0 +1,134 @@
+---
+import { Image } from 'astro:assets';
+import Cover from '@/assets/cover.png';
+import Poster from '@/assets/poster.png';
+
+import type { HTMLAttributes } from 'astro/types';
+
+/**
+ * パンフレット表紙の画像とポスターの画像をスライドショーで表示するコンポーネント。
+ */
+export interface Props extends HTMLAttributes<'div'> {
+  /**
+   * 大きさを柔軟に変えるためのクラス名。
+   * @example "w-36 lg:w-48"
+   */
+  class?: string;
+}
+
+const { class: className, ...props } = Astro.props;
+---
+
+<div
+  class:list={[
+    "swiper flex justify-center items-center overflow-hidden",
+    className,
+  ]}
+  style={{ overflow: "visible" }}
+  {...props}
+>
+  <div class="swiper-wrapper overflow-visible">
+    <figure class="swiper-slide relative overflow-visible">
+      <Image
+        aria-hidden
+        src={Cover}
+        widths={[390, 780, 1170, Cover.width]}
+        sizes="(max-width: 640px) 100vw, 390px"
+        class="rounded-3xl absolute -z-10 inset-0 blur-3xl saturate-[1.25] brightness-110 opacity-50"
+        loading="eager"
+        alt="第33回茨香祭パンフレットの表紙"
+      />
+      <Image
+        src={Cover}
+        widths={[390, 780, 1170, Cover.width]}
+        sizes="(max-width: 640px) 100vw, 390px"
+        class="rounded-3xl"
+        loading="eager"
+        alt="第33回茨香祭パンフレットの表紙"
+      />
+      <figcaption
+        class="absolute w-full bottom-0 left-0 right-0 flex flex-col justify-end items-center p-2 gap-4 text-center font-Dela text-orange-10 text-stroke-mauve-1 text-stroke-8 paint-sfm tracking-widest drop-shadow-bump shadow-mauve-6"
+      >
+        <span class="text-2xl">茨城工業高等専門学校<br />第33回 茨香祭</span>
+        <span>2024年10月26日(土) ~ 10月27日(日)</span>
+      </figcaption>
+    </figure>
+    <figure
+      id="poster-figure"
+      class="swiper-slide relative overflow-visible opacity-0 data-[ready]:opacity-100"
+    >
+      <Image
+        aria-hidden
+        src={Poster}
+        widths={[390, 780, 1170, Poster.width]}
+        sizes="(max-width: 640px) 100vw, 390px"
+        class="rounded-3xl absolute -z-10 inset-0 blur-3xl saturate-[1.25] brightness-110 opacity-50"
+        loading="eager"
+        alt="第33回茨香祭のポスター"
+      />
+      <Image
+        src={Poster}
+        widths={[390, 780, 1170, Poster.width]}
+        sizes="(max-width: 640px) 100vw, 390px"
+        class="rounded-3xl"
+        loading="eager"
+        alt="第33回茨香祭のポスター"
+      />
+      <figcaption
+        class="absolute w-full bottom-0 left-0 right-0 flex flex-col justify-end items-center p-2 gap-4 text-center font-Dela text-pink-10 text-stroke-mauve-1 text-stroke-8 paint-sfm tracking-widest drop-shadow-bump shadow-mauve-6"
+      >
+        <span class="text-2xl">茨城工業高等専門学校<br />第33回 茨香祭</span>
+        <span>2024年10月26日(土) ~ 10月27日(日)</span>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="swiper-pagination !translate-y-12"></div>
+</div>
+
+<style is:global>
+  .swiper-pagination {
+    --swiper-pagination-bullet-size: 16px;
+    --swiper-pagination-bullet-width: 16px;
+    --swiper-pagination-bullet-height: 16px;
+    --swiper-pagination-bullet-horizontal-gap: 8px;
+  }
+
+  .swiper-pagination-bullet {
+    border: 2px solid var(--mauve-3);
+    background-color: var(--mauve-4);
+    &.swiper-pagination-bullet-active {
+      border: 2px solid var(--pink-6);
+      background-color: var(--pink-9);
+    }
+  }
+</style>
+
+<script>
+  import Swiper from "swiper/bundle";
+  import { Pagination } from "swiper/modules";
+  import "swiper/css/bundle";
+  //@ts-ignore TS6133: ts(6133): 'swiper' is declared but its value is never read.
+  const swiper = new Swiper(".swiper", {
+    modules: [Pagination],
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    speed: 1000,
+    autoplay: {
+      delay: 20000,
+    },
+    keyboard: {
+      enabled: true,
+    },
+    effect: "flip",
+    flipEffect: {
+      slideShadows: false,
+    },
+    spaceBetween: 64, // スライド間にぼかし半径と同じ64pxの余白を設定
+  });
+
+  // Javascriptが読み込まれる前に、2つ目のスライドが表示されるのを防ぐため
+  document.getElementById("poster-figure")?.setAttribute("data-ready", "true");
+</script>
