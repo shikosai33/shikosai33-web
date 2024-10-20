@@ -24,6 +24,8 @@ location: multi-media-room
 # - https://x.com/example
 # - https://instagram.com/example
 ---
-捕獲した珍しい人間を展示します！
-言語能力があるので、会話もできます！
-皆さん是非訪れてください！
+<p class="text-base font-Dela text-mauve-11">
+捕獲した珍しい人間を展示します！<br>
+言語能力があるので、会話もできます！<br>
+皆さん是非訪れてください！<br>
+</p>

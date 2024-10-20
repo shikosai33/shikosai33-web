@@ -24,4 +24,6 @@ location: outdoor-tent
 # - https://x.com/example
 # - https://instagram.com/example
 ---
+<p class="text-base font-Dela text-mauve-11">
 ジャグリングの道具には様々なものがあります。その中でも今回はボール、コマのような道具であるディアボロ、ボックスなどを用意しています。興味がある方はぜひお越しください！
+</p>

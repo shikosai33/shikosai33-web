@@ -24,4 +24,6 @@ location: venture-lab
 # - https://x.com/example
 # - https://instagram.com/example
 ---
+<p class="text-base font-Dela text-mauve-11">
 当店は、ダーツやボードゲーム、トランプなど多彩なゲームを楽しめるカフェです。スーツ姿の店員が皆様をお迎えし、静かで洗練された空間で特別なひとときをお過ごしいただけます。ご家族やご友人と共に、気軽にお立ち寄りください。皆様のご来店を心よりお待ちしております。
+</p>

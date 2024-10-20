@@ -24,4 +24,6 @@ location: outdoor-tent
 # - https://x.com/example
 # - https://instagram.com/example
 ---
+<p class="text-base font-Dela text-mauve-11">
 野球部の出し物「STRIKE QUEST」へようこそ！ユニバーサルスタジオジャパンの「アン・ボール」からヒントを得たこのゲームは、様々な的にボールを投げて、景品をゲットするチャレンジゲームです。各的には異なる条件が設定されており、難易度は様々です。野球の腕だけでなく、運や戦略も必要なゲームで、友達や家族と一緒に楽しむことできます。ぜひ、遊びに来てください！
+</p>

@@ -20,8 +20,11 @@ summary: サックス＆ピアノで、ディズニーの名曲を演奏しま�
 location: scs
 
 # X, Instagramなどの外部リンク
-# urls:
+urls:
+- https://instagram.com/fantasque_2024.shikosai
 # - https://x.com/example
 # - https://instagram.com/example
 ---
+<p class="text-base font-Dela text-mauve-11">
 ロックやポップスで盛り上がるのも良いけど、たまにはディズニー音楽はいかが？こんにちは！fantasque です♡ 私たちは、ディズニーの名曲をサックス(Miyu)とピアノ(Saya)で楽しく演奏します♪演奏時刻は、26日(Day1)：15:00～、27日(Day2)：10:20～、15:00～の予定です！変更等はインスタグラム(fantasque_2024.shikosai)で配信しますので、ご確認ください！2日目は休憩室として開放予定なので、歩き疲れた方やゆったりと過ごしたい方はぜひご利用ください。
+</p>
