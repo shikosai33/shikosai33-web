@@ -1,0 +1,439 @@
+---
+import { Image } from 'astro:assets';
+import { BookOpen } from 'lucide-astro';
+import Layout from '@/layouts/Layout.astro';
+import Slideshow from '@/components/slideshow.astro';
+import Footer from '@/components/footer.astro';
+import Shikosai33 from '@/assets/shikosai33_logo.png';
+import CircleCard from '@/components/CircleCard.astro';
+
+const SLUGS_GRADE1 = [
+  '1-1',
+  '1-2',
+  '1-3',
+  '1-4',
+  '1-5',
+] as const satisfies string[];
+const SLUGS_GRADE2 = ['2-1', '2-2', '2-3', '2-5'] as const satisfies string[];
+const SLUGS_GRADE3 = [
+  '3m1',
+  '3m2',
+  '3e',
+  '3i',
+  '3c',
+] as const satisfies string[];
+const SLUGS_GRADE4 = [
+  '4m1',
+  '4m2',
+  '4e',
+  '4i',
+  '4c',
+] as const satisfies string[];
+const SLUGS_GRADE5 = ['5m1', '5m2', '5e', '5c'] as const satisfies string[];
+const SLUGS_SPORTS_CLUB = [
+  'kyudo',
+  'koushiki-yakyu',
+  'soft-tennis',
+  'takkyu',
+  'basketball',
+] as const satisfies string[];
+const SLUGS_CULTURAL_CLUB = [
+  'engei-kankyo',
+  'sado',
+  'shashin',
+  'tenmon',
+  'radio',
+  'robot',
+] as const satisfies string[];
+const SLUGS_SOCIETY = [
+  'kokusai-kouryu',
+  'sauna-kenkyu',
+  'juggling',
+  'sugaku-kenkyu',
+  'darts',
+  'tea-time-seminar',
+  'butsuri-kenkyu-kaihatsu',
+  'manga-kenkyu',
+  'media-design-lab',
+] as const satisfies string[];
+const SLUGS_OTHERS = [
+  'gakuensai-agemono',
+  'club-season',
+  'love-formula',
+  'ev-seisaku',
+  'air-tacky',
+  'namuamidabutsu-anomaly',
+  'nitic-community',
+  'road-bike',
+  'kyogen-aikokai',
+  'fantasque',
+  'hot-cake',
+  'koenkai',
+  'shikokai',
+] as const satisfies string[];
+---
+
+<Layout title="サークル">
+  <main class="flex min-h-screen flex-col items-center justify-between p-24">
+    <div
+      class="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex"
+    >
+      <h1
+        class="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30"
+      >
+        第33回茨香祭&nbsp;2024年10月26日,27日
+      </h1>
+    </div>
+
+    <div
+      class="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-[radial-gradient(var(--tw-gradient-stops))] before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]"
+    >
+      <Image
+        src={Shikosai33}
+        alt="第33回茨香祭のロゴ"
+        class="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
+      />
+    </div>
+
+    <Slideshow />
+    <!-- ここから -->
+    <div class="w-full flex flex-col items-center gap-6 p-6">
+      <div
+        class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-yellow-6 bg-gradient-to-b from-mauve-1 to-yellow-1 shadow-[0px_4px_16px_0px_var(--yellow-a-3),_0px_4px_0px_0px_var(--yellow-9)]"
+      >
+        <div class="w-full flex justify-between items-center">
+          <h2 class="relative">
+            <span
+              data-text="サークル"
+              class:list={[
+                'inline-block text-3xl font-Dela text-yellow-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6',
+                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-yellow-11 before:to-yellow-12 before:bg-clip-text before:pointer-events-none",
+              ]}
+            >
+              サークル
+            </span>
+          </h2>
+          <div class="flex items-center gap-1.5">
+            <BookOpen class="inline w-4 h-4 stroke-[2px] stroke-mauve-11" />
+            <p class="text-sm text-mauve-11 font-bold">このページの目次</p>
+          </div>
+        </div>
+
+        <div class="w-full flex flex-col gap-3">
+          <div class="w-full grid grid-cols-5 gap-3">
+            <a
+              href="#grade-1"
+              class="w-full font-Dela text-sm text-center text-yellow-11 p-2.5 rounded-lg bg-yellow-3"
+              >1年生</a
+            >
+            <a
+              href="#grade-2"
+              class="w-full font-Dela text-sm text-center text-yellow-11 p-2.5 rounded-lg bg-yellow-3"
+              >2年生</a
+            >
+            <a
+              href="#grade-3"
+              class="w-full font-Dela text-sm text-center text-yellow-11 p-2.5 rounded-lg bg-yellow-3"
+              >3年生</a
+            >
+            <a
+              href="#grade-4"
+              class="w-full font-Dela text-sm text-center text-yellow-11 p-2.5 rounded-lg bg-yellow-3"
+              >4年生</a
+            >
+            <a
+              href="#grade-5"
+              class="w-full font-Dela text-sm text-center text-yellow-11 p-2.5 rounded-lg bg-yellow-3"
+              >5年生</a
+            >
+          </div>
+          <div class="w-full grid grid-cols-4 gap-3">
+            <a
+              href="#sports"
+              class="w-full font-Dela text-sm text-center text-yellow-11 p-2.5 rounded-lg bg-yellow-3"
+              >運動部</a
+            >
+            <a
+              href="#cultural"
+              class="w-full font-Dela text-sm text-center text-yellow-11 p-2.5 rounded-lg bg-yellow-3"
+              >文化部</a
+            >
+            <a
+              href="#society"
+              class="w-full font-Dela text-sm text-center text-yellow-11 p-2.5 rounded-lg bg-yellow-3"
+              >同好会</a
+            >
+            <a
+              href="#others"
+              class="w-full font-Dela text-sm text-center text-yellow-11 p-2.5 rounded-lg bg-yellow-3"
+              >その他</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-yellow-6 bg-gradient-to-b from-mauve-1 to-yellow-1 shadow-[0px_4px_16px_0px_var(--yellow-a-3),_0px_4px_0px_0px_var(--yellow-9)]"
+      >
+        <h2 class="relative whitespace-nowrap lg:self-start">
+          <span
+            data-text="クラスのサークル"
+            class:list={[
+              'inline-block text-4xl font-Dela text-yellow-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6',
+              "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-yellow-11 before:to-yellow-12 before:bg-clip-text before:pointer-events-none",
+            ]}
+          >
+            クラスのサークル
+          </span>
+        </h2>
+
+        <div class="w-full grid grid-cols-1 gap-9 lg:grid-cols-2">
+          <div class="flex flex-col gap-6 items-center">
+            <h3
+              id="grade-1"
+              class="relative inline-block rounded-lg bg-mauve-a-3"
+            >
+              <span
+                data-text="1年生"
+                class:list={[
+                  'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6',
+                  "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
+                ]}
+              >
+                1年生
+              </span>
+            </h3>
+            {
+              SLUGS_GRADE1.map((slug) => (
+                <CircleCard type="list" slug={slug} class="w-full" />
+              ))
+            }
+          </div>
+          <div class="flex flex-col gap-6 items-center">
+            <h3
+              id="grade-2"
+              class="relative inline-block rounded-lg bg-mauve-a-3"
+            >
+              <span
+                data-text="2年生"
+                class:list={[
+                  'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6',
+                  "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
+                ]}
+              >
+                2年生
+              </span>
+            </h3>
+            {
+              SLUGS_GRADE2.map((slug) => (
+                <CircleCard type="list" slug={slug} class="w-full" />
+              ))
+            }
+          </div>
+          <div class="flex flex-col gap-6 items-center">
+            <h3
+              id="grade-3"
+              class="relative inline-block rounded-lg bg-mauve-a-3"
+            >
+              <span
+                data-text="3年生"
+                class:list={[
+                  'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6',
+                  "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
+                ]}
+              >
+                3年生
+              </span>
+            </h3>
+            {
+              SLUGS_GRADE3.map((slug) => (
+                <CircleCard type="list" slug={slug} class="w-full" />
+              ))
+            }
+          </div>
+          <div class="flex flex-col gap-6 items-center">
+            <h3
+              id="grade-4"
+              class="relative inline-block rounded-lg bg-mauve-a-3"
+            >
+              <span
+                data-text="4年生"
+                class:list={[
+                  'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6',
+                  "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
+                ]}
+              >
+                4年生
+              </span>
+            </h3>
+            {
+              SLUGS_GRADE4.map((slug) => (
+                <CircleCard type="list" slug={slug} class="w-full" />
+              ))
+            }
+          </div>
+        </div>
+        <div class="w-full flex flex-col gap-6 items-center mt-3">
+          <h3
+            id="grade-5"
+            class="relative inline-block rounded-lg bg-mauve-a-3"
+          >
+            <span
+              data-text="5年生"
+              class:list={[
+                'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6',
+                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
+              ]}
+            >
+              5年生
+            </span>
+          </h3>
+          <div class="w-full grid lg:grid-cols-2 gap-6">
+            {
+              SLUGS_GRADE5.map((slug) => (
+                <CircleCard type="list" slug={slug} class="w-full" />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-yellow-6 bg-gradient-to-b from-mauve-1 to-yellow-1 shadow-[0px_4px_16px_0px_var(--yellow-a-3),_0px_4px_0px_0px_var(--yellow-9)]"
+      >
+        <h2 class="relative whitespace-nowrap lg:self-start">
+          <span
+            data-text="部活動・同好会"
+            class:list={[
+              'inline-block text-4xl font-Dela text-yellow-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6',
+              "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-yellow-11 before:to-yellow-12 before:bg-clip-text before:pointer-events-none",
+            ]}
+          >
+            部活動・同好会
+          </span>
+        </h2>
+
+        <div class="w-full grid grid-cols-1 gap-9 lg:grid-cols-2">
+          <div class="flex flex-col gap-6 items-center">
+            <h3
+              id="sports"
+              class="relative inline-block rounded-lg bg-mauve-a-3"
+            >
+              <span
+                data-text="運動部"
+                class:list={[
+                  'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6',
+                  "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
+                ]}
+              >
+                運動部
+              </span>
+            </h3>
+            {
+              SLUGS_SPORTS_CLUB.map((slug) => (
+                <CircleCard type="list" slug={slug} class="w-full" />
+              ))
+            }
+          </div>
+          <div class="flex flex-col gap-6 items-center">
+            <h3
+              id="cultural"
+              class="relative inline-block rounded-lg bg-mauve-a-3"
+            >
+              <span
+                data-text="文化部"
+                class:list={[
+                  'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6',
+                  "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
+                ]}
+              >
+                文化部
+              </span>
+            </h3>
+            {
+              SLUGS_CULTURAL_CLUB.map((slug) => (
+                <CircleCard type="list" slug={slug} class="w-full" />
+              ))
+            }
+          </div>
+        </div>
+        <div class="w-full flex flex-col gap-6 items-center mt-3">
+          <h3
+            id="society"
+            class="relative inline-block rounded-lg bg-mauve-a-3"
+          >
+            <span
+              data-text="同好会"
+              class:list={[
+                'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6',
+                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
+              ]}
+            >
+              同好会
+            </span>
+          </h3>
+          <div class="w-full grid lg:grid-cols-2 gap-6">
+            {
+              SLUGS_SOCIETY.map((slug) => (
+                <CircleCard type="list" slug={slug} class="w-full" />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-yellow-6 bg-gradient-to-b from-mauve-1 to-yellow-1 shadow-[0px_4px_16px_0px_var(--yellow-a-3),_0px_4px_0px_0px_var(--yellow-9)]"
+      >
+        <h2 id="others" class="relative whitespace-nowrap lg:self-start">
+          <span
+            data-text="その他"
+            class:list={[
+              'inline-block text-4xl font-Dela text-yellow-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6',
+              "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-yellow-11 before:to-yellow-12 before:bg-clip-text before:pointer-events-none",
+            ]}
+          >
+            その他
+          </span>
+        </h2>
+
+        <div class="w-full grid lg:grid-cols-2 gap-6">
+          {
+            SLUGS_OTHERS.map((slug) => (
+              <CircleCard type="list" slug={slug} class="w-full" />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- ここまで -->
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  :root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --foreground-rgb: 255, 255, 255;
+      --background-start-rgb: 0, 0, 0;
+      --background-end-rgb: 0, 0, 0;
+    }
+  }
+
+  body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(var(--background-end-rgb))
+      )
+      rgb(var(--background-start-rgb));
+  }
+</style>
