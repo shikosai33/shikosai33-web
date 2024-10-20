@@ -8,3 +8,5 @@ building-name: 第一体育館
 
 # 部屋の名前 (2年2組教室, 屋外ステージ, 屋内ステージ, etc.)
 room-name: 屋内ステージ
+
+map:  ./_maps/outdoor_tents.svg

@@ -24,4 +24,6 @@ location: multi-media-room
 # - https://x.com/example
 # - https://instagram.com/example
 ---
+<p class="text-base font-Dela text-mauve-11">
 部員が自作した問題や好きな問題を集めました。小学生から高専生向けまで様々な難易度を用意しています。解けた方には景品をプレゼントします。少しでも数学に興味がある方は、ぜひいらしてください。
+</p>

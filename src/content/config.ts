@@ -14,20 +14,23 @@ export const BUILDINGS = [
   '図書館棟',
   '第一体育館',
   '第二体育館',
-  '茨友館',
+  '茨友会館',
   '武道場',
   'グラウンド',
+  '屋外',
 ] as const satisfies string[];
 
 const locations = defineCollection({
   type: 'data',
-  schema: z
-    .object({
-      'building-name': z.enum(BUILDINGS).describe('建物名'),
-      floor: z.number().int().positive().optional().describe('階数'),
-      'room-name': z.string().optional().describe('部屋の名前'),
-    })
-    .describe('構内の場所'),
+  schema: ({ image }) =>
+    z
+      .object({
+        map: image().describe('その場所の地図'),
+        'building-name': z.enum(BUILDINGS).describe('建物名'),
+        floor: z.number().int().positive().optional().describe('階数'),
+        'room-name': z.string().optional().describe('部屋の名前'),
+      })
+      .describe('構内の場所'),
 });
 
 const circles = defineCollection({
