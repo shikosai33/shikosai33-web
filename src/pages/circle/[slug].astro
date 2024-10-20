@@ -185,12 +185,8 @@ export const prerender = true;
             </nav>
           )
         }
-        {
-          Content.length > 0 && (
-            <hr class="text-yellow-9" />
-            <Content />
-          )
-        }
+        <hr class="text-yellow-9 last:hidden" />
+        <Content />
       </div>
 
       <div
@@ -207,9 +203,7 @@ export const prerender = true;
             出展場所
           </span>
         </h2>
-        <h3
-          class="relative inline-block rounded-lg bg-mauve-a-3"
-        >
+        <h3 class="relative inline-block rounded-lg bg-mauve-a-3">
           <span
             data-text=`${getLocationLocale(location)}`
             class:list={[
@@ -221,14 +215,8 @@ export const prerender = true;
           </span>
         </h3>
         <div class="w-full h-auto grid grid-cols-2 gap-6">
-          <Image
-            src={SchoolMap}
-            alt="茨城高専構内地図"
-          />
-          <Image
-            src={location.map}
-            alt="茨城高専構内地図"
-          />
+          <Image src={SchoolMap} alt="茨城高専構内地図" />
+          <Image src={location.map} alt="茨城高専構内地図" />
         </div>
       </div>
 
