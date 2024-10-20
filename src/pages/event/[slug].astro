@@ -8,6 +8,7 @@ import Footer from '@/components/footer.astro';
 import EventCard from '@/components/EventCard.astro';
 import EventStatus from '@/components/EventStatus.astro';
 import Shikosai33 from '@/assets/shikosai33_logo.png';
+import KawaiiText from '@/assets/kawaii_text_violet.png';
 import {
   Clock,
   LayoutGrid,
@@ -84,58 +85,57 @@ export const prerender = true;
 
     <Slideshow />
     <!-- ここから -->
-    <div class="w-full flex flex-col gap-6">
+    <div class="w-full flex flex-col gap-6 bg-mauve-1">
       <div
-        class="rounded-3xl overflow-hidden bg-gradient-to-b from-violet-9 to-mauve-a-1"
+        class="relative flex flex-col gap-3 justify-center items-center rounded-3xl overflow-hidden bg-gradient-to-b from-violet-a-9 to-mauve-a-1"
       >
-        <div
-          class="-mt-5 pt-5 bg-[url('../assets/kawaii_text_violet.png')] bg-center bg-cover"
-        >
-          <div
-            class="flex flex-col gap-3 items-center bg-gradient-to-b from-transparent via-transparent to-mauve-1"
+        <Image
+          src={KawaiiText}
+          alt={"カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ"}
+          loading="lazy"
+          class="absolute top-0 left-0 w-full h-full object-cover mix-blend-color-burn"
+        />
+        <div class="m-6 flex justify-center items-center relative">
+          <Image
+            src={image}
+            alt={`${name}のアーティスト写真またはサムネイル`}
+            loading="lazy"
+            class="w-1/2 aspect-square rounded-xl absolute justify-self-center inset-0 blur-lg opacity-50"
+          />
+          <Image
+            src={image}
+            alt={`${name}のアーティスト写真またはサムネイル`}
+            loading="lazy"
+            class="w-1/2 aspect-square rounded-xl relative"
+          />
+        </div>
+        <h2 class="relative whitespace-nowrap">
+          <span
+            data-text=`${name}`
+            class:list={[
+              'inline-block text-5xl font-Dela text-violet-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6',
+              "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-[#6C4DB6] before:to-[#371B6B] before:bg-clip-text before:pointer-events-none",
+            ]}
           >
-            <div class="m-6 flex justify-center items-center relative">
-              <Image
-                src={image}
-                alt={`${name}のアーティスト写真またはサムネイル`}
-                loading="lazy"
-                class="w-1/2 aspect-square rounded-xl absolute justify-self-center inset-0 blur-lg opacity-50"
-              />
-              <Image
-                src={image}
-                alt={`${name}のアーティスト写真またはサムネイル`}
-                loading="lazy"
-                class="w-1/2 aspect-square rounded-xl relative"
-              />
-            </div>
-            <h2 class="relative whitespace-nowrap">
-              <span
-                data-text=`${name}`
-                class:list={[
-                  'inline-block text-5xl font-Dela text-violet-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6',
-                  "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-[#6C4DB6] before:to-[#371B6B] before:bg-clip-text before:pointer-events-none",
-                ]}
-              >
-                {name}
-              </span>
-            </h2>
-            <div class="flex gap-1.5">
-              <p class="text-sm font-bold text-mauve-11">
-                <Clock class="w-4 h-4 inline stroke-[3px] mr-1.5" />
-                <time datetime={startsAt.toISOString()}>
-                  {startsAt.getMonth() + 1}月{startsAt.getDate()}日({["日","月","火","水","木","金","土"][startsAt.getDay()]}) {startsAtText}
-                </time>
-                ~
-                <time datetime={endsAt.toISOString()}>{endsAtText}</time>
-              </p>
-              <EventStatus startsAt={startsAt} endsAt={endsAt} />
-            </div>
-          </div>
+            {name}
+          </span>
+        </h2>
+        <div class="flex gap-1.5">
+          <p class="text-sm font-bold text-mauve-11">
+            <Clock class="w-4 h-4 inline stroke-[3px] mr-1.5" />
+            <time datetime={startsAt.toISOString()}>
+              {startsAt.getMonth() + 1}月{startsAt.getDate()}日({["日","月","火","水","木","金","土"][startsAt.getDay()]}) {startsAtText}
+            </time>
+            ~
+            <time datetime={endsAt.toISOString()}>{endsAtText}</time>
+          </p>
+          <EventStatus startsAt={startsAt} endsAt={endsAt} />
         </div>
       </div>
 
+
       <div
-        class="flex flex-col gap-3 p-6 rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-[#FDFCFD] to-[#FCFCFF] shadow-[0px_4px_16px_0px_rgba(51, 0, 255, 0.06)], shadow-[0px_4px_0px_0px_#A78BFA]"
+        class="flex flex-col gap-3 p-6 rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-mauve-1 to-violet-1 shadow-[0px_4px_16px_0px_var(--violet-a-3),_0px_4px_0px_0px_var(--violet-9)]"
       >
         <p
           class:list={[
@@ -208,7 +208,7 @@ export const prerender = true;
 
       <a
         href="/event"
-        class="w-auto m-auto px-4 py-2 flex justify-center items-center gap-2 rounded-full border-maube-2 shadow-[0px_4px_0px_0px_#8E8C99]"
+        class="w-auto m-auto px-4 py-2 flex justify-center items-center gap-2 rounded-full bg-mauve-1 border-maube-2 shadow-[0px_4px_0px_0px_var(--mauve-11)]"
       >
         <LayoutGrid class="inline w-6 h-6 stroke-[2px] stroke-mauve-11" />
         <p class="text-mauve-11 text-center font-Dela text-base">
@@ -220,13 +220,13 @@ export const prerender = true;
         {
           nextEvent != null && nextEvent != undefined?
             <div
-            class="flex flex-col justify-center items-center gap-3 p-6 rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-[#FDFCFD] to-[#FCFCFF] shadow-[0px_4px_16px_0px_rgba(51, 0, 255, 0.06)], shadow-[0px_4px_0px_0px_#A78BFA] xl:order-2"
+            class="flex flex-col justify-center items-center gap-3 p-6 rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-mauve-1 to-violet-1 shadow-[0px_4px_16px_0px_var(--violet-a-3),_0px_4px_0px_0px_var(--violet-9)] xl:order-2"
             >
               <h3 class="relative inline-block rounded-lg bg-mauve-a-3">
                 <span
                   data-text="次のイベント→"
                   class:list={[
-                    'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6',
+                    'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-8 paint-sfm drop-shadow-bump shadow-mauve-6',
                     "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
                   ]}
                   >
@@ -247,7 +247,7 @@ export const prerender = true;
                 <span
                   data-text="←前のイベント"
                   class:list={[
-                    'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6',
+                    'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-8 paint-sfm drop-shadow-bump shadow-mauve-6',
                     "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
                   ]}
                 >
