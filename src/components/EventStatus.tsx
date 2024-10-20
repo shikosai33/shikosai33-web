@@ -11,8 +11,7 @@ type Props = {
    * イベントが終了する日時。
    */
   endsAt: Date;
-} & ComponentProps<'span'>;
-//& HTMLAttributes<'span'>;
+} & ComponentProps<'output'>;
 
 type Status = 'before' | 'during' | 'after';
 
@@ -44,8 +43,7 @@ const EventStatus = ({ className, startsAt, endsAt, ...props }: Props): ReactNod
   }, [startsAt, endsAt]);
 
   return status === 'before' ? null : (
-    <span
-      role={'status'}
+    <output
       aria-live='polite'
       className={`flex px-2 py-0.5 gap-1 justify-center items-center bg-mauve-1 border-mauve-6 border rounded-md font-Dela text-sm ${className}`}
       {...props}
@@ -65,7 +63,7 @@ const EventStatus = ({ className, startsAt, endsAt, ...props }: Props): ReactNod
           <span className='text-mauve-11'>終演</span>
         </>
       )}
-    </span>
+    </output>
   );
 };
 
