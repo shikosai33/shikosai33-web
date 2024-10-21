@@ -46,168 +46,164 @@ export const prerender = true;
 ---
 
 <Layout title="イベント">
-  <main class="flex min-h-screen flex-col items-center justify-between p-24">
-    <!-- ここから -->
-    <div class="w-full flex flex-col gap-6 bg-mauve-1">
-      <div
-        class="relative flex flex-col gap-3 justify-center items-center rounded-3xl overflow-hidden bg-gradient-to-b from-yellow-a-9 to-mauve-a-1"
-      >
+  <main class="w-full flex flex-col gap-6">
+    <div
+      class="relative flex flex-col gap-3 justify-center items-center rounded-3xl overflow-hidden bg-gradient-to-b from-yellow-a-9 to-mauve-a-1"
+    >
+      <Image
+        src={KawaiiText}
+        alt={'カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ'}
+        loading="lazy"
+        class="absolute top-0 left-0 w-full h-full object-cover mix-blend-color-burn"
+      />
+      <div class="m-6 flex justify-center items-center relative">
         <Image
-          src={KawaiiText}
-          alt={'カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ'}
+          src={image}
+          alt={`${name}のアーティスト写真またはサムネイル`}
           loading="lazy"
-          class="absolute top-0 left-0 w-full h-full object-cover mix-blend-color-burn"
+          class="w-1/2 aspect-square rounded-xl absolute justify-self-center inset-0 blur-lg opacity-50"
         />
-        <div class="m-6 flex justify-center items-center relative">
-          <Image
-            src={image}
-            alt={`${name}のアーティスト写真またはサムネイル`}
-            loading="lazy"
-            class="w-1/2 aspect-square rounded-xl absolute justify-self-center inset-0 blur-lg opacity-50"
-          />
-          <Image
-            src={image}
-            alt={`${name}のアーティスト写真またはサムネイル`}
-            loading="lazy"
-            class="w-1/2 aspect-square rounded-xl relative"
-          />
-        </div>
-        <h2 class="relative text-center">
-          <span
-            data-text=`${name}`
-            class:list={[
-              'inline-block text-5xl font-Dela text-yellow-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6',
-              "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-yellow-11 before:to-yellow-12 before:bg-clip-text before:pointer-events-none",
-            ]}
-          >
-            {name}
-          </span>
-        </h2>
-        <div class="flex gap-1.5">
-          {
-            organizerName && isOrganizerNameUnique && (
-              <p class="text-sm font-bold text-mauve-11 line-clamp-1 shrink-0 leading-tight">
-                <PartyPopper class="w-4 h-4 inline stroke-[3px] mr-1.5" />
-                {organizerName}
-              </p>
-            )
-          }
-          <p class="text-sm font-bold text-mauve-11">
-            <MapPinned class="w-4 h-4 inline stroke-[3px] mr-1.5" />{
-              getLocationLocale(location)
-            }
-          </p>
-          <p class="text-sm font-bold text-mauve-11">
-            <Settings class="w-4 h-4 inline stroke-[3px] mr-1.5" />{category}
-          </p>
-        </div>
+        <Image
+          src={image}
+          alt={`${name}のアーティスト写真またはサムネイル`}
+          loading="lazy"
+          class="w-1/2 aspect-square rounded-xl relative"
+        />
       </div>
-
-      <div
-        class="flex flex-col gap-3 p-6 rounded-3xl border border-solid border-yellow-6 bg-gradient-to-b from-mauve-1 to-yellow-1 shadow-[0px_4px_16px_0px_var(--yellow-a3),_0px_4px_0px_0px_var(--yellow-9)]"
-      >
-        <p
+      <h2 class="relative text-center">
+        <span
+          data-text=`${name}`
           class:list={[
-            'text-lg  font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11 paint-sfm flex-shrink',
+            'inline-block text-5xl font-Dela text-yellow-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6',
+            "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-yellow-11 before:to-yellow-12 before:bg-clip-text before:pointer-events-none",
           ]}
         >
-          {summary}
-        </p>
+          {name}
+        </span>
+      </h2>
+      <div class="flex gap-1.5">
         {
-          hasExternalLinks && (
-            <nav
-              aria-label={`${name}の外部リンク`}
-              class="flex flex-row items-end justify-end flex-grow -mt-1 text-xs text-mauve-11 font-Dela"
-            >
-              {urls?.sort().map((url) => {
-                const hostname = new URL(url).hostname;
-                if (hostname.endsWith('x.com')) {
-                  return (
-                    <a
-                      href={url}
-                      target="_blank"
-                      rel="noopener"
-                      aria-label={`${name}をXでフォローする`}
-                      class="p-1 transition-colors rounded hover:bg-mauve-3 active:bg-mauve-4"
-                    >
-                      <Twitter class="inline w-4 h-4 stroke-[3px]" />
-                    </a>
-                  );
-                }
-                if (hostname.endsWith('instagram.com')) {
-                  return (
-                    <a
-                      href={url}
-                      target="_blank"
-                      rel="noopener"
-                      aria-label={`${name}をInstagramでフォローする`}
-                      class="p-1 transition-colors rounded hover:bg-mauve-3 active:bg-mauve-4"
-                    >
-                      <Instagram class="inline w-4 h-4 stroke-[3px]" />
-                    </a>
-                  );
-                }
+          organizerName && isOrganizerNameUnique && (
+            <p class="text-sm font-bold text-mauve-11 line-clamp-1 shrink-0 leading-tight">
+              <PartyPopper class="w-4 h-4 inline stroke-[3px] mr-1.5" />
+              {organizerName}
+            </p>
+          )
+        }
+        <p class="text-sm font-bold text-mauve-11">
+          <MapPinned class="w-4 h-4 inline stroke-[3px] mr-1.5" />{
+            getLocationLocale(location)
+          }
+        </p>
+        <p class="text-sm font-bold text-mauve-11">
+          <Settings class="w-4 h-4 inline stroke-[3px] mr-1.5" />{category}
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col gap-3 p-6 rounded-3xl border border-solid border-yellow-6 bg-gradient-to-b from-mauve-1 to-yellow-1 shadow-[0px_4px_16px_0px_var(--yellow-a3),_0px_4px_0px_0px_var(--yellow-9)]"
+    >
+      <p
+        class:list={[
+          'text-lg  font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11 paint-sfm flex-shrink',
+        ]}
+      >
+        {summary}
+      </p>
+      {
+        hasExternalLinks && (
+          <nav
+            aria-label={`${name}の外部リンク`}
+            class="flex flex-row items-end justify-end flex-grow -mt-1 text-xs text-mauve-11 font-Dela"
+          >
+            {urls?.sort().map((url) => {
+              const hostname = new URL(url).hostname;
+              if (hostname.endsWith('x.com')) {
                 return (
                   <a
                     href={url}
                     target="_blank"
                     rel="noopener"
-                    class="p-1 rounded transition-color hover:bg-mauve-3 active:bg-mauve-4"
+                    aria-label={`${name}をXでフォローする`}
+                    class="p-1 transition-colors rounded hover:bg-mauve-3 active:bg-mauve-4"
                   >
-                    <Globe class="inline w-4 h-4 stroke-[3px]" />
+                    <Twitter class="inline w-4 h-4 stroke-[3px]" />
                   </a>
                 );
-              })}
-            </nav>
-          )
-        }
-        <div class="text-base font-Dela text-mauve-11 empty:hidden">
-          <hr class="text-yellow-9 last:hidden" />
-          <Content />
-        </div>
+              }
+              if (hostname.endsWith('instagram.com')) {
+                return (
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener"
+                    aria-label={`${name}をInstagramでフォローする`}
+                    class="p-1 transition-colors rounded hover:bg-mauve-3 active:bg-mauve-4"
+                  >
+                    <Instagram class="inline w-4 h-4 stroke-[3px]" />
+                  </a>
+                );
+              }
+              return (
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener"
+                  class="p-1 rounded transition-color hover:bg-mauve-3 active:bg-mauve-4"
+                >
+                  <Globe class="inline w-4 h-4 stroke-[3px]" />
+                </a>
+              );
+            })}
+          </nav>
+        )
+      }
+      <div class="text-base font-Dela text-mauve-11 empty:hidden">
+        <hr class="text-yellow-9 last:hidden" />
+        <Content />
       </div>
-
-      <div
-        class="flex flex-col gap-3 justify-center items-center p-6 rounded-3xl border border-solid border-yellow-6 bg-gradient-to-b from-mauve-1 to-yellow-1 shadow-[0px_4px_16px_0px_var(--yellow-a3),_0px_4px_0px_0px_var(--yellow-9)]"
-      >
-        <h2 id="class" class="relative whitespace-nowrap lg:self-start">
-          <span
-            data-text="出展場所"
-            class:list={[
-              'inline-block text-4xl font-Dela text-yellow-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6',
-              "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-yellow-11 before:to-yellow-12 before:bg-clip-text before:pointer-events-none",
-            ]}
-          >
-            出展場所
-          </span>
-        </h2>
-        <h3 class="relative inline-block rounded-lg bg-mauve-a-3">
-          <span
-            data-text=`${getLocationLocale(location)}`
-            class:list={[
-              'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6',
-              "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
-            ]}
-          >
-            {getLocationLocale(location)}
-          </span>
-        </h3>
-        <div class="w-full h-auto grid gap-6 2xl:grid-cols-2">
-          <Image src={SchoolMap} alt="茨城高専構内地図" />
-          <Image src={location.map} alt="茨城高専構内地図" />
-        </div>
-      </div>
-
-      <a
-        href="/circle"
-        class="w-auto m-auto px-4 py-2 flex justify-center items-center gap-2 rounded-full bg-mauve-1 border-maube-2 shadow-[0px_4px_0px_0px_var(--mauve-11)]"
-      >
-        <LayoutGrid class="inline w-6 h-6 stroke-[2px] stroke-mauve-11" />
-        <p class="text-mauve-11 text-center font-Dela text-base">
-          サークルの一覧へ戻る
-        </p>
-      </a>
     </div>
-    <!-- ここまで -->
+
+    <div
+      class="flex flex-col gap-3 justify-center items-center p-6 rounded-3xl border border-solid border-yellow-6 bg-gradient-to-b from-mauve-1 to-yellow-1 shadow-[0px_4px_16px_0px_var(--yellow-a3),_0px_4px_0px_0px_var(--yellow-9)]"
+    >
+      <h2 id="class" class="relative whitespace-nowrap lg:self-start">
+        <span
+          data-text="出展場所"
+          class:list={[
+            'inline-block text-4xl font-Dela text-yellow-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6',
+            "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-yellow-11 before:to-yellow-12 before:bg-clip-text before:pointer-events-none",
+          ]}
+        >
+          出展場所
+        </span>
+      </h2>
+      <h3 class="relative inline-block rounded-lg bg-mauve-a-3">
+        <span
+          data-text=`${getLocationLocale(location)}`
+          class:list={[
+            'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6',
+            "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
+          ]}
+        >
+          {getLocationLocale(location)}
+        </span>
+      </h3>
+      <div class="w-full h-auto grid gap-6 2xl:grid-cols-2">
+        <Image src={SchoolMap} alt="茨城高専構内地図" />
+        <Image src={location.map} alt="茨城高専構内地図" />
+      </div>
+    </div>
+
+    <a
+      href="/circle"
+      class="w-auto m-auto px-4 py-2 flex justify-center items-center gap-2 rounded-full bg-mauve-1 border-maube-2 shadow-[0px_4px_0px_0px_var(--mauve-11)]"
+    >
+      <LayoutGrid class="inline w-6 h-6 stroke-[2px] stroke-mauve-11" />
+      <p class="text-mauve-11 text-center font-Dela text-base">
+        サークルの一覧へ戻る
+      </p>
+    </a>
   </main>
 </Layout>
