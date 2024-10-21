@@ -1,0 +1,44 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+/**
+ * リンクとして機能するボタン
+ * @see https://www.figma.com/design/Ao44cG1Oi8XUiWBQM1vyk7/website?node-id=487-1361&t=ytQMzlZzDjAfc0Lx-1
+ */
+export interface Props extends HTMLAttributes<'a'> {
+  /**
+   * ぼたんの大きさを柔軟に変えるためのクラス名。
+   * @example "w-36 lg:w-48"
+   */
+  class?: string;
+
+  /**
+   * ボタンの色を指定する。
+   */
+  color?: 'mauve' | 'pink' | 'yellow' | 'violet' | 'orange' | 'blue';
+}
+
+const { class: className, color = 'mauve', ...props } = Astro.props;
+---
+
+<a
+  class:list={[
+    "flex justify-center items-center px-4 py-2 gap-2 transition-all shadow-bump hover:shadow-bump-lg hover:-translate-y-1 active:shadow-none active:translate-y-1 font-Dela rounded-full",
+    color === "mauve" &&
+      "bg-mauve-2 text-mauve-11 shadow-mauve-9 active:bg-mauve-3 border-t border-mauve-6",
+    color === "pink" &&
+      "bg-pink-9 text-pink-1 shadow-pink-11 active:bg-pink-10",
+    color === "yellow" &&
+      "bg-yellow-9 text-yellow-12 shadow-yellow-11 active:bg-yellow-10",
+    color === "violet" &&
+      "bg-violet-9 text-violet-1 shadow-violet-11 active:bg-violet-10",
+    color === "orange" &&
+      "bg-orange-9 text-orange-1 shadow-orange-11 active:bg-orange-10",
+    color === "blue" &&
+      "bg-blue-9 text-blue-1 shadow-blue-11 active:bg-blue-10",
+    className,
+  ]}
+  {...props}
+>
+  <slot />
+</a>
