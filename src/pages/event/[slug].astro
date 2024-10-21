@@ -5,6 +5,8 @@ import { formatDateTimeRange } from '@/utils/datetime/formatDateTimeRange';
 import Layout from '@/layouts/Layout.astro';
 import EventCard from '@/components/EventCard.astro';
 import { EventStatus } from '@/components/EventStatus.tsx';
+import ColoredContainer from '@/components/ColoredContainer.astro';
+import ButtonLink from '@/components/ButtonLink.astro';
 import KawaiiText from '@/assets/kawaii_text_violet.png';
 import {
   Clock,
@@ -60,9 +62,10 @@ export const prerender = true;
 
 <Layout title="イベント">
     <main class="w-full flex flex-col gap-6 bg-mauve-1">
-      <div
-        class="relative flex flex-col gap-3 justify-center items-center rounded-3xl overflow-hidden bg-gradient-to-b from-violet-a-9 to-mauve-a-1"
-      >
+      <ColoredContainer
+      color='violet'
+      class="relative"
+          >
         <Image
           src={KawaiiText}
           alt={"カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ"}
@@ -105,12 +108,10 @@ export const prerender = true;
           </p>
           <EventStatus startsAt={startsAt} endsAt={endsAt} client:only="react" />
         </div>
-      </div>
+      </ColoredContainer>
 
 
-      <div
-        class="flex flex-col gap-3 p-6 rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-mauve-1 to-violet-1 shadow-[0px_4px_16px_0px_var(--violet-a3),_0px_4px_0px_0px_var(--violet-9)]"
-      >
+      <ColoredContainer color='violet'>
         <p
           class:list={[
             'text-lg  font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11 paint-sfm flex-shrink',
@@ -178,24 +179,21 @@ export const prerender = true;
             </nav>
           )
         }
-      </div>
+      </ColoredContainer>
 
-      <a
+      <ButtonLink
         href="/event"
-        class="w-auto m-auto px-4 py-2 flex justify-center items-center gap-2 rounded-full bg-mauve-1 border-maube-2 shadow-[0px_4px_0px_0px_var(--mauve-11)]"
       >
         <LayoutGrid class="inline w-6 h-6 stroke-[2px] stroke-mauve-11" />
         <p class="text-mauve-11 text-center font-Dela text-base">
           イベントの一覧へ戻る
         </p>
-      </a>
+      <ButtonLink>
 
       <div class="grid gap-6 xl:grid-cols-2">
         {
           nextEvent != null && nextEvent != undefined?
-            <div
-            class="flex flex-col justify-center items-center gap-3 p-6 rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-mauve-1 to-violet-1 shadow-[0px_4px_16px_0px_var(--violet-a3),_0px_4px_0px_0px_var(--violet-9)] xl:order-2"
-            >
+            <ColoredContainer color="violet">
               <h3 class="relative inline-block rounded-lg bg-mauve-a-3">
                 <span
                   data-text="次のイベント→"
@@ -208,15 +206,13 @@ export const prerender = true;
                 </span>
               </h3>
               <EventCard type="list" slug={nextEvent} class="w-full" />
-            </div>
+            </ColoredContainer>
           :<></>
         }
 
         {
           previousEvent!=null&&previousEvent!=undefined?
-            <div
-              class="flex flex-col justify-center items-center gap-3 p-6 rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-[#FDFCFD] to-[#FCFCFF] shadow-[0px_4px_16px_0px_rgba(51, 0, 255, 0.06)], shadow-[0px_4px_0px_0px_#A78BFA] xl:order-1"
-            >
+            <ColoredContainer color="violet">
               <h3 class="relative inline-block rounded-lg bg-mauve-a-3">
                 <span
                   data-text="←前のイベント"
@@ -229,8 +225,8 @@ export const prerender = true;
                 </span>
               </h3>
               <EventCard type="list" slug={previousEvent} class="w-full" />
-            </div>
-          :<></>
+            </ColoredContainer>
+        :<></>
         }
       </div>
     </main>
