@@ -1,0 +1,44 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+/**
+ * 影と色付きのコンテナ
+ * @see https://www.figma.com/design/Ao44cG1Oi8XUiWBQM1vyk7/website?node-id=195-554&t=WqPsC6GEhvmb6Pp2-1
+ */
+export interface Props extends HTMLAttributes<'div'> {
+  /**
+   * コンテナの大きさを柔軟に変えるためのクラス名。
+   * @example "w-36 lg:w-48"
+   */
+  class?: string;
+
+  /**
+   * コンテナの色を指定する。
+   */
+  color?: 'mauve' | 'pink' | 'yellow' | 'violet' | 'orange' | 'blue';
+}
+
+const { class: className, color = 'mauve', ...props } = Astro.props;
+---
+
+<div
+  class:list={[
+    "flex p-6 gap-6 rounded-3xl border shadow-bump bg-gradient-to-b from-mauve-1 ",
+    color === "mauve" &&
+      "to-mauve-1 border-mauve-6 shadow-[0px_4px_16px_0px_var(--mauve-a3)]",
+    color === "pink" &&
+      "to-pink-1 border-pink-6 shadow-[0px_4px_0px_0px_var(--pink-9),0px_4px_16px_0px_var(--pink-a3)]",
+    color === "yellow" &&
+      "to-yellow-1 border-yellow-6 shadow-[0px_4px_0px_0px_var(--yellow-9),0px_4px_16px_0px_var(--yellow-a3)]",
+    color === "violet" &&
+      "to-violet-1 border-violet-6 shadow-[0px_4px_0px_0px_var(--violet-9),0px_4px_16px_0px_var(--violet-a3)]",
+    color === "orange" &&
+      "to-orange-1 border-orange-6 shadow-[0px_4px_0px_0px_var(--orange-9),0px_4px_16px_0px_var(--orange-a3)]",
+    color === "blue" &&
+      "to-blue-1 border-blue-6 shadow-[0px_4px_0px_0px_var(--blue-9),0px_4px_16px_0px_var(--blue-a3)]",
+    className,
+  ]}
+  {...props}
+>
+  <slot />
+</div>
