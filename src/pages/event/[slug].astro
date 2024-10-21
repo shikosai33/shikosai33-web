@@ -3,11 +3,8 @@ import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import { formatDateTimeRange } from '@/utils/datetime/formatDateTimeRange';
 import Layout from '@/layouts/Layout.astro';
-import Slideshow from '@/components/slideshow.astro';
-import Footer from '@/components/footer.astro';
 import EventCard from '@/components/EventCard.astro';
-import EventStatus from '@/components/EventStatus.astro';
-import Shikosai33 from '@/assets/shikosai33_logo.png';
+import { EventStatus } from '@/components/EventStatus.tsx';
 import KawaiiText from '@/assets/kawaii_text_violet.png';
 import {
   Clock,
@@ -62,30 +59,7 @@ export const prerender = true;
 ---
 
 <Layout title="イベント">
-  <main class="flex min-h-screen flex-col items-center justify-between p-24">
-    <div
-      class="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex"
-    >
-      <h1
-        class="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30"
-      >
-        第33回茨香祭&nbsp;2024年10月26日,27日
-      </h1>
-    </div>
-
-    <div
-      class="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-[radial-gradient(var(--tw-gradient-stops))] before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]"
-    >
-      <Image
-        src={Shikosai33}
-        alt="第33回茨香祭のロゴ"
-        class="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
-      />
-    </div>
-
-    <Slideshow />
-    <!-- ここから -->
-    <div class="w-full flex flex-col gap-6 bg-mauve-1">
+    <main class="w-full flex flex-col gap-6 bg-mauve-1">
       <div
         class="relative flex flex-col gap-3 justify-center items-center rounded-3xl overflow-hidden bg-gradient-to-b from-violet-a-9 to-mauve-a-1"
       >
@@ -129,7 +103,7 @@ export const prerender = true;
             ~
             <time datetime={endsAt.toISOString()}>{endsAtText}</time>
           </p>
-          <EventStatus startsAt={startsAt} endsAt={endsAt} />
+          <EventStatus startsAt={startsAt} endsAt={endsAt} client:only="react" />
         </div>
       </div>
 
@@ -259,34 +233,6 @@ export const prerender = true;
           :<></>
         }
       </div>
-    </div>
-    <!-- ここまで -->
-  </main>
-  <Footer />
+    </main>
+
 </Layout>
-
-<style>
-  :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --foreground-rgb: 255, 255, 255;
-      --background-start-rgb: 0, 0, 0;
-      --background-end-rgb: 0, 0, 0;
-    }
-  }
-
-  body {
-    color: rgb(var(--foreground-rgb));
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgb(var(--background-end-rgb))
-      )
-      rgb(var(--background-start-rgb));
-  }
-</style>
