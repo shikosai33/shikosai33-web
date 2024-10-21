@@ -193,7 +193,7 @@ export const prerender = true;
       <div class="grid gap-6 xl:grid-cols-2">
         {
           nextEvent != null && nextEvent != undefined?
-            <ColoredContainer color="violet" class="flex-col">
+            <ColoredContainer color="violet" class="flex-col xl:order-2">
               <h3 class="relative inline-block mx-auto rounded-lg bg-mauve-a-3">
                 <span
                   data-text="次のイベント→"
@@ -212,7 +212,7 @@ export const prerender = true;
 
         {
           previousEvent!=null&&previousEvent!=undefined?
-            <ColoredContainer color="violet" class="flex-col">
+            <ColoredContainer color="violet" class="flex-col xl:order-1">
               <h3 class="relative inline-block mx-auto rounded-lg bg-mauve-a-3">
                 <span
                   data-text="←前のイベント"
