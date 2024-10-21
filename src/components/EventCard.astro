@@ -5,7 +5,7 @@ import { getEntry } from 'astro:content';
 import { formatDateTimeRange } from '@/utils/datetime/formatDateTimeRange';
 import type { HTMLAttributes } from 'astro/types';
 import { Clock, Globe, Instagram, Twitter, Youtube } from 'lucide-astro';
-import EventStatus from './EventStatus.astro';
+import { EventStatus } from './EventStatus';
 
 /**
  * イベント(バンドのライブなど)の情報を表示するカード。
@@ -82,7 +82,7 @@ const eventHref = `/event/${slug}`;
         class="h-full m-0 aspect-square"
       />
       <figcaption class="absolute bottom-2.5 right-2.5">
-        <EventStatus startsAt={startsAt} endsAt={endsAt} />
+        <EventStatus startsAt={startsAt} endsAt={endsAt} client:only="react" />
       </figcaption>
     </figure>
   </a>
