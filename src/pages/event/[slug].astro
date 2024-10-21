@@ -61,11 +61,10 @@ export const prerender = true;
 ---
 
 <Layout title="イベント">
-    <main class="w-full flex flex-col gap-6 bg-mauve-1">
-      <ColoredContainer
-      color='violet'
-      class="relative"
-          >
+    <main class="w-full flex flex-col gap-6">
+      <div
+        class="relative flex flex-col gap-3 justify-center items-center rounded-3xl overflow-hidden bg-gradient-to-b from-violet-a-9 to-mauve-a-1"
+      >
         <Image
           src={KawaiiText}
           alt={"カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ"}
@@ -106,9 +105,9 @@ export const prerender = true;
             ~
             <time datetime={endsAt.toISOString()}>{endsAtText}</time>
           </p>
-          <EventStatus startsAt={startsAt} endsAt={endsAt} client:only="react" />
+          <EventStatus startsAt={startsAt} endsAt={endsAt} />
         </div>
-      </ColoredContainer>
+      </div>
 
 
       <ColoredContainer color='violet'>
@@ -183,18 +182,19 @@ export const prerender = true;
 
       <ButtonLink
         href="/event"
+        class="mx-auto"
       >
         <LayoutGrid class="inline w-6 h-6 stroke-[2px] stroke-mauve-11" />
         <p class="text-mauve-11 text-center font-Dela text-base">
           イベントの一覧へ戻る
         </p>
-      <ButtonLink>
+      </ButtonLink>
 
       <div class="grid gap-6 xl:grid-cols-2">
         {
           nextEvent != null && nextEvent != undefined?
-            <ColoredContainer color="violet">
-              <h3 class="relative inline-block rounded-lg bg-mauve-a-3">
+            <ColoredContainer color="violet" class="flex-col">
+              <h3 class="relative inline-block mx-auto rounded-lg bg-mauve-a-3">
                 <span
                   data-text="次のイベント→"
                   class:list={[
@@ -212,8 +212,8 @@ export const prerender = true;
 
         {
           previousEvent!=null&&previousEvent!=undefined?
-            <ColoredContainer color="violet">
-              <h3 class="relative inline-block rounded-lg bg-mauve-a-3">
+            <ColoredContainer color="violet" class="flex-col">
+              <h3 class="relative inline-block mx-auto rounded-lg bg-mauve-a-3">
                 <span
                   data-text="←前のイベント"
                   class:list={[
