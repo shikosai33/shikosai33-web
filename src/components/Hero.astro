@@ -1,0 +1,35 @@
+---
+import { MapPinned } from '../assets/MapPinned';
+
+interface Props {
+  title: string;
+  childrenRootClass?: string;
+  titleClass?: string;
+}
+
+const { title, childrenRootClass, titleClass } = Astro.props;
+---
+
+<>
+  <div class:list={["p-9 bg-gradient-to-b lg:rounded-t-xl", childrenRootClass]}>
+    <slot />
+  </div>
+  <div>
+    <h1 class="relative text-center mb-6">
+      <span
+        data-text={title}
+        class:list={[
+          "inline-block text-5xl font-Dela text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6",
+          "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:bg-clip-text before:pointer-events-none",
+          titleClass,
+        ]}
+      >
+        {title}
+      </span>
+    </h1>
+    <div class="flex gap-1.5 justify-center">
+      <MapPinned />
+      <p class="text-sm font-bold">〒312-8508 茨城県 ひたちなか市 中根866</p>
+    </div>
+  </div>
+</>

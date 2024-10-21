@@ -1,0 +1,21 @@
+---
+import { LayoutGrid } from '@/assets/LayoutGrid';
+
+interface Props {
+  text: string;
+  href: string;
+  blank?: boolean;
+}
+
+const { text, href, blank = false } = Astro.props;
+---
+
+<a
+  href={href}
+  target={blank ? "_blank" : "_self"}
+  rel="noopener noreferrer"
+  class="flex items-center gap-2 py-2 px-4 rounded-full shadow-md shadow-mauve-9"
+>
+  <LayoutGrid />
+  <span class="font-Dela text-mauve-11">{text}</span>
+</a>
