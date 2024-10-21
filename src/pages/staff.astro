@@ -1,0 +1,51 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
+import { ArrowLeft } from "lucide-astro";
+// import NotFound404Image from "@/assets/404.png";
+// import { Image } from "astro:assets";
+// import StudentCard from "@/components/StudentCard.astro";
+---
+
+<Layout title="スタッフ">
+  <main class="flex flex-col justify-center items-center gap-">
+    <div
+      class="relative p-6 flex flex-col items-center h-[100%] w-full bg-gradient-to-b from-[#FA7100C3] via-[#FF780060] to-[#CC660005] overflow-hidden rounded-3xl"
+    >
+      <p
+        aria-hidden
+        class="select-none absolute font-Dela text-2xl whitespace-nowrap mx-auto text-center origin-center -rotate-12 text-transparent text-stroke-2 text-stroke-orange-9"
+      >
+        カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡
+        オモイデ<br />
+        カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+        />
+        カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+        />
+        カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+        />
+        カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+        />
+        カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+        />
+        カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+        />
+      </p>
+      <div class="relative">
+        <img src="src/assets/LaughingGuys.png" />
+        <span
+          data-text="スタッフ"
+          class:list={[
+            "inline-block text-3xl font-Dela text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6 absolute left-1/2 -translate-x-1/2",
+            "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-[#C25E00] before:to-[#5A2D05] before:bg-clip-text before:pointer-events-none",
+          ]}
+        >
+          スタッフ
+        </span>
+      </div>
+      <ButtonLink href="/">
+        <ArrowLeft />トップページに戻る
+      </ButtonLink>
+    </div>
+  </main>
+</Layout>
