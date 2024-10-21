@@ -20,7 +20,8 @@ summary: サックス＆ピアノで、ディズニーの名曲を演奏しま�
 location: scs
 
 # X, Instagramなどの外部リンク
-# urls:
+urls:
+- https://instagram.com/fantasque_2024.shikosai
 # - https://x.com/example
 # - https://instagram.com/example
 ---
