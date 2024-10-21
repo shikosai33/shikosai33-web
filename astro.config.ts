@@ -30,7 +30,7 @@ const getSite = (): URL => {
 console.info('🌐 The site origin was set to:', getSite().origin);
 
 export default defineConfig({
-  output: 'server',
+  output: 'hybrid',
   prefetch: true,
   site: getSite().origin,
   integrations: [react(), sitemap(), tailwind(), cloudflare()],
