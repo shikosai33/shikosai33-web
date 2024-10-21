@@ -63,7 +63,7 @@ export const prerender = true;
 <Layout title="イベント">
     <main class="w-full flex flex-col gap-6">
       <div
-        class="relative flex flex-col gap-3 justify-center items-center rounded-3xl overflow-hidden bg-gradient-to-b from-violet-a-9 to-mauve-a-1"
+        class="relative flex flex-col gap-3 justify-center items-center rounded-3xl overflow-hidden bg-gradient-to-b from-violet-a-9 to-mauve-a-1 -mx-1 mt-[-88px] px-1 pt-[88px]"
       >
         <Image
           src={KawaiiText}
@@ -72,24 +72,24 @@ export const prerender = true;
           class="absolute top-0 left-0 w-full h-full object-cover mix-blend-color-burn"
         />
         <div class="m-6 flex justify-center items-center relative">
-          <Image
+          <Image aria-hidden
             src={image}
             alt={`${name}のアーティスト写真またはサムネイル`}
             loading="lazy"
-            class="w-1/2 aspect-square rounded-xl absolute justify-self-center inset-0 blur-lg opacity-50"
+            class="w-full max-w-[320px] lg:max-w-[470px] aspect-square rounded-xl absolute justify-self-center blur-lg opacity-50"
           />
           <Image
             src={image}
             alt={`${name}のアーティスト写真またはサムネイル`}
             loading="lazy"
-            class="w-1/2 aspect-square rounded-xl relative"
+            class="w-full max-w-[300px] lg:max-w-[450px] aspect-square rounded-xl relative"
           />
         </div>
-        <h2 class="relative whitespace-nowrap">
+        <h2 class="w-full text-center relative">
           <span
             data-text=`${name}`
             class:list={[
-              'inline-block text-5xl font-Dela text-violet-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6',
+              'inline-block text-4xl font-Dela text-violet-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6 md:text-5xl',
               "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-[#6C4DB6] before:to-[#371B6B] before:bg-clip-text before:pointer-events-none",
             ]}
           >
