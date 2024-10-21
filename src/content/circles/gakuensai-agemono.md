@@ -17,7 +17,7 @@ category: 飲食系
 summary: こんにちは！学園祭揚げ物部です！チーズポテトとチュロスを屋外で販売しております！
 
 # サークルの場所
-location: gym-nearby
+location: outdoor-tent
 
 # X, Instagramなどの外部リンク
 # urls:

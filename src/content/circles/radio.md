@@ -24,7 +24,7 @@ location: multi-media-room
 # - https://x.com/example
 # - https://instagram.com/example
 ---
-こんにちは！茨城高専ラジオ部です！
-今回の茨香祭も電波系！
-だけど今回は一味違う！
+こんにちは！茨城高専ラジオ部です！<br>
+今回の茨香祭も電波系！<br>
+だけど今回は一味違う！<br>
 ぜひきてね！
