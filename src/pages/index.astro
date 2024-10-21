@@ -1,130 +1,25 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Slideshow from "../components/slideshow.astro";
-import Theme from "../components/theme.astro";
-import { Image } from 'astro:assets';
-import Shikosai33 from '../assets/shikosai33_logo.png';
-import Footer from '../components/footer.astro';
+import Layout from "../layouts/Layout.astro";
+import Theme from "../components/theme.astro"
 ---
 
-<Layout title="トップページ">
-  <main class="flex min-h-screen flex-col items-center justify-between p-24">
-    <div
-      class="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex"
-    >
-      <h1
-        class="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30"
-      >
-        第33回茨香祭&nbsp;2024年10月26日,27日
-      </h1>
-    </div>
-
-    <div
-      class="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-[radial-gradient(var(--tw-gradient-stops))] before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]"
-    >
-      <Image
-        src={Shikosai33}
-        alt="第33回茨香祭のロゴ"
-        class="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
-      />
-    </div>
-
-    <Slideshow />
-
-    <Theme />
-    <div
-      class="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left"
-    >
-      <a
-        href="/"
-        class="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-      >
-        <h2 class="mb-3 text-2xl font-Dela">
-          サークル
-          <span
-            class="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none"
-          >
-            →
-          </span>
-        </h2>
-        <p class="m-0 max-w-[30ch] text-sm opacity-50">現在準備中です。</p>
-      </a>
-
-      <a
-        href="/"
-        class="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-      >
-        <h2 class="mb-3 text-2xl font-Dela">
-          ライブ
-          <span
-            class="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none"
-          >
-            →
-          </span>
-        </h2>
-        <p class="m-0 max-w-[30ch] text-sm opacity-50">現在準備中です。</p>
-      </a>
-
-      <a
-        href="/"
-        class="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-      >
-        <h2 class="mb-3 text-2xl font-Dela">
-          スタッフ
-          <span
-            class="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none"
-          >
-            →
-          </span>
-        </h2>
-        <p class="m-0 max-w-[30ch] text-sm opacity-50">現在準備中です。</p>
-      </a>
-
-      <a
-        href="https://www.ibaraki-ct.ac.jp/access/"
-        class="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <h2 class="mb-3 text-2xl font-Dela">
-          アクセス
-          <span
-            class="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none"
-          >
-            →
-          </span>
-        </h2>
-        <p class="m-0 max-w-[30ch] text-sm opacity-50">
-          〒312-8508 茨城県 ひたちなか市 中根866
-        </p>
-      </a>
-    </div>
-  </main>
-  <Footer />
+<Layout title="トップページ" hasHero>
+  <Theme />
+  <h1 class="font-Dela text-5xl">現在準備中です</h1>
+  <a
+    href="https://x.com/shikosai33/"
+    class="text-mauve-11 font-Dela underline"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    X(Twitter) で最新情報をチェック
+  </a>
+  <a
+    href="https://instagram.com/shikosai33/"
+    class="text-mauve-11 font-Dela underline"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Instagram で最新情報をチェック
+  </a>
 </Layout>
-
-<style>
-  :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --foreground-rgb: 255, 255, 255;
-      --background-start-rgb: 0, 0, 0;
-      --background-end-rgb: 0, 0, 0;
-    }
-  }
-
-  body {
-    color: rgb(var(--foreground-rgb));
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgb(var(--background-end-rgb))
-      )
-      rgb(var(--background-start-rgb));
-  }
-</style>

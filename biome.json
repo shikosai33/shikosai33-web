@@ -20,10 +20,8 @@
         "noNonNullAssertion": "off"
       },
       "suspicious": {
-        "noConsoleLog": "error"
-      },
-      "nursery": {
-        "noDuplicateJsonKeys": "error"
+        "noConsoleLog": "error",
+        "noDuplicateObjectKeys": "error"
       }
     }
   },

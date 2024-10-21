@@ -1,0 +1,26 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
+import { ArrowLeft } from "lucide-astro";
+import NotFound404Image from "@/assets/404.png";
+import { Image } from "astro:assets";
+---
+
+<Layout title="お探しのページは見つかりませんでした">
+  <main class="flex flex-col justify-center items-center gap-6">
+    <!-- 404 Not Found の可愛いロゴは https://github.com/SAWARATSUKI/KawaiiLogos より引用 -->
+    <Image
+      src={NotFound404Image}
+      widths={[384, 768, NotFound404Image.width]}
+      sizes="384px"
+      alt="404 Not Found"
+      class="w-96 -my-4"
+    />
+    <h1 class="font-Dela text-3xl text-center">
+      お探しのページは見つかりませんでした
+    </h1>
+    <ButtonLink href="/">
+      <ArrowLeft />トップページに戻る
+    </ButtonLink>
+  </main>
+</Layout>

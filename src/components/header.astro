@@ -1,0 +1,87 @@
+---
+import '../styles/global.css';
+import { Image } from 'astro:assets';
+import type { HTMLAttributes } from 'astro/types';
+import Shikosai33 from '../assets/shikosai33_logo.png';
+
+/**
+ * 各ページへのリンクを含むヘッダー。
+ */
+export interface Props extends HTMLAttributes<'header'> {
+  /**
+   * 表示位置や大きさを柔軟に変えるためのクラス名。
+   * @example "w-36 lg:w-48"
+   */
+  class?: string;
+}
+
+const { class: className, ...props } = Astro.props;
+---
+
+<header
+  class:list={[
+    "rounded-3xl overflow-hidden bg-mauve-1 border border-mauve-6 h-16 font-Dela text-sm md:text-base",
+    className,
+  ]}
+  {...props}
+>
+  <nav class="grid grid-cols-1 grid-rows-1 w-full h-full">
+    <ul class="grid grid-cols-5">
+      <li
+        class="flex justify-center items-center border-b-8 border-pink-9 pt-1.5"
+      >
+        <a href="/">
+          <Image src={Shikosai33} alt="第33回茨香祭のロゴ" class="w-16" />
+        </a>
+      </li>
+
+      <li
+        class="flex justify-center items-center border-b-8 border-yellow-9 pt-1.5"
+      >
+        <a href="/circle">
+          <h2
+            class="bg-gradient-to-b from-yellow-12 to-yellow-11 bg-clip-text text-transparent"
+          >
+            サークル
+          </h2>
+        </a>
+      </li>
+
+      <li
+        class="flex justify-center items-center border-b-8 border-violet-9 pt-1.5"
+      >
+        <a href="/event">
+          <h2
+            class="bg-gradient-to-b from-violet-12 to-violet-11 bg-clip-text text-transparent"
+          >
+            イベント
+          </h2>
+        </a>
+      </li>
+
+      <li
+        class="flex justify-center items-center border-b-8 border-orange-9 pt-1.5"
+      >
+        <a href="/staff">
+          <h2
+            class="bg-gradient-to-b from-orange-12 to-orange-11 bg-clip-text text-transparent"
+          >
+            スタッフ
+          </h2>
+        </a>
+      </li>
+
+      <li
+        class="flex justify-center items-center border-b-8 border-blue-9 pt-1.5"
+      >
+        <a href="/access" target="_blank" rel="noopener noreferrer">
+          <h2
+            class="bg-gradient-to-b from-blue-12 to-blue-11 bg-clip-text text-transparent"
+          >
+            アクセス
+          </h2>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
