@@ -1,6 +1,9 @@
 ---
 import '@/styles/global.css';
 import '@/styles/colors.css';
+import HeroSlideShow from '@/components/HeroSlideShow.astro';
+import Footer from '@/components/footer.astro';
+import Header from '@/components/header.astro';
 import { GoogleFontsOptimizer } from 'astro-google-fonts-optimizer';
 import { SEO } from 'astro-seo';
 
@@ -48,10 +51,15 @@ export interface Props {
    * @example "@potus"
    */
   twitterCreator?: `@${string}`;
+
+  /**
+   * モバイルでもヒーロー画像を表示するかどうか。
+   */
+  hasHero?: boolean;
 }
 
 const DEFAULT_DESCRIPTION =
-  '2024年10月26日~27日に茨城工業高等専門学校で開催される、第33回茨香祭の公式ウェブサイトです。' as const;
+  '2024年10月26日(土)~27日(日)に開催される、茨城工業高等専門学校の文化祭『茨香祭(しこうさい)』の公式Webサイトです！\nイベントやサークルなどの情報をお届けしていきますのでお楽しみに✨\n一般公開は26日の10時から16時までとなります。\n#shikosai33 #茨香祭' as const;
 const DEFAULT_OPENGRAPH_IMAGE_URL = new URL('/opengraph-image.png', import.meta.env.SITE).href;
 const DEFAULT_OPENGRAPH_IMAGE_ALT =
   '第33回茨香祭のパンフレットの表紙をあしらった、かわいらしい、ちゃあみぃ！なサムネイル。' as const;
@@ -63,6 +71,7 @@ const {
   image = DEFAULT_OPENGRAPH_IMAGE_URL,
   imageAlt = DEFAULT_OPENGRAPH_IMAGE_ALT,
   twitterCreator = DEFAULT_TWITTER_CREATOR,
+  hasHero = false,
 } = Astro.props;
 ---
 
@@ -71,12 +80,14 @@ const {
   <head>
     <SEO
       title={title}
-      titleTemplate="%s | 第33回茨香祭"
+      titleTemplate={title === "トップページ"
+        ? "第33回茨香祭"
+        : "%s | 第33回茨香祭"}
       description={description}
       charset="UTF-8"
       openGraph={{
         basic: {
-          title: `${title} | 第33回茨香祭`,
+          title: `${title} | 第33回 茨香祭`,
           type: "website",
           image: image,
           url: Astro.request.url,
@@ -104,11 +115,31 @@ const {
     />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-icon.png" />
     <GoogleFontsOptimizer
       url="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap"
     />
   </head>
-  <body>
-    <slot />
+  <body
+    class="relative bg-mauve-1 text-mauve-12 flex flex-col md:flex-row justify-start items-center md:items-start p-0 md:p-6"
+  >
+    <div
+      class="md:sticky md:top-6 pb-16 -mb-16 flex flex-col gap-6 w-full md:w-[calc((100svh-64px-32px-24px*3)*0.7071)] md:max-w-[40vw] shrink-0 grow-0 overflow-x-hidden overflow-y-visible md:overflow-visible"
+    >
+      <Header
+        class="w-full fixed z-50 top-0 left-0 right-0 md:sticky md:top-6"
+      />
+      <div aria-hidden class="w-full h-16 md:hidden"></div>
+      <HeroSlideShow
+        class:list={["w-full mb-8", !hasHero && "!hidden md:!flex"]}
+      />
+    </div>
+    <div
+      class="relative px-1 md:px-0 z-10 flex flex-col gap-6 w-full md:w-auto grow justify-start min-h-[calc(100svh-24px*2)] mt-6 md:mt-0 md:ml-6"
+    >
+      <slot />
+      <Footer class="-mx-1 md:mx-0 justify-self-end mt-auto" />
+    </div>
   </body>
 </html>

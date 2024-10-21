@@ -1,0 +1,360 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import { BookOpen, MapPinned } from "lucide-astro";
+import EventCard from "@/components/EventCard.astro";
+
+const SLUGS_INDOOR_DAY1 = [
+  "dance-club",
+  "biscuit",
+  "musica",
+  "hit-on-limit",
+  "jeryco",
+  "aeinz",
+  "gasaire-plankton",
+  "flip-flop-fullerene",
+  "kingfrog",
+  "mi-media-naranja",
+  "shelly-coco",
+  "marks",
+  "crazy-butter-knife",
+  "i-scream",
+] as const satisfies string[];
+
+const SLUGS_INDOOR_DAY2 = [
+  "d-c",
+  "nanashi",
+  "m1-band",
+  "shichimi-mayonnaise",
+  "high-side",
+  "gatchiri-mutchiri-pandars",
+  "mmmmic",
+  "plushie",
+  "yoacopi",
+  "negiduction",
+  "snowy",
+  "bright-night",
+] as const satisfies string[];
+
+const SLUGS_OUTDOOR_DAY1 = [
+  "chuonikizu",
+  "niowase",
+  "seki-tomohiro",
+  "osu-penguin1",
+  "txit1",
+  "brass-band",
+  "whats-in-the-box",
+  "osu-penguin2",
+  "syoten",
+  "isador",
+  "alpaca1",
+  "nida-ira",
+] as const satisfies string[];
+
+const SLUGS_OUTDOOR_DAY2 = [
+  "alpaca2",
+  "txit2",
+  "speed-eating",
+  "sasaki",
+  "kemo",
+  "kosensei-no-shucho",
+  "cosplay-show",
+  "himitsu-bakuro",
+  "kintokisan",
+] as const satisfies string[];
+
+const SLUGS_OTHERS = [
+  "stamp-rally",
+  "id-lottery",
+  "fireworks",
+] as const satisfies string[];
+---
+
+<Layout title="イベント">
+  <main class="w-full flex flex-col items-center gap-6">
+    <div
+      class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-[#FDFCFD] to-[#FCFCFF] shadow-[0px_4px_16px_0px_rgba(51, 0, 255, 0.06)], shadow-[0px_4px_0px_0px_#A78BFA]"
+    >
+      <div class="w-full flex justify-between items-center">
+        <h2 class="relative">
+          <span
+            data-text="イベント"
+            class:list={[
+              "inline-block text-3xl font-Dela text-violet-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6",
+              "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-[#6C4DB6] before:to-[#371B6B] before:bg-clip-text before:pointer-events-none",
+            ]}
+          >
+            イベント
+          </span>
+        </h2>
+        <div class="flex items-center gap-1.5">
+          <BookOpen class="inline w-4 h-4 stroke-[2px] stroke-mauve-11" />
+          <p class="text-sm text-mauve-11 font-bold">このページの目次</p>
+        </div>
+      </div>
+
+      <div class="w-full grid grid-cols-2 gap-3">
+        <a
+          href="#indoor-1"
+          class="w-full font-Dela text-sm text-center text-violet-11 p-2.5 rounded-lg bg-violet-3"
+          >屋内ステージ1日目 <span class="text-blue-11">(土曜日)</span></a
+        >
+        <a
+          href="#indoor-2"
+          class="w-full font-Dela text-sm text-center text-violet-11 p-2.5 rounded-lg bg-violet-3"
+          >屋内ステージ2日目 <span class="text-pink-11">(日曜日)</span></a
+        >
+        <a
+          href="#outdoor-1"
+          class="w-full font-Dela text-sm text-center text-violet-11 p-2.5 rounded-lg bg-violet-3"
+          >屋外ステージ1日目 <span class="text-blue-11">(土曜日)</span></a
+        >
+        <a
+          href="#outdoor-2"
+          class="w-full font-Dela text-sm text-center text-violet-11 p-2.5 rounded-lg bg-violet-3"
+          >屋外ステージ2日目 <span class="text-pink-11">(日曜日)</span></a
+        >
+        <a
+          href="#others"
+          class="col-span-2 w-full font-Dela text-sm text-center text-violet-11 p-2.5 rounded-lg bg-violet-3"
+          >その他</a
+        >
+      </div>
+    </div>
+
+    <div
+      class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-[#FDFCFD] to-[#FCFCFF] shadow-[0px_4px_16px_0px_rgba(51, 0, 255, 0.06)], shadow-[0px_4px_0px_0px_#A78BFA]"
+    >
+      <div class="w-full flex flex-col md:flex-row items-center gap-9">
+        <h2 class="relative whitespace-nowrap">
+          <span
+            data-text="屋内ステージ"
+            class:list={[
+              "inline-block text-4xl font-Dela text-violet-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6",
+              "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-[#6C4DB6] before:to-[#371B6B] before:bg-clip-text before:pointer-events-none",
+            ]}
+          >
+            屋内ステージ
+          </span>
+        </h2>
+        <div class="flex flex-col items-center md:items-start">
+          <div class="flex items-center gap-1.5">
+            <MapPinned class="inline w-4 h-4 stroke-[2px] stroke-mauve-11" />
+            <p class="text-sm text-mauve-11 font-bold">
+              第一体育館 屋内ステージ
+            </p>
+          </div>
+          <p class="relative">
+            <span
+              data-text="屋内ステージでは、学生有志が結成した様々なバンド•ダンスサークルによる披露が楽しめます！"
+              class:list={[
+                "inline-block text-base font-Dela text-mauve-3 text-stroke-mauve-11 text-stroke-2 paint-sfm",
+                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-3 before:bg-clip-text before:pointer-events-none",
+              ]}
+            >
+              屋内ステージでは、学生有志が結成した様々なバンド•ダンスサークルによる披露が楽しめます！
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="w-full grid grid-cols-1 gap-9 lg:grid-cols-2">
+        <div class="flex flex-col gap-6 items-center">
+          <h3
+            id="indoor-1"
+            class="relative inline-block rounded-lg bg-mauve-a-3"
+          >
+            <span
+              data-text="1日目-10月26日"
+              class:list={[
+                "inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6",
+                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
+              ]}
+            >
+              1日目-10月26日
+            </span>
+            <span
+              data-text="(土)"
+              class:list={[
+                "inline-block text-lg text-center font-Dela text-blue-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6",
+                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-blue-11 before:bg-clip-text before:pointer-events-none",
+              ]}
+            >
+              (土)
+            </span>
+          </h3>
+          {
+            SLUGS_INDOOR_DAY1.map((slug) => (
+              <EventCard type="list" slug={slug} class="w-full" />
+            ))
+          }
+        </div>
+        <div class="flex flex-col gap-6 items-center">
+          <h3
+            id="indoor-2"
+            class="relative inline-block rounded-lg bg-mauve-a-3"
+          >
+            <span
+              data-text="2日目-10月27日"
+              class:list={[
+                "inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6",
+                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
+              ]}
+            >
+              2日目-10月27日
+            </span>
+            <span
+              data-text="(日)"
+              class:list={[
+                "inline-block text-lg text-center font-Dela text-pink-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6",
+                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-pink-11 before:bg-clip-text before:pointer-events-none",
+              ]}
+            >
+              (日)
+            </span>
+          </h3>
+          {
+            SLUGS_INDOOR_DAY2.map((slug) => (
+              <EventCard type="list" slug={slug} class="w-full" />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-[#FDFCFD] to-[#FCFCFF] shadow-[0px_4px_16px_0px_rgba(51, 0, 255, 0.06)], shadow-[0px_4px_0px_0px_#A78BFA]"
+    >
+      <div class="w-full flex flex-col md:flex-row items-center gap-9">
+        <h2 class="relative whitespace-nowrap">
+          <span
+            data-text="屋外ステージ"
+            class:list={[
+              "inline-block text-4xl font-Dela text-violet-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6",
+              "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-[#6C4DB6] before:to-[#371B6B] before:bg-clip-text before:pointer-events-none",
+            ]}
+          >
+            屋外ステージ
+          </span>
+        </h2>
+        <div class="flex flex-col items-center md:items-start">
+          <div class="flex items-center gap-1.5">
+            <MapPinned class="inline w-4 h-4 stroke-[2px] stroke-mauve-11" />
+            <p class="text-sm text-mauve-11 font-bold">
+              正門ロータリー 屋外ステージ
+            </p>
+          </div>
+          <p class="relative">
+            <span
+              data-text="屋外ステージでは、学生有志が主催するイベントが楽しめます！"
+              class:list={[
+                "inline-block text-base font-Dela text-mauve-3 text-stroke-mauve-11 text-stroke-2 paint-sfm",
+                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-3 before:bg-clip-text before:pointer-events-none",
+              ]}
+            >
+              屋外ステージでは、学生有志が主催するイベントが楽しめます！
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="w-full grid grid-cols-1 gap-9 lg:grid-cols-2">
+        <div class="flex flex-col gap-6 items-center">
+          <h3
+            id="outdoor-1"
+            class="relative inline-block rounded-lg bg-mauve-a-3"
+          >
+            <span
+              data-text="1日目-10月26日"
+              class:list={[
+                "inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6",
+                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
+              ]}
+            >
+              1日目-10月26日
+            </span>
+            <span
+              data-text="(土)"
+              class:list={[
+                "inline-block text-lg text-center font-Dela text-blue-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6",
+                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-blue-11 before:bg-clip-text before:pointer-events-none",
+              ]}
+            >
+              (土)
+            </span>
+          </h3>
+          {
+            SLUGS_OUTDOOR_DAY1.map((slug) => (
+              <EventCard type="list" slug={slug} class="w-full" />
+            ))
+          }
+        </div>
+        <div class="flex flex-col gap-6 items-center">
+          <h3
+            id="outdoor-2"
+            class="relative inline-block rounded-lg bg-mauve-a-3"
+          >
+            <span
+              data-text="2日目-10月27日"
+              class:list={[
+                "inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6",
+                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
+              ]}
+            >
+              2日目-10月27日
+            </span>
+            <span
+              data-text="(日)"
+              class:list={[
+                "inline-block text-lg text-center font-Dela text-pink-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6",
+                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-pink-11 before:bg-clip-text before:pointer-events-none",
+              ]}
+            >
+              (日)
+            </span>
+          </h3>
+          {
+            SLUGS_OUTDOOR_DAY2.map((slug) => (
+              <EventCard type="list" slug={slug} class="w-full" />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-[#FDFCFD] to-[#FCFCFF] shadow-[0px_4px_16px_0px_rgba(51, 0, 255, 0.06)], shadow-[0px_4px_0px_0px_#A78BFA]"
+    >
+      <div class="w-full flex flex-col md:flex-row items-center gap-9">
+        <h2 class="relative whitespace-nowrap" id="others">
+          <span
+            data-text="その他"
+            class:list={[
+              "inline-block text-4xl font-Dela text-violet-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6",
+              "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-[#6C4DB6] before:to-[#371B6B] before:bg-clip-text before:pointer-events-none",
+            ]}
+          >
+            その他
+          </span>
+        </h2>
+        <div class="flex flex-col items-center md:items-start">
+          <p class="relative">
+            <span
+              data-text="グラウンドや学校全体で行われるイベントです！ぜひお楽しみください！"
+              class:list={[
+                "inline-block text-base font-Dela text-mauve-3 text-stroke-mauve-11 text-stroke-2 paint-sfm",
+                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-3 before:bg-clip-text before:pointer-events-none",
+              ]}
+            >
+              グラウンドや学校全体で行われるイベントです！ぜひお楽しみください！
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 gap-x-9 gap-y-3 lg:grid-cols-2">
+        {
+          SLUGS_OTHERS.map((slug) => (
+            <EventCard type="list" slug={slug} class="w-full" />
+          ))
+        }
+      </div>
+    </div>
+  </main>
+</Layout>
