@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import { BookOpen } from 'lucide-astro';
 import Layout from '@/layouts/Layout.astro';
 import CircleCard from '@/components/CircleCard.astro';
+import ColoredContainer from '@/components/ColoredContainer.astro';
 
 const SLUGS_GRADE1 = [
   '1-1',
@@ -82,9 +83,7 @@ const SLUGS_OTHERS = [
 
 <Layout title="サークル">
   <main class="w-full flex flex-col items-center gap-6">
-    <div
-      class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-yellow-6 bg-gradient-to-b from-mauve-1 to-yellow-1 shadow-[0px_4px_16px_0px_var(--yellow-a3),_0px_4px_0px_0px_var(--yellow-9)]"
-    >
+    <ColoredContainer color="yellow" class="w-full flex-col">
       <div class="w-full flex justify-between items-center">
         <h2 class="relative">
           <span
@@ -154,11 +153,9 @@ const SLUGS_OTHERS = [
           >
         </div>
       </div>
-    </div>
+    </ColoredContainer>
 
-    <div
-      class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-yellow-6 bg-gradient-to-b from-mauve-1 to-yellow-1 shadow-[0px_4px_16px_0px_var(--yellow-a3),_0px_4px_0px_0px_var(--yellow-9)]"
-    >
+    <ColoredContainer color="yellow" class="w-full flex-col">
       <h2 id="class" class="relative whitespace-nowrap lg:self-start">
         <span
           data-text="クラスのサークル"
@@ -277,11 +274,9 @@ const SLUGS_OTHERS = [
           }
         </div>
       </div>
-    </div>
+    </ColoredContainer>
 
-    <div
-      class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-yellow-6 bg-gradient-to-b from-mauve-1 to-yellow-1 shadow-[0px_4px_16px_0px_var(--yellow-a3),_0px_4px_0px_0px_var(--yellow-9)]"
-    >
+    <ColoredContainer color="yellow" class="w-full flex-col">
       <h2 id="club" class="relative whitespace-nowrap lg:self-start">
         <span
           data-text="部活動・同好会"
@@ -355,11 +350,9 @@ const SLUGS_OTHERS = [
           }
         </div>
       </div>
-    </div>
+    </ColoredContainer>
 
-    <div
-      class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-yellow-6 bg-gradient-to-b from-mauve-1 to-yellow-1 shadow-[0px_4px_16px_0px_var(--yellow-a3),_0px_4px_0px_0px_var(--yellow-9)]"
-    >
+    <ColoredContainer color="yellow" class="w-full flex-col">
       <h2 id="others" class="relative whitespace-nowrap lg:self-start">
         <span
           data-text="その他"
@@ -379,6 +372,6 @@ const SLUGS_OTHERS = [
           ))
         }
       </div>
-    </div>
+    </ColoredContainer>
   </main>
 </Layout>
