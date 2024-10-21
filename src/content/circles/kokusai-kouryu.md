@@ -21,7 +21,7 @@ location: outdoor-tent
 
 # X, Instagramなどの外部リンク
 urls:
-https://instagram.com/ice_nitic
+- https://instagram.com/ice_nitic
 # - https://x.com/example
 # - https://instagram.com/example
 ---
