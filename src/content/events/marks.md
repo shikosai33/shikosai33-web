@@ -23,7 +23,8 @@ starts-at: 2024-10-26T17:00:00+0900
 ends-at: 2024-10-26T17:20:00+0900
 
 # X, Instagramなどの外部リンク
-# urls:
+urls:
+- https://instagram.com/marks_girlsband
 # - https://x.com/example
 # - https://instagram.com/example
 
