@@ -24,7 +24,5 @@ location: activity-room
 # - https://x.com/example
 # - https://instagram.com/example
 ---
-<p class="text-base font-Dela text-mauve-11">
 ロボコンで実際に使用した機体を使って射的や操縦体験ができます<br>
 ロボット部で制作した物の物販も行う予定ですのでぜひお越しください。
-</p>

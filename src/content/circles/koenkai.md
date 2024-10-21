@@ -24,7 +24,5 @@ location: women-changing-room
 # - https://x.com/example
 # - https://instagram.com/example
 ---
-<p class="text-base font-Dela text-mauve-11">
 一生の思い出を後援会がサポートします<br>
 日本伝統の『ゆかた』を着て、茨香祭を満喫しましょう！！
-</p>

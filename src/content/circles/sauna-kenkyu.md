@@ -24,6 +24,4 @@ location: outdoor-tent
 # - https://x.com/example
 # - https://instagram.com/example
 ---
-<p class="text-base font-Dela text-mauve-11">
 文化祭の熱きサウナ戦士たちよ！茨香祭で「型抜きマスター」の称号を手に入れるチャンス到来！ あなたの手元に現れるのは、ただの型抜きではありません。じつは、これらはあなたのスキルと忍耐力を試す試練の一部なのです！
-</p>

@@ -27,6 +27,5 @@ urls:
 # - https://x.com/example
 # - https://instagram.com/example
 ---
-<p class="text-base font-Dela text-mauve-11">
 私たち天文部は今年度の文化祭で宇宙やISS（国際宇宙ステーション）をテーマに様々な科学実験を体験できるサークルを企画しています。小さなお子様でも楽しめるように安全性にも配慮したものになっているのでご安心ください。
-</p>
+

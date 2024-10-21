@@ -25,8 +25,6 @@ urls:
 # - https://x.com/example
 # - https://instagram.com/example
 ---
-<p class="text-base font-Dela text-mauve-11">
 たくさんの可愛いキャストと一緒にお話ししたり飲み物一緒に飲んだりできます ♡<br>
 お菓子も食べ放題です^^<br>
 写真も一緒に撮れますので是非遊びに来てください ♡
-</p>
