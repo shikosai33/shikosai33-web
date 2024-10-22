@@ -5,7 +5,7 @@
 image: ./_images/plushie.png
 
 # イベントの名前 (バンドの名前)
-name: PLUSHE
+name: PLUSHIE
 
 # イベントの開催者の名前 (団体の名前) - バンドの場合は省略
 # organizer-name: 

@@ -8,7 +8,7 @@ image:  ./_images/isador.jpeg
 name: 秘儀披露 - ISADOR
 
 # イベントの開催者の名前 (団体の名前) - バンドの場合は省略
-organizer-name: ISADOR
+# organizer-name: ISADOR
 
 # イベントの概要 (バンドからのコメント)
 summary: 皆様、こんにちは。イサドルです。この度、安室奈美恵メドレーとノクターンを披露させていただきます。気軽にお立ち寄りください。
