@@ -68,6 +68,7 @@ export const prerender = true;
           class="w-full max-w-[320px] lg:max-w-[470px] aspect-square rounded-xl absolute justify-self-center blur-lg opacity-50"
         />
         <Image
+          data-pagefind-meta="image[src], image_alt[alt]"
           src={image}
           alt={`${name}のサークルカット`}
           loading="lazy"
@@ -76,6 +77,7 @@ export const prerender = true;
       </div>
       <h2 class="relative text-center">
         <span
+          data-pagefind-meta="title"
           data-text=`${name}`
           class:list={[
             "inline-block text-4xl font-Dela text-yellow-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6 md:text-5xl",
@@ -88,24 +90,31 @@ export const prerender = true;
       <div class="flex gap-1.5">
         {
           organizerName && isOrganizerNameUnique && (
-            <p class="text-sm font-bold text-mauve-11 line-clamp-1 shrink-0 leading-tight">
+            <p
+              data-pagefind-meta="開催団体"
+              class="text-sm font-bold text-mauve-11 line-clamp-1 shrink-0 leading-tight"
+            >
               <PartyPopper class="w-4 h-4 inline stroke-[3px] mr-1.5" />
               {organizerName}
             </p>
           )
         }
-        <p class="text-sm font-bold text-mauve-11">
+        <p data-pagefind-meta="場所" class="text-sm font-bold text-mauve-11">
           <MapPinned class="w-4 h-4 inline stroke-[3px] mr-1.5" />{
             getLocationLocale(location)
           }
         </p>
-        <p class="text-sm font-bold text-mauve-11">
+        <p data-pagefind-meta="区分" class="text-sm font-bold text-mauve-11">
           <Settings class="w-4 h-4 inline stroke-[3px] mr-1.5" />{category}
         </p>
       </div>
     </div>
 
-    <ColoredContainer color="yellow" class="relative flex-col">
+    <ColoredContainer
+      data-pagefind-body
+      color="yellow"
+      class="relative flex-col"
+    >
       <p
         class:list={[
           "text-lg  font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11 paint-sfm flex-shrink",
