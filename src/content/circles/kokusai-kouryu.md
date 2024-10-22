@@ -20,7 +20,8 @@ summary: 海外の食べ物を試してみよう！東南アジアやインド�
 location: outdoor-tent
 
 # X, Instagramなどの外部リンク
-# urls:
+urls:
+- https://instagram.com/ice_nitic
 # - https://x.com/example
 # - https://instagram.com/example
 ---
