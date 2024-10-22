@@ -14,6 +14,7 @@ import {
   Instagram,
   Twitter,
   Youtube,
+  PartyPopper,
 } from 'lucide-astro';
 
 export async function getStaticPaths() {
@@ -37,15 +38,18 @@ export async function getStaticPaths() {
 
 const {
   entry: {
+    slug,
     data: {
       name,
       image,
       summary,
+      "organizer-name": organizerName,
       urls,
       youtube,
       'starts-at': startsAt,
       'ends-at': endsAt,
     },
+    render,
   },
   nextEvent: nextEvent,
   previousEvent: previousEvent,
@@ -53,6 +57,9 @@ const {
 
 const { startsAtText, endsAtText } = formatDateTimeRange(startsAt, endsAt);
 const hasExternalLinks = (urls && urls?.length > 0) || !!youtube;
+
+const isFireworks = (slug === "fireworks");
+const { Content } = await render();
 
 // getStaticPaths() ignored in dynamic page /src/pages/event/[slug].astro.
 // Add `export const prerender = true;` to prerender the page as static HTML during the build process.
@@ -108,6 +115,15 @@ export const prerender = true;
             {name}
           </span>
         </h2>
+        {
+        organizerName != undefined &&
+          <div class="flex gap-1.5">
+            <p class="text-sm font-bold text-mauve-11">
+              <PartyPopper class="w-4 h-4 inline stroke-[3px] mr-1.5" />
+              {organizerName}
+            </p>
+          </div>
+        }
         <div class="flex gap-1.5">
           <p class="text-sm font-bold text-mauve-11">
             <Clock class="w-4 h-4 inline stroke-[3px] mr-1.5" />
@@ -122,7 +138,7 @@ export const prerender = true;
       </div>
 
 
-      <ColoredContainer color='violet'>
+      <ColoredContainer color='violet' class="flex-col">
         <p
           class:list={[
             'text-lg  font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11 paint-sfm flex-shrink',
@@ -189,6 +205,12 @@ export const prerender = true;
               )}
             </nav>
           )
+        }
+        {
+          isFireworks && <>
+            <hr class="text-violet-9"/>
+            <Content />
+          </>
         }
       </ColoredContainer>
 
