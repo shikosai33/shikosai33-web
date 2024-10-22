@@ -1,0 +1,48 @@
+---
+import "@pagefind/default-ui/css/ui.css";
+import Layout from "../layouts/Layout.astro";
+import ColoredContainer from "@/components/ColoredContainer.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
+import { Mail } from "lucide-astro";
+---
+
+<Layout title="検索" hasHero>
+  <ColoredContainer class="relative z-20 flex-col -mt-40 md:mt-0 min-h-[173px]">
+    <h1 class="text-5xl font-Dela">検索</h1>
+    <div id="search-ui-container"></div></ColoredContainer
+  >
+  <nav class="flex flex-col items-center gap-2">
+    <h2 class="text-sm font-bold text-mauve-11">
+      お探しの情報が見つからない場合は
+    </h2>
+    <ButtonLink href="#"><Mail />お問い合わせする</ButtonLink>
+  </nav>
+</Layout>
+
+<style is:global>
+  :root {
+    --pagefind-ui-primary: var(--pink-11);
+    --pagefind-ui-text: var(--mauve-11);
+    --pagefind-ui-background: var(--mauve-1);
+    --pagefind-ui-border: var(--mauve-6);
+    --pagefind-ui-tag: var(--mauve-3);
+    --pagefind-ui-border-width: 1px;
+  }
+</style>
+
+<script>
+  // @ts-expect-error 型定義用のパッケージ`@types/pagefind__default-ui`が存在しないため、`@ts-expect-error`でエラーを無視する
+  import { PagefindUI } from "@pagefind/default-ui";
+
+  /**
+   * PagefindのUIを初期化する
+   * @see https://pagefind.app/docs/ui/
+   */
+  new PagefindUI({
+    element: `#search-ui-container`,
+    autofocus: true,
+    translations: {
+      placeholder: "あなたが茨香祭で気になるものは？",
+    },
+  });
+</script>
