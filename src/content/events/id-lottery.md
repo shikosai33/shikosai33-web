@@ -8,7 +8,7 @@ image: ./_images/id-lottery.png
 name: 学籍番号くじ
 
 # イベントの開催者の名前 (団体の名前) - バンドの場合は省略
-organizer-name: 茨香祭実行員会
+organizer-name: 茨香祭実行委員会
 
 # イベントの概要 (バンドからのコメント)
 summary: 今年も選ばせて頂きました。『アレ』....お楽しみに......！

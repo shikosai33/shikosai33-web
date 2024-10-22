@@ -1,0 +1,268 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import { formatDateTimeRange } from '@/utils/datetime/formatDateTimeRange';
+import Layout from '@/layouts/Layout.astro';
+import EventCard from '@/components/EventCard.astro';
+import { EventStatus } from '@/components/EventStatus.tsx';
+import ColoredContainer from '@/components/ColoredContainer.astro';
+import ButtonLink from '@/components/ButtonLink.astro';
+import {
+  Clock,
+  LayoutGrid,
+  Globe,
+  Instagram,
+  Twitter,
+  Youtube,
+  PartyPopper,
+} from 'lucide-astro';
+
+export async function getStaticPaths() {
+  const eventEntries = (await getCollection('events')).sort((a, b) => {
+    if (a.data.location.id == b.data.location.id) {
+      return a.data['starts-at'].getTime() - b.data['starts-at'].getTime();
+    }
+    return a.data.location.id.localeCompare(b.data.location.id);
+  });
+
+  return eventEntries.map((entry, index) => ({
+    params: { slug: entry.slug },
+    props: {
+      entry,
+      previousEvent: index > 0 && eventEntries[index - 1]?.data.location.id == entry.data.location.id ? eventEntries[index - 1]?.slug : null,
+      nextEvent:
+        index < eventEntries.length - 1 && eventEntries[index + 1]?.data.location.id == entry.data.location.id ? eventEntries[index + 1]?.slug : null,
+    },
+  }));
+}
+
+const {
+  entry: {
+    slug,
+    data: {
+      name,
+      image,
+      summary,
+      "organizer-name": organizerName,
+      urls,
+      youtube,
+      'starts-at': startsAt,
+      'ends-at': endsAt,
+    },
+    render,
+  },
+  nextEvent: nextEvent,
+  previousEvent: previousEvent,
+} = Astro.props;
+
+const { startsAtText, endsAtText } = formatDateTimeRange(startsAt, endsAt);
+const hasExternalLinks = (urls && urls?.length > 0) || !!youtube;
+
+const isFireworks = (slug === "fireworks");
+const { Content } = await render();
+
+// getStaticPaths() ignored in dynamic page /src/pages/event/[slug].astro.
+// Add `export const prerender = true;` to prerender the page as static HTML during the build process.
+export const prerender = true;
+---
+
+<Layout title="イベント">
+    <main class="w-full flex flex-col gap-6">
+      <div
+        class="p-6 w-full relative flex flex-col gap-3 justify-center items-center overflow-hidden bg-gradient-to-b from-violet-a-9 to-mauve-a-1 -mx-1 mt-[-88px] px-1 pt-[88px] md:mx-0 md:mt-0 md:px-0 md:pt-0 md:rounded-3xl"
+      >
+        <p
+          aria-hidden
+          class="select-none absolute font-Dela text-2xl whitespace-nowrap mix-blend-color-burn top-16 mx-auto text-center origin-center -rotate-12 text-transparent text-stroke-2 text-stroke-violet-9"
+        >
+          カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+          />
+          カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+          />
+          カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+          />
+          カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+          />
+          カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+          />
+          カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+          />
+          カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+          />
+        </p>
+        <div class="m-6 flex justify-center items-center relative">
+          <Image aria-hidden
+            src={image}
+            alt={`${name}のアーティスト写真またはサムネイル`}
+            loading="lazy"
+            class="w-full max-w-[320px] lg:max-w-[470px] aspect-square rounded-xl absolute justify-self-center blur-lg opacity-50"
+          />
+          <Image
+            src={image}
+            alt={`${name}のアーティスト写真またはサムネイル`}
+            loading="lazy"
+            class="w-full max-w-[300px] lg:max-w-[450px] aspect-square rounded-xl relative"
+          />
+        </div>
+        <h2 class="w-full text-center relative">
+          <span
+            data-text=`${name}`
+            class:list={[
+              'inline-block text-4xl font-Dela text-violet-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6 md:text-5xl',
+              "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-[#6C4DB6] before:to-[#371B6B] before:bg-clip-text before:pointer-events-none",
+            ]}
+          >
+            {name}
+          </span>
+        </h2>
+        {
+        organizerName != undefined &&
+          <div class="flex gap-1.5">
+            <p class="text-sm font-bold text-mauve-11">
+              <PartyPopper class="w-4 h-4 inline stroke-[3px] mr-1.5" />
+              {organizerName}
+            </p>
+          </div>
+        }
+        <div class="flex gap-1.5">
+          <p class="text-sm font-bold text-mauve-11">
+            <Clock class="w-4 h-4 inline stroke-[3px] mr-1.5" />
+            <time datetime={startsAt.toISOString()}>
+              {startsAt.getMonth() + 1}月{startsAt.getDate()}日({["日","月","火","水","木","金","土"][startsAt.getDay()]}) {startsAtText}
+            </time>
+            ~
+            <time datetime={endsAt.toISOString()}>{endsAtText}</time>
+          </p>
+          <EventStatus startsAt={startsAt} endsAt={endsAt} />
+        </div>
+      </div>
+
+
+      <ColoredContainer color='violet' class="flex-col">
+        <p
+          class:list={[
+            'text-lg  font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11 paint-sfm flex-shrink',
+          ]}
+        >
+          {summary}
+        </p>
+        {
+          hasExternalLinks && (
+            <nav
+              aria-label={`${name}の外部リンク`}
+              class="flex flex-row items-end justify-end flex-grow -mt-1 text-xs text-mauve-11 font-Dela"
+            >
+              {urls?.sort().map((url) => {
+                const hostname = new URL(url).hostname;
+                if (hostname.endsWith('x.com')) {
+                  return (
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener"
+                      aria-label={`${name}をXでフォローする`}
+                      class="p-1 transition-colors rounded hover:bg-mauve-3 active:bg-mauve-4"
+                    >
+                      <Twitter class="inline w-4 h-4 stroke-[3px]" />
+                    </a>
+                  );
+                }
+                if (hostname.endsWith('instagram.com')) {
+                  return (
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener"
+                      aria-label={`${name}をInstagramでフォローする`}
+                      class="p-1 transition-colors rounded hover:bg-mauve-3 active:bg-mauve-4"
+                    >
+                      <Instagram class="inline w-4 h-4 stroke-[3px]" />
+                    </a>
+                  );
+                }
+                return (
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener"
+                    class="p-1 rounded transition-color hover:bg-mauve-3 active:bg-mauve-4"
+                  >
+                    <Globe class="inline w-4 h-4 stroke-[3px]" />
+                  </a>
+                );
+              })}
+              {youtube && (
+                <a
+                  href={youtube}
+                  target="_blank"
+                  rel="noopener"
+                  class="text-pink-11 transition-colors inline-flex flex-row items-center gap-0.5 p-1 rounded hover:bg-pink-3 active:bg-pink-4"
+                  aria-label={`${name}の動画・ライブ配信をYoutubeで見る`}
+                >
+                  <Youtube class="inline w-4 h-4 stroke-[3px]" />
+                  Youtube
+                </a>
+              )}
+            </nav>
+          )
+        }
+        {
+          isFireworks && <>
+            <hr class="text-violet-9"/>
+            <Content />
+          </>
+        }
+      </ColoredContainer>
+
+      <ButtonLink
+        href="/event"
+        class="mx-auto"
+      >
+        <LayoutGrid class="inline w-6 h-6 stroke-[2px] stroke-mauve-11" />
+        <p class="text-mauve-11 text-center font-Dela text-base">
+          イベントの一覧へ戻る
+        </p>
+      </ButtonLink>
+
+      <div class="grid gap-6 xl:grid-cols-2">
+        {
+          nextEvent != null && nextEvent != undefined?
+            <ColoredContainer color="violet" class="flex-col xl:order-2">
+              <h3 class="relative inline-block mx-auto rounded-lg bg-mauve-a-3">
+                <span
+                  data-text="次のイベント→"
+                  class:list={[
+                    'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-8 paint-sfm drop-shadow-bump shadow-mauve-6',
+                    "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
+                  ]}
+                  >
+                  次のイベント→
+                </span>
+              </h3>
+              <EventCard type="list" slug={nextEvent} class="w-full" />
+            </ColoredContainer>
+          :<></>
+        }
+
+        {
+          previousEvent!=null&&previousEvent!=undefined?
+            <ColoredContainer color="violet" class="flex-col xl:order-1">
+              <h3 class="relative inline-block mx-auto rounded-lg bg-mauve-a-3">
+                <span
+                  data-text="←前のイベント"
+                  class:list={[
+                    'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-8 paint-sfm drop-shadow-bump shadow-mauve-6',
+                    "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
+                  ]}
+                >
+                  ←前のイベント
+                </span>
+              </h3>
+              <EventCard type="list" slug={previousEvent} class="w-full" />
+            </ColoredContainer>
+        :<></>
+        }
+      </div>
+    </main>
+
+</Layout>

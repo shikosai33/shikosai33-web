@@ -8,7 +8,7 @@ image: ./_images/kosensei-no-shucho.png
 name: 高専生の主張
 
 # イベントの開催者の名前 (団体の名前) - バンドの場合は省略
-organizer-name: 茨香祭実行員会
+organizer-name: 茨香祭実行委員会
 
 # イベントの概要 (バンドからのコメント)
 summary: 高専生の魂の叫びを聞け！！！！
