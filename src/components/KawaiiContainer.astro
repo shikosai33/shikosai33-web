@@ -1,0 +1,64 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+/**
+ * テーマを表すようなテキストが背景になっている、色付きのかわいいコンテナ
+ * @see https://www.figma.com/design/Ao44cG1Oi8XUiWBQM1vyk7/website?node-id=195-554&t=WqPsC6GEhvmb6Pp2-1
+ */
+export interface Props extends HTMLAttributes<'div'> {
+  /**
+   * コンテナの大きさを柔軟に変えるためのクラス名。
+   * @example "w-36 lg:w-48"
+   */
+  class?: string;
+
+  /**
+   * コンテナの色を指定する。
+   */
+  color?: 'mauve' | 'pink' | 'yellow' | 'violet' | 'orange' | 'blue';
+
+  /**
+   * コンテナの背景となるテキストを繰り返すの行数を指定する。
+   * @default 7
+   */
+  lines?: number;
+}
+
+const { class: className, color = 'mauve', lines = 7, ...props } = Astro.props;
+
+const KAWAII_TEXT =
+  '♡ アコガレ ♡ オモイデ ♡ カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ ♡ カワイイ ♡ ≧A≦ ♡' as const;
+---
+
+<div
+  class:list={[
+    "relative flex items-center w-full p-6 overflow-hidden min-h-60 bg-gradient-to-b rounded-3xl",
+    color === "mauve" && "from-mauve-9 via-mauve-5 to-mauve-1",
+    color === "pink" && "from-pink-9 via-pink-5 to-pink-1",
+    color === "yellow" && "from-yellow-9 via-yellow-5 to-yellow-1",
+    color === "violet" && "from-violet-9 via-violet-5 to-violet-1",
+    color === "orange" && "from-orange-9 via-orange-5 to-orange-1",
+    color === "blue" && "from-blue-9 via-blue-5 to-blue-1",
+    className,
+  ]}
+  {...props}
+>
+  <div
+    aria-hidden
+    class="absolute inset-0 flex flex-col items-center justify-start"
+  >
+    <p
+      set:html={new Array(lines).fill(KAWAII_TEXT).join("<br />")}
+      class:list={[
+        "absolute mx-auto text-2xl text-center text-transparent origin-center select-none font-Dela whitespace-nowrap mix-blend-color-burn top-16 -rotate-12 text-stroke-2",
+        color === "mauve" && "text-stroke-mauve-9",
+        color === "pink" && "text-stroke-pink-9",
+        color === "yellow" && "text-stroke-yellow-11",
+        color === "violet" && "text-stroke-violet-9",
+        color === "orange" && "text-stroke-orange-9",
+        color === "blue" && "text-stroke-blue-9",
+      ]}
+    />
+  </div>
+  <slot />
+</div>
