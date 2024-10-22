@@ -20,7 +20,8 @@ summary: ロボットを使った射的やロボットの操縦体験ができ�
 location: activity-room
 
 # X, Instagramなどの外部リンク
-# urls:
+urls:
+- https://x.com/nitic_robotclub
 # - https://x.com/example
 # - https://instagram.com/example
 ---
