@@ -21,12 +21,14 @@ import { Mail } from "lucide-astro";
 
 <style is:global>
   :root {
+    --pagefind-ui-scale: 0.85;
     --pagefind-ui-primary: var(--pink-11);
     --pagefind-ui-text: var(--mauve-11);
     --pagefind-ui-background: var(--mauve-1);
     --pagefind-ui-border: var(--mauve-6);
     --pagefind-ui-tag: var(--mauve-3);
     --pagefind-ui-border-width: 1px;
+    --pagefind-ui-image-box-ratio: 1 / 1;
   }
 </style>
 
@@ -41,8 +43,11 @@ import { Mail } from "lucide-astro";
   new PagefindUI({
     element: `#search-ui-container`,
     autofocus: true,
+    excerptLength: 30,
     translations: {
       placeholder: "あなたが茨香祭で気になるものは？",
+      zero_results:
+        "[SEARCH_TERM] に関連するサークル・イベントは見つかりませんでした",
     },
   });
 </script>
