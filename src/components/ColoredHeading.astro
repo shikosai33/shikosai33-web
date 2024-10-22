@@ -1,0 +1,55 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+/**
+ * 影と色付きの見出し
+ * @see https://www.figma.com/design/Ao44cG1Oi8XUiWBQM1vyk7/website?node-id=573-40021&t=XAWyLkzjhx0kuzvk-1
+ */
+export interface Props extends HTMLAttributes<'h1'> {
+  /**
+   * 見出しの大きさを柔軟に変えるためのクラス名。
+   * @example "text-3xl md:text-4xl"
+   */
+  class?: string;
+
+  /**
+   * 見出しのテキスト。
+   */
+  text: string;
+
+  /**
+   * 見出しの段階を指定する。
+   */
+  as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
+  /**
+   * コンテナの色を指定する。
+   */
+  color?: 'mauve' | 'pink' | 'yellow' | 'violet' | 'orange' | 'blue';
+}
+
+const { class: className, color = 'mauve', as: As, text, ...props } = Astro.props;
+---
+
+<As
+  class:list={["relative font-Dela tracking-wider h-fit", className]}
+  {...props}
+>
+  <span
+    data-text={text}
+    class:list={[
+      "block relative text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6 whitespace-nowrap", // HACK: WebKit で縁がboxの大きさで切り取られてしまうため、boxを広げて負のmarginを設定
+      "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:bg-clip-text before:pointer-events-none",
+      color === "mauve" &&
+        "text-mauve-11 before:from-mauve-11 before:to-mauve-12",
+      color === "pink" && "text-pink-11 before:from-pink-11 before:to-pink-12",
+      color === "yellow" &&
+        "text-yellow-11 before:from-yellow-11 before:to-yellow-12",
+      color === "violet" &&
+        "text-violet-11 before:from-violet-11 before:to-violet-12",
+      color === "orange" &&
+        "text-orange-11 before:from-orange-11 before:to-orange-12",
+      color === "blue" && "text-blue-11 before:from-blue-11 before:to-blue-12",
+    ]}>{text}</span
+  >
+</As>
