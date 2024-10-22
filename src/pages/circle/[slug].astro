@@ -3,8 +3,11 @@ import { getCollection, getEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import { getLocationLocale } from '@/utils/location/getLocationLocale';
 import Layout from '@/layouts/Layout.astro';
+import ColoredContainer from '@/components/ColoredContainer.astro';
+import ButtonLink from '@/components/ButtonLink.astro';
 import KawaiiText from '@/assets/kawaii_text_yellow.png';
 import SchoolMap from '@/content/locations/_maps/school_map.svg';
+
 import {
   LayoutGrid,
   Globe,
@@ -48,7 +51,7 @@ export const prerender = true;
 <Layout title="イベント">
   <main class="w-full flex flex-col gap-6">
     <div
-      class="relative flex flex-col gap-3 justify-center items-center rounded-3xl overflow-hidden bg-gradient-to-b from-yellow-a-9 to-mauve-a-1"
+      class="relative flex flex-col gap-3 justify-center items-center overflow-hidden bg-gradient-to-b from-yellow-a-9 to-mauve-a-1 -mx-1 mt-[-88px] px-1 pt-[88px] md:mx-0 md:mt-0 md:px-0 md:pt-0 md:rounded-t-3xl"
     >
       <Image
         src={KawaiiText}
@@ -58,23 +61,24 @@ export const prerender = true;
       />
       <div class="m-6 flex justify-center items-center relative">
         <Image
+          aria-hidden
           src={image}
-          alt={`${name}のアーティスト写真またはサムネイル`}
+          alt={`${name}のサークルカット`}
           loading="lazy"
-          class="w-1/2 aspect-square rounded-xl absolute justify-self-center inset-0 blur-lg opacity-50"
+          class="w-full max-w-[320px] lg:max-w-[470px] aspect-square rounded-xl absolute justify-self-center blur-lg opacity-50"
         />
         <Image
           src={image}
-          alt={`${name}のアーティスト写真またはサムネイル`}
+          alt={`${name}のサークルカット`}
           loading="lazy"
-          class="w-1/2 aspect-square rounded-xl relative"
+          class="w-full max-w-[300px] lg:max-w-[450px] aspect-square rounded-xl relative"
         />
       </div>
       <h2 class="relative text-center">
         <span
           data-text=`${name}`
           class:list={[
-            'inline-block text-5xl font-Dela text-yellow-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6',
+            'inline-block text-4xl font-Dela text-yellow-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6 md:text-5xl',
             "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-yellow-11 before:to-yellow-12 before:bg-clip-text before:pointer-events-none",
           ]}
         >
@@ -101,9 +105,7 @@ export const prerender = true;
       </div>
     </div>
 
-    <div
-      class="flex flex-col gap-3 p-6 rounded-3xl border border-solid border-yellow-6 bg-gradient-to-b from-mauve-1 to-yellow-1 shadow-[0px_4px_16px_0px_var(--yellow-a3),_0px_4px_0px_0px_var(--yellow-9)]"
-    >
+    <ColoredContainer color="yellow" class="relative flex-col">
       <p
         class:list={[
           'text-lg  font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11 paint-sfm flex-shrink',
@@ -163,11 +165,9 @@ export const prerender = true;
         <hr class="text-yellow-9 last:hidden" />
         <Content />
       </div>
-    </div>
+    </ColoredContainer>
 
-    <div
-      class="flex flex-col gap-3 justify-center items-center p-6 rounded-3xl border border-solid border-yellow-6 bg-gradient-to-b from-mauve-1 to-yellow-1 shadow-[0px_4px_16px_0px_var(--yellow-a3),_0px_4px_0px_0px_var(--yellow-9)]"
-    >
+    <ColoredContainer color="yellow" class="relative flex-col">
       <h2 id="class" class="relative whitespace-nowrap lg:self-start">
         <span
           data-text="出展場所"
@@ -179,7 +179,7 @@ export const prerender = true;
           出展場所
         </span>
       </h2>
-      <h3 class="relative inline-block rounded-lg bg-mauve-a-3">
+      <h3 class="relative inline-block mx-auto rounded-lg bg-mauve-a-3">
         <span
           data-text=`${getLocationLocale(location)}`
           class:list={[
@@ -194,16 +194,13 @@ export const prerender = true;
         <Image src={SchoolMap} alt="茨城高専構内地図" />
         <Image src={location.map} alt="茨城高専構内地図" />
       </div>
-    </div>
+    </ColoredContainer>
 
-    <a
-      href="/circle"
-      class="w-auto m-auto px-4 py-2 flex justify-center items-center gap-2 rounded-full bg-mauve-1 border-maube-2 shadow-[0px_4px_0px_0px_var(--mauve-11)]"
-    >
+    <ButtonLink href="/circle" class="mx-auto">
       <LayoutGrid class="inline w-6 h-6 stroke-[2px] stroke-mauve-11" />
       <p class="text-mauve-11 text-center font-Dela text-base">
         サークルの一覧へ戻る
       </p>
-    </a>
+    </ButtonLink>
   </main>
 </Layout>
