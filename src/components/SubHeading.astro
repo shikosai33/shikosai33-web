@@ -1,0 +1,32 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+/**
+ * 影と色付きのサブ見出し
+ * @see https://www.figma.com/design/Ao44cG1Oi8XUiWBQM1vyk7/website?node-id=573-40021&t=XAWyLkzjhx0kuzvk-1
+ */
+export interface Props extends HTMLAttributes<'h1'> {
+  /**
+   * 見出しの大きさを柔軟に変えるためのクラス名。
+   * @example "text-3xl md:text-4xl"
+   */
+  class?: string;
+
+  /**
+   * 見出しの段階を指定する。
+   */
+  as: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+}
+
+const { class: className, as: As, ...props } = Astro.props;
+---
+
+<As
+  class:list={[
+    "relative font-Dela w-fit h-fit tracking-wide rounded-lg bg-mauve-a-3 px-2 py-1 text-mauve-11 text-stroke-mauve-1 text-stroke-8 paint-sfm drop-shadow-bump shadow-mauve-6",
+    className,
+  ]}
+  {...props}
+>
+  <slot />
+</As>
