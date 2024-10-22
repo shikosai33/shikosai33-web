@@ -8,3 +8,5 @@ floor: 2
 
 # 部屋の名前 (2年2組教室, 屋外ステージ, 屋内ステージ, etc.)
 room-name: マルチメディア教室
+
+map:  ./_maps/bldg1.svg
