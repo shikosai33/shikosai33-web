@@ -8,7 +8,7 @@ image: ./_images/txit.jpeg
 name: 秘儀披露 - TXIT
 
 # イベントの開催者の名前 (団体の名前) - バンドの場合は省略
-organizer-name: TXIT
+# organizer-name: TXIT
 
 # イベントの概要 (バンドからのコメント)
 summary: 様々なジャンルのカバーダンスと創作ダンスを披露させていただきます！ぜひぜひ一緒に楽しみましょう！！
