@@ -24,5 +24,5 @@ location: outdoor-tent
 # - https://x.com/example
 # - https://instagram.com/example
 ---
-学校の場所はひたちなか市
+学校の場所はひたちなか市<br>
 その土地で作られた野菜・米を食べて地域を応援しよう！！

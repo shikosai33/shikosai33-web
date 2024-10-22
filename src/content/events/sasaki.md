@@ -8,7 +8,7 @@ image: ./_images/sasaki.jpeg
 name: 秘儀披露 - ササキ
 
 # イベントの開催者の名前 (団体の名前) - バンドの場合は省略
-organizer-name: ササキ
+# organizer-name: ササキ
 
 # イベントの概要 (バンドからのコメント)
 summary: 良い音楽を、出来る限り大きい音で

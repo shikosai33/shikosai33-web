@@ -20,9 +20,10 @@ summary: ロボットを使った射的やロボットの操縦体験ができ�
 location: activity-room
 
 # X, Instagramなどの外部リンク
-# urls:
+urls:
+- https://x.com/nitic_robotclub
 # - https://x.com/example
 # - https://instagram.com/example
 ---
-ロボコンで実際に使用した機体を使って射的や操縦体験ができます。
+ロボコンで実際に使用した機体を使って射的や操縦体験ができます<br>
 ロボット部で制作した物の物販も行う予定ですのでぜひお越しください。
