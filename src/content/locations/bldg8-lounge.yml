@@ -8,3 +8,5 @@ floor: 1
 
 # 部屋の名前 (2年2組教室, 屋外ステージ, 屋内ステージ, etc.)
 room-name: 8号館ラウンジ
+
+map:  ./_maps/bldg8.svg

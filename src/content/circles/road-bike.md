@@ -17,11 +17,10 @@ category: 技術系
 summary: ロードバイクに乗って自分の実力を試そう!
 
 # サークルの場所
-location: outdoor-passage
+location: outdoor-tent
 
 # X, Instagramなどの外部リンク
 # urls:
 # - https://x.com/example
 # - https://instagram.com/example
 ---
-ロードバイクに乗って自分の実力を試そう!

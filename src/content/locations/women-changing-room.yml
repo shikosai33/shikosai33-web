@@ -8,3 +8,5 @@ floor: 3
 
 # 部屋の名前 (2年2組教室, 屋外ステージ, 屋内ステージ, etc.)
 room-name: 女子更衣室
+
+map:  ./_maps/bldg8.svg
