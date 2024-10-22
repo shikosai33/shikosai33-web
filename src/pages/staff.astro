@@ -2,9 +2,8 @@
 import Layout from "@/layouts/Layout.astro";
 import ButtonLink from "@/components/ButtonLink.astro";
 import { ArrowLeft } from "lucide-astro";
-// import NotFound404Image from "@/assets/404.png";
-// import { Image } from "astro:assets";
-// import StudentCard from "@/components/StudentCard.astro";
+import LaughingGuysImage from "@/assets/LaughingGuys.png";
+import { Image } from "astro:assets";
 ---
 
 <Layout title="スタッフ">
@@ -32,7 +31,7 @@ import { ArrowLeft } from "lucide-astro";
         />
       </p>
       <div class="relative flex flex-col items-center">
-        <img src="src/assets/LaughingGuys.png" />
+        <Image src={LaughingGuysImage} alt="茨香祭実行委員の集合写真" />
         <span
           data-text="スタッフ"
           class:list={[
