@@ -1,0 +1,98 @@
+---
+import { Image } from 'astro:assets';
+import HeiseiHeart from '@/assets/heisei-heart.png';
+import HeiseiTiara from '@/assets/heisei-tiara.png';
+import Shikosai33AnniversaryLogo from '@/assets/shikosai33-anniversary-logo.png';
+import ColoredContainer from './ColoredContainer.astro';
+---
+
+<ColoredContainer
+  class="relative flex flex-col items-center overflow-hidden !gap-2 p-6 z-[-50]"
+>
+  <Image
+    src={HeiseiHeart}
+    alt="平成っぽいピンクのハートのステッカー"
+    widths={[100, 200, 300, HeiseiHeart.width]}
+    sizes="100px"
+    loading="lazy"
+    class="absolute sm:w-[173px] w-[100px] h-auto sm:top-[-0px] sm:right-[-20px] top-[15px] right-[-15px] rotate-[20.37deg]"
+  />
+  <Image
+    src={HeiseiHeart}
+    alt="平成っぽいグレーのハートのステッカー"
+    widths={[90, 180, 270, HeiseiHeart.width]}
+    sizes="90px"
+    loading="lazy"
+    class="absolute sm:w-[154.248px] w-[90px] h-auto sm:top-[144px] sm:right-[-40px] top-[90px] right-[-15px] rotate-[-2.391deg] grayscale"
+  />
+  <Image
+    src={Shikosai33AnniversaryLogo}
+    alt="茨香祭の第33回記念の女児向けアニメのような雰囲気のロゴ"
+    widths={[90, 180, 270, Shikosai33AnniversaryLogo.width]}
+    sizes="90px"
+    loading="lazy"
+    class="absolute w-[90px] h-auto sm:top-[20px] sm:left-[20px] top-[35px] left-[-5px]"
+  />
+  <Image
+    src={HeiseiTiara}
+    alt="平成っぽいティアラのステッカー"
+    widths={[113, 226, 339, HeiseiTiara.width]}
+    sizes="113px"
+    loading="lazy"
+    class="absolute w-[113px] h-auto sm:top-[115px] sm:left-[-22px] top-[200px] left-[10px]"
+  />
+
+  <h4 class="relative">
+    <span
+      class="tracking-widest inline-block sm:text-2xl text-lg font-Dela inset-x-0 top-0 text-mauve-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6 text-center"
+    >
+      第33回 <ruby>茨香祭<rt>しこうさい</rt></ruby>のテーマは ...
+    </span>
+  </h4>
+
+  <div class="p-20 overflow-hidden sm:p-10">
+    <div class="relative">
+      <p
+        data-text="ちゃあみぃ!"
+        class:list={[
+          "sm:text-8xl text-5xl font-Dela whitespace-nowrap text-mauve-1 text-stroke-mauve-1 sm:text-stroke-[24px] text-stroke-[12px] paint-sfm sm:drop-shadow-bump-lg drop-shadow-bump shadow-mauve-6 text-center",
+          "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:text-stroke-[0px] before:z-30 before:text-transparent before:bg-gradient-to-r before:from-[#F472B6] before:via-[#FB923C] before:to-[#FDE047] before:bg-clip-text",
+        ]}
+      >
+        ちゃあみぃ!
+      </p>
+    </div>
+
+    <span
+      aria-hidden
+      class="absolute select-none inset-x-0 sm:inset-y-12 inset-16 z-[-10] inline-block sm:text-2xl text-lg text-center font-Dela whitespace-nowrap text-mauve-1 text-stroke-mauve-3 text-stroke-[2px] paint-sfm rotate-[-12.71deg]"
+    >
+      カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+      />
+      カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+      />
+      カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+      />
+      カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+      />
+      カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+      />
+      カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
+      />
+      カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ
+    </span>
+  </div>
+
+  <p class="relative">
+    <span
+      data-text="普段の茨城高専にはない”茨香祭”という非日常を彩る要素と言えば、愛嬌・可愛らしさ！\nらぶりーでちゃーみーな、日曜朝の女児向けアニメのような世界観をお楽しみに！"
+      class:list={[
+        "inline-block sm:text-base text-sm font-Dela text-center whitespace-pre-wrap invisible",
+        "before:visible before:content-[attr(data-text)] before:absolute before:inset-x-0 before:bottom-0 before:text-stroke-[2px] before:text-transparent before:bg-gradient-to-b before:from-mauve-3 before:to-mauve-6 before:bg-clip-text before:pointer-events-none",
+        "after:visible after:content-[attr(data-text)] after:absolute after:inset-x-0 after:bottom-0 after:text-stroke-[0px] after:text-transparent after:bg-gradient-to-b after:from-mauve-11 after:to-mauve-12 after:bg-clip-text after:pointer-events-none",
+      ]}
+    >
+      普段の茨城高専にはない”茨香祭”という非日常を彩る要素と言えば、愛嬌・可愛らしさ！らぶりーでちゃーみーな、日曜朝の女児向けアニメのような世界観をお楽しみに！
+    </span>
+  </p>
+</ColoredContainer>
