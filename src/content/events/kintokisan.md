@@ -8,10 +8,10 @@ image: ./_images/kintokisan.jpg
 name: きんときさん
 
 # イベントの開催者の名前 (団体の名前) - バンドの場合は省略
-organizer-name: 茨香祭実行員会
+organizer-name: 茨香祭実行委員会
 
 # イベントの概要 (バンドからのコメント)
-summary: 高専生にも筋力は必要です。<br>筋力ある人ってかっこいい！<br>ぼく、きんときさん！！
+summary: 高専生にも筋力は必要です。筋力ある人ってかっこいい！ぼく、きんときさん！！
 
 # イベントの場所 (ステージ名)
 location: outdoor-stage

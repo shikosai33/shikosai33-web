@@ -24,5 +24,5 @@ location: outdoor-tent
 # - https://x.com/example
 # - https://instagram.com/example
 ---
-何を見れるかわからねーって思うだろうが俺もなにが見れるのかワカラネェ？
+何を見れるかわからねーって思うだろうが俺もなにが見れるのかワカラネェ？<br>
 部員随時募集中。
