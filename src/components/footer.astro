@@ -60,19 +60,20 @@ const { class: className, ...props } = Astro.props;
 
 <footer
   class:list={[
+    "light",
     "p-8 relative flex flex-col gap-6 rounded-t-3xl overflow-hidden bg-mauve-12 md:rounded-3xl",
     className,
   ]}
   {...props}
 >
-  <div class="grid grid-cols-5 h-6 bg-mauve-12 absolute top-0 left-0 right-0">
+  <div class="absolute top-0 left-0 right-0 grid h-6 grid-cols-5 bg-mauve-12">
     <div class="blur-[32px] bg-pink-9"></div>
     <div class="blur-[32px] bg-yellow-9"></div>
     <div class="blur-[32px] bg-violet-9"></div>
     <div class="blur-[32px] bg-orange-9"></div>
     <div class="blur-[32px] bg-blue-9"></div>
   </div>
-  <div class="grid grid-cols-5 h-2 absolute top-0 left-0 right-0">
+  <div class="absolute top-0 left-0 right-0 grid h-2 grid-cols-5">
     <div class="bg-pink-9"></div>
     <div class="bg-yellow-9"></div>
     <div class="bg-violet-9"></div>
@@ -80,7 +81,7 @@ const { class: className, ...props } = Astro.props;
     <div class="bg-blue-9"></div>
   </div>
   <nav
-    class="relative z-10 flex flex-col items-stretch gap-6 self-stretch xl:flex-row"
+    class="relative z-10 flex flex-col items-stretch self-stretch gap-6 xl:flex-row"
   >
     <div class="flex flex-col items-center">
       <a href="/">
@@ -92,19 +93,19 @@ const { class: className, ...props } = Astro.props;
           class="w-full max-h-full md:max-h-32 aspect-[13/8]"
         />
       </a>
-      <p class="text-xs text-mauve-9 text-center break-keep whitespace-pre">
+      <p class="text-xs text-center whitespace-pre text-mauve-9 break-keep">
         &copy;2024 Shikosai Exective Committee<wbr /> All Rights Reserved.
       </p>
     </div>
 
-    <ul class="grow grid grid-cols-2 gap-6 lg:grid-cols-4">
+    <ul class="grid grid-cols-2 gap-6 grow lg:grid-cols-4">
       <li>
         <h2 class="text-sm text-mauve-4 font-Dela">公式SNS</h2>
         <ul>
           <li>
             <a
               href="https://twitter.com/shikosai33/"
-              class="text-sm text-mauve-4 font-Dela underline"
+              class="text-sm underline text-mauve-4 font-Dela"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -114,7 +115,7 @@ const { class: className, ...props } = Astro.props;
           <li>
             <a
               href="https://instagram.com/shikosai33/"
-              class="text-sm text-mauve-4 font-Dela underline"
+              class="text-sm underline text-mauve-4 font-Dela"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -127,18 +128,18 @@ const { class: className, ...props } = Astro.props;
       <li>
         <h2 class="text-sm text-mauve-4 font-Dela">サークル</h2>
         <a
-          class="text-sm text-mauve-4 font-Dela underline"
+          class="text-sm underline text-mauve-4 font-Dela"
           href="/circle#class"
         >
           クラス
         </a>
         <br />
-        <a class="text-sm text-mauve-4 font-Dela underline" href="/circle#club">
+        <a class="text-sm underline text-mauve-4 font-Dela" href="/circle#club">
           部活動・同好会
         </a>
         <br />
         <a
-          class="text-sm text-mauve-4 font-Dela underline"
+          class="text-sm underline text-mauve-4 font-Dela"
           href="/circle#others"
         >
           その他
@@ -148,21 +149,21 @@ const { class: className, ...props } = Astro.props;
       <li>
         <h2 class="text-sm text-mauve-4 font-Dela">イベント</h2>
         <a
-          class="text-sm text-mauve-4 font-Dela underline"
+          class="text-sm underline text-mauve-4 font-Dela"
           href="/event#indoor-1"
         >
           屋内ステージ
         </a>
         <br />
         <a
-          class="text-sm text-mauve-4 font-Dela underline"
+          class="text-sm underline text-mauve-4 font-Dela"
           href="/event#outdoor-1"
         >
           屋外ステージ
         </a>
         <br />
         <a
-          class="text-sm text-mauve-4 font-Dela underline"
+          class="text-sm underline text-mauve-4 font-Dela"
           href="/event#others"
         >
           その他
@@ -171,26 +172,26 @@ const { class: className, ...props } = Astro.props;
 
       <li>
         <h2 class="text-sm text-mauve-4 font-Dela">その他のページ</h2>
-        <a class="text-sm text-mauve-4 font-Dela underline" href="/">
+        <a class="text-sm underline text-mauve-4 font-Dela" href="/">
           スタッフ
         </a>
         <br />
-        <a class="text-sm text-mauve-4 font-Dela underline" href="/">
+        <a class="text-sm underline text-mauve-4 font-Dela" href="/">
           アクセス
         </a>
         <br />
-        <a class="text-sm text-mauve-4 font-Dela underline" href="/">
+        <a class="text-sm underline text-mauve-4 font-Dela" href="/">
           お問い合わせ
         </a>
         <br />
-        <a class="text-sm text-mauve-4 font-Dela underline" href="/">
+        <a class="text-sm underline text-mauve-4 font-Dela" href="/">
           来場者アンケート
         </a>
       </li>
     </ul>
   </nav>
 
-  <hr class="h-px bg-mauve-11 border-0" />
+  <hr class="h-px border-0 bg-mauve-11" />
 
   <div class="text-center">
     <h2 class="text-sm text-center text-mauve-4 font-Dela">協賛</h2>
@@ -212,7 +213,7 @@ const { class: className, ...props } = Astro.props;
     }
   </div>
 
-  <div class="w-full flex flex-col lg:flex-row lg:justify-between">
+  <div class="flex flex-col w-full lg:flex-row lg:justify-between">
     <a
       href="https://www.ibaraki-ct.ac.jp/"
       target="_blank"
@@ -220,7 +221,7 @@ const { class: className, ...props } = Astro.props;
     >
       <Image src={Niticlogo} alt="第33回茨香祭のロゴ" class="w-auto" />
     </a>
-    <p class="text-mauve-4 lg:text-end pt-6 lg:pt-0">
+    <p class="pt-6 text-mauve-4 lg:text-end lg:pt-0">
       〒312-8508 茨城県 ひたちなか市 中根866<br />TEL 029-272-5201
     </p>
   </div>
