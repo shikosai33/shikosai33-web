@@ -1,10 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 
+import type { CollectionEntry } from "astro:content";
 import { BookOpen, MapPinned } from "lucide-astro";
 import EventCard from "@/components/EventCard.astro";
 import { ArrowLeft } from "lucide-astro";
 import ButtonLink from "@/components/ButtonLink.astro";
+import ColoredContainer from "@/components/ColoredContainer.astro";
+import ColoredHeading from "@/components/ColoredHeading.astro";
+import SubHeading from "@/components/SubHeading.astro";
 
 const SLUGS_INDOOR_DAY1 = [
   "dance-club",
@@ -21,7 +25,7 @@ const SLUGS_INDOOR_DAY1 = [
   "marks",
   "crazy-butter-knife",
   "i-scream",
-] as const satisfies string[];
+] as const satisfies CollectionEntry<"events">["slug"][];
 
 const SLUGS_INDOOR_DAY2 = [
   "d-c",
@@ -36,7 +40,7 @@ const SLUGS_INDOOR_DAY2 = [
   "negiduction",
   "snowy",
   "bright-night",
-] as const satisfies string[];
+] as const satisfies CollectionEntry<"events">["slug"][];
 
 const SLUGS_OUTDOOR_DAY1 = [
   "chuonikizu",
@@ -51,7 +55,7 @@ const SLUGS_OUTDOOR_DAY1 = [
   "isador",
   "alpaca1",
   "nida-ira",
-] as const satisfies string[];
+] as const satisfies CollectionEntry<"events">["slug"][];
 
 const SLUGS_OUTDOOR_DAY2 = [
   "alpaca2",
@@ -63,56 +67,52 @@ const SLUGS_OUTDOOR_DAY2 = [
   "cosplay-show",
   "himitsu-bakuro",
   "kintokisan",
-] as const satisfies string[];
+] as const satisfies CollectionEntry<"events">["slug"][];
 
-const SLUGS_OTHERS = [
+const SLUGS_OTHERS_DAY1 = [
   "stamp-rally",
+] as const satisfies CollectionEntry<"events">["slug"][];
+
+const SLUGS_OTHERS_DAY2 = [
   "id-lottery",
   "fireworks",
-] as const satisfies string[];
+] as const satisfies CollectionEntry<"events">["slug"][];
 ---
 
 <Layout title="イベント">
-  <main class="w-full flex flex-col items-center gap-6">
-    <div
-      class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-[#FDFCFD] to-[#FCFCFF] shadow-[0px_4px_16px_0px_rgba(51, 0, 255, 0.06)], shadow-[0px_4px_0px_0px_#A78BFA]"
-    >
-      <div class="w-full flex justify-between items-center">
-        <h2 class="relative">
-          <span
-            data-text="イベント"
-            class:list={[
-              "inline-block text-3xl font-Dela text-violet-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6",
-              "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-[#6C4DB6] before:to-[#371B6B] before:bg-clip-text before:pointer-events-none",
-            ]}
-          >
-            イベント
-          </span>
-        </h2>
+  <main class="flex flex-col items-center w-full gap-6">
+    <ColoredContainer class="flex-col w-full" color="violet">
+      <div class="flex items-center justify-between w-full">
+        <ColoredHeading
+          as="h2"
+          class="text-3xl"
+          text="イベント"
+          color="violet"
+        />
         <div class="flex items-center gap-1.5">
           <BookOpen class="inline w-4 h-4 stroke-[2px] stroke-mauve-11" />
-          <p class="text-sm text-mauve-11 font-bold">このページの目次</p>
+          <p class="text-sm font-bold text-mauve-11">このページの目次</p>
         </div>
       </div>
 
-      <div class="w-full grid grid-cols-2 gap-3">
+      <div class="grid w-full grid-cols-2 gap-3">
         <a
-          href="#indoor-1"
+          href="#indoor-day1"
           class="w-full font-Dela text-sm text-center text-violet-11 p-2.5 rounded-lg bg-violet-3"
           >屋内ステージ1日目 <span class="text-blue-11">(土曜日)</span></a
         >
         <a
-          href="#indoor-2"
+          href="#indoor-day2"
           class="w-full font-Dela text-sm text-center text-violet-11 p-2.5 rounded-lg bg-violet-3"
           >屋内ステージ2日目 <span class="text-pink-11">(日曜日)</span></a
         >
         <a
-          href="#outdoor-1"
+          href="#outdoor-day1"
           class="w-full font-Dela text-sm text-center text-violet-11 p-2.5 rounded-lg bg-violet-3"
           >屋外ステージ1日目 <span class="text-blue-11">(土曜日)</span></a
         >
         <a
-          href="#outdoor-2"
+          href="#outdoor-day2"
           class="w-full font-Dela text-sm text-center text-violet-11 p-2.5 rounded-lg bg-violet-3"
           >屋外ステージ2日目 <span class="text-pink-11">(日曜日)</span></a
         >
@@ -122,27 +122,20 @@ const SLUGS_OTHERS = [
           >その他</a
         >
       </div>
-    </div>
+    </ColoredContainer>
 
-    <div
-      class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-[#FDFCFD] to-[#FCFCFF] shadow-[0px_4px_16px_0px_rgba(51, 0, 255, 0.06)], shadow-[0px_4px_0px_0px_#A78BFA]"
-    >
-      <div class="w-full flex flex-col md:flex-row items-center gap-9">
-        <h2 class="relative whitespace-nowrap">
-          <span
-            data-text="屋内ステージ"
-            class:list={[
-              "inline-block text-4xl font-Dela text-violet-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6",
-              "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-[#6C4DB6] before:to-[#371B6B] before:bg-clip-text before:pointer-events-none",
-            ]}
-          >
-            屋内ステージ
-          </span>
-        </h2>
+    <ColoredContainer class="flex-col" color="violet">
+      <div class="flex flex-col items-center w-full md:flex-row gap-9">
+        <ColoredHeading
+          as="h2"
+          color="violet"
+          text="屋内ステージ"
+          class="text-4xl"
+        />
         <div class="flex flex-col items-center md:items-start">
           <div class="flex items-center gap-1.5">
             <MapPinned class="inline w-4 h-4 stroke-[2px] stroke-mauve-11" />
-            <p class="text-sm text-mauve-11 font-bold">
+            <p class="text-sm font-bold text-mauve-11">
               第一体育館 屋内ステージ
             </p>
           </div>
@@ -159,61 +152,27 @@ const SLUGS_OTHERS = [
           </p>
         </div>
       </div>
-      <div class="w-full grid grid-cols-1 gap-9 lg:grid-cols-2">
-        <div class="flex flex-col gap-6 items-center">
-          <h3
-            id="indoor-1"
-            class="relative inline-block rounded-lg bg-mauve-a-3"
+      <div class="grid w-full grid-cols-1 gap-9 xl:grid-cols-2">
+        <div class="flex flex-col items-center gap-6">
+          <SubHeading
+            id="indoor-day1"
+            as="h3"
+            class="sticky z-20 top-20 md:top-6"
+            >1日目 - 10月26日 <span class="text-blue-11">(土)</span></SubHeading
           >
-            <span
-              data-text="1日目-10月26日"
-              class:list={[
-                "inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6",
-                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
-              ]}
-            >
-              1日目-10月26日
-            </span>
-            <span
-              data-text="(土)"
-              class:list={[
-                "inline-block text-lg text-center font-Dela text-blue-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6",
-                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-blue-11 before:bg-clip-text before:pointer-events-none",
-              ]}
-            >
-              (土)
-            </span>
-          </h3>
           {
             SLUGS_INDOOR_DAY1.map((slug) => (
               <EventCard type="list" slug={slug} class="w-full" />
             ))
           }
         </div>
-        <div class="flex flex-col gap-6 items-center">
-          <h3
-            id="indoor-2"
-            class="relative inline-block rounded-lg bg-mauve-a-3"
+        <div class="flex flex-col items-center gap-6">
+          <SubHeading
+            id="indoor-day2"
+            as="h3"
+            class="sticky z-20 top-20 md:top-6"
+            >2日目 - 10月27日 <span class="text-pink-11">(日)</span></SubHeading
           >
-            <span
-              data-text="2日目-10月27日"
-              class:list={[
-                "inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6",
-                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
-              ]}
-            >
-              2日目-10月27日
-            </span>
-            <span
-              data-text="(日)"
-              class:list={[
-                "inline-block text-lg text-center font-Dela text-pink-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6",
-                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-pink-11 before:bg-clip-text before:pointer-events-none",
-              ]}
-            >
-              (日)
-            </span>
-          </h3>
           {
             SLUGS_INDOOR_DAY2.map((slug) => (
               <EventCard type="list" slug={slug} class="w-full" />
@@ -221,27 +180,20 @@ const SLUGS_OTHERS = [
           }
         </div>
       </div>
-    </div>
+    </ColoredContainer>
 
-    <div
-      class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-[#FDFCFD] to-[#FCFCFF] shadow-[0px_4px_16px_0px_rgba(51, 0, 255, 0.06)], shadow-[0px_4px_0px_0px_#A78BFA]"
-    >
-      <div class="w-full flex flex-col md:flex-row items-center gap-9">
-        <h2 class="relative whitespace-nowrap">
-          <span
-            data-text="屋外ステージ"
-            class:list={[
-              "inline-block text-4xl font-Dela text-violet-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6",
-              "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-[#6C4DB6] before:to-[#371B6B] before:bg-clip-text before:pointer-events-none",
-            ]}
-          >
-            屋外ステージ
-          </span>
-        </h2>
+    <ColoredContainer class="flex-col" color="violet">
+      <div class="flex flex-col items-center w-full md:flex-row gap-9">
+        <ColoredHeading
+          as="h2"
+          color="violet"
+          text="屋外ステージ"
+          class="text-4xl"
+        />
         <div class="flex flex-col items-center md:items-start">
           <div class="flex items-center gap-1.5">
             <MapPinned class="inline w-4 h-4 stroke-[2px] stroke-mauve-11" />
-            <p class="text-sm text-mauve-11 font-bold">
+            <p class="text-sm font-bold text-mauve-11">
               正門ロータリー 屋外ステージ
             </p>
           </div>
@@ -258,61 +210,27 @@ const SLUGS_OTHERS = [
           </p>
         </div>
       </div>
-      <div class="w-full grid grid-cols-1 gap-9 lg:grid-cols-2">
-        <div class="flex flex-col gap-6 items-center">
-          <h3
-            id="outdoor-1"
-            class="relative inline-block rounded-lg bg-mauve-a-3"
+      <div class="grid w-full grid-cols-1 gap-9 xl:grid-cols-2">
+        <div class="flex flex-col items-center gap-6">
+          <SubHeading
+            id="outdoor-day1"
+            as="h3"
+            class="sticky z-20 top-20 md:top-6"
+            >1日目 - 10月26日 <span class="text-blue-11">(土)</span></SubHeading
           >
-            <span
-              data-text="1日目-10月26日"
-              class:list={[
-                "inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6",
-                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
-              ]}
-            >
-              1日目-10月26日
-            </span>
-            <span
-              data-text="(土)"
-              class:list={[
-                "inline-block text-lg text-center font-Dela text-blue-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6",
-                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-blue-11 before:bg-clip-text before:pointer-events-none",
-              ]}
-            >
-              (土)
-            </span>
-          </h3>
           {
             SLUGS_OUTDOOR_DAY1.map((slug) => (
               <EventCard type="list" slug={slug} class="w-full" />
             ))
           }
         </div>
-        <div class="flex flex-col gap-6 items-center">
-          <h3
-            id="outdoor-2"
-            class="relative inline-block rounded-lg bg-mauve-a-3"
+        <div class="flex flex-col items-center gap-6">
+          <SubHeading
+            id="outdoor-day2"
+            as="h3"
+            class="sticky z-20 top-20 md:top-6"
+            >2日目 - 10月27日 <span class="text-pink-11">(日)</span></SubHeading
           >
-            <span
-              data-text="2日目-10月27日"
-              class:list={[
-                "inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6",
-                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
-              ]}
-            >
-              2日目-10月27日
-            </span>
-            <span
-              data-text="(日)"
-              class:list={[
-                "inline-block text-lg text-center font-Dela text-pink-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6",
-                "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-pink-11 before:bg-clip-text before:pointer-events-none",
-              ]}
-            >
-              (日)
-            </span>
-          </h3>
           {
             SLUGS_OUTDOOR_DAY2.map((slug) => (
               <EventCard type="list" slug={slug} class="w-full" />
@@ -320,22 +238,16 @@ const SLUGS_OTHERS = [
           }
         </div>
       </div>
-    </div>
-    <div
-      class="w-full flex flex-col items-center gap-6 p-6 self-stretch rounded-3xl border border-solid border-violet-6 bg-gradient-to-b from-[#FDFCFD] to-[#FCFCFF] shadow-[0px_4px_16px_0px_rgba(51, 0, 255, 0.06)], shadow-[0px_4px_0px_0px_#A78BFA]"
-    >
-      <div class="w-full flex flex-col md:flex-row items-center gap-9">
-        <h2 class="relative whitespace-nowrap" id="others">
-          <span
-            data-text="その他"
-            class:list={[
-              "inline-block text-4xl font-Dela text-violet-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6",
-              "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-[#6C4DB6] before:to-[#371B6B] before:bg-clip-text before:pointer-events-none",
-            ]}
-          >
-            その他
-          </span>
-        </h2>
+    </ColoredContainer>
+    <ColoredContainer class="flex-col" color="violet">
+      <div class="flex flex-col items-center w-full md:flex-row gap-9">
+        <ColoredHeading
+          id="others"
+          as="h2"
+          color="violet"
+          text="その他"
+          class="text-4xl"
+        />
         <div class="flex flex-col items-center md:items-start">
           <p class="relative">
             <span
@@ -350,13 +262,29 @@ const SLUGS_OTHERS = [
           </p>
         </div>
       </div>
-      <div class="grid grid-cols-1 gap-x-9 gap-y-3 lg:grid-cols-2">
-        {
-          SLUGS_OTHERS.map((slug) => (
-            <EventCard type="list" slug={slug} class="w-full" />
-          ))
-        }
+      <div class="grid w-full grid-cols-1 gap-9 xl:grid-cols-2">
+        <div class="flex flex-col items-center gap-6">
+          <SubHeading as="h3" class="sticky z-20 top-20 md:top-6"
+            >1日目 - 10月26日 <span class="text-blue-11">(土)</span></SubHeading
+          >
+          {
+            SLUGS_OTHERS_DAY1.map((slug) => (
+              <EventCard type="list" slug={slug} class="w-full" />
+            ))
+          }
+        </div>
+        <div class="flex flex-col items-center gap-6">
+          <SubHeading as="h3" class="sticky z-20 top-20 md:top-6"
+            >2日目 - 10月27日 <span class="text-pink-11">(日)</span></SubHeading
+          >
+          {
+            SLUGS_OTHERS_DAY2.map((slug) => (
+              <EventCard type="list" slug={slug} class="w-full" />
+            ))
+          }
+        </div>
       </div>
+    </ColoredContainer>
     </div>
     <ButtonLink href="/" color="violet">
       <ArrowLeft />トップページに戻る
