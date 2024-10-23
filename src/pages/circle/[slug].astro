@@ -48,8 +48,15 @@ const isOrganizerNameUnique = organizerName !== name;
 export const prerender = true;
 ---
 
-<Layout title={isOrganizerNameUnique ? `${name} (${organizerName})` : name}>
-  <main class="w-full flex flex-col gap-6">
+<Layout
+  title={isOrganizerNameUnique ? `${name} (${organizerName})` : name}
+  description={summary}
+  image={new URL(image.src, import.meta.env.SITE).href}
+  imageAlt={`${name}のサークルカット`}
+  imageWidth={image.width}
+  imageHeight={image.height}
+>
+  <main class="flex flex-col w-full gap-6">
     <div
       class="relative flex flex-col gap-3 justify-center items-center overflow-hidden bg-gradient-to-b from-yellow-a-9 to-mauve-a-1 -mx-1 mt-[-88px] px-1 pt-[88px] md:mx-0 md:mt-0 md:px-0 md:pt-0 md:rounded-t-3xl"
     >
@@ -57,9 +64,9 @@ export const prerender = true;
         src={KawaiiText}
         alt={"カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ"}
         loading="lazy"
-        class="absolute top-0 left-0 w-full h-full object-cover mix-blend-color-burn"
+        class="absolute top-0 left-0 object-cover w-full h-full mix-blend-color-burn"
       />
-      <div class="m-6 flex justify-center items-center relative">
+      <div class="relative flex items-center justify-center m-6">
         <Image
           aria-hidden
           src={image}
@@ -92,7 +99,7 @@ export const prerender = true;
           organizerName && isOrganizerNameUnique && (
             <p
               data-pagefind-meta="開催団体"
-              class="text-sm font-bold text-mauve-11 line-clamp-1 shrink-0 leading-tight"
+              class="text-sm font-bold leading-tight text-mauve-11 line-clamp-1 shrink-0"
             >
               <PartyPopper class="w-4 h-4 inline stroke-[3px] mr-1.5" />
               {organizerName}
@@ -199,7 +206,7 @@ export const prerender = true;
           {getLocationLocale(location)}
         </span>
       </h3>
-      <div class="w-full h-auto grid gap-6 2xl:grid-cols-2">
+      <div class="grid w-full h-auto gap-6 2xl:grid-cols-2">
         <Image src={SchoolMap} alt="茨城高専構内地図" />
         <Image src={location.map} alt="茨城高専構内地図" />
       </div>
@@ -207,7 +214,7 @@ export const prerender = true;
 
     <ButtonLink href="/circle" class="mx-auto">
       <LayoutGrid class="inline w-6 h-6 stroke-[2px] stroke-mauve-11" />
-      <p class="text-mauve-11 text-center font-Dela text-base">
+      <p class="text-base text-center text-mauve-11 font-Dela">
         サークルの一覧へ戻る
       </p>
     </ButtonLink>
