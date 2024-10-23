@@ -6,6 +6,7 @@ import { Image } from "astro:assets";
 import LaughingGuysImage from "@/assets/LaughingGuys.png";
 import MapPinned from "@/assets/map-pinned.svg";
 import KawaiiContainer from "@/components/KawaiiContainer.astro";
+import ColoredHeading from "@/components/ColoredHeading.astro";
 
 const STAFF = [
   ["大貫 ひまり", "おおぬき ひまり", "実行委員長", "本部"],
@@ -154,15 +155,12 @@ const STAFF = [
     <KawaiiContainer color="orange">
       <div class="relative flex flex-col items-center">
         <Image src={LaughingGuysImage} alt="茨香祭実行委員の集合写真" />
-        <span
-          data-text="スタッフ"
-          class:list={[
-            "inline-block text-3xl font-Dela text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6",
-            "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-[#C25E00] before:to-[#5A2D05] before:bg-clip-text before:pointer-events-none",
-          ]}
-        >
-          スタッフ
-        </span>
+        <ColoredHeading
+          as="h1"
+          class="text-4xl"
+          text="スタッフ"
+          color="orange"
+        />
         <div class="mt-4 flex items-center">
           <Image src={MapPinned} alt="mapピン" class="float-left self-center" />
           <p
