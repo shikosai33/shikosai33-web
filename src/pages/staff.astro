@@ -5,6 +5,7 @@ import { ArrowLeft } from "lucide-astro";
 import { Image } from "astro:assets";
 import LaughingGuysImage from "@/assets/LaughingGuys.png";
 import MapPinned from "@/assets/map-pinned.svg";
+import KawaiiContainer from "@/components/KawaiiContainer.astro";
 
 const STAFF = [
   ["大貫 ひまり", "おおぬき ひまり", "実行委員長", "本部"],
@@ -150,28 +151,7 @@ const STAFF = [
 
 <Layout title="スタッフ">
   <main class="flex flex-col justify-center items-center gap-6">
-    <div
-      class="relative p-6 flex flex-col items-center h-[100%] w-full bg-gradient-to-b from-[#FA7100C3] via-[#FF780060] to-[#CC660005] overflow-hidden rounded-3xl"
-    >
-      <p
-        aria-hidden
-        class="select-none absolute font-Dela text-2xl whitespace-nowrap mx-auto text-center origin-center -rotate-12 text-transparent text-stroke-2 text-stroke-orange-9"
-      >
-        カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡
-        オモイデ<br />
-        カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
-        />
-        カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
-        />
-        カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
-        />
-        カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
-        />
-        カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
-        />
-        カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
-        />
-      </p>
+    <KawaiiContainer color="orange">
       <div class="relative flex flex-col items-center">
         <Image src={LaughingGuysImage} alt="茨香祭実行委員の集合写真" />
         <span
@@ -192,7 +172,7 @@ const STAFF = [
           </p>
         </div>
       </div>
-    </div>
+    </KawaiiContainer>
     <ButtonLink href="/" class="">
       <ArrowLeft />トップページに戻る
     </ButtonLink>
