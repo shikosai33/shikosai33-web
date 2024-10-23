@@ -145,20 +145,41 @@ const {
         "(prefers-color-scheme: dark)"
       );
 
-      // 初期状態をチェック
-      if (darkModeMediaQuery.matches) {
+      /**
+       * テーマを更新する。
+       * @param {boolean} isDarkModeMediaQueryMatched - デバイスの設定がダークモードかどうか
+       */
+      const updateTheme = (isDarkModeMediaQueryMatched) => {
+        const theme =
+          JSON.parse(localStorage.getItem("shikosai33:theme")) || "default";
+        switch (theme) {
+          case "light":
+            document.documentElement.classList.remove("dark");
+            break;
+          case "dark":
+            document.documentElement.classList.add("dark");
+            break;
+          case "default":
+          default:
+            if (isDarkModeMediaQueryMatched) {
         document.documentElement.classList.add("dark");
       } else {
         document.documentElement.classList.remove("dark");
       }
+            break;
+        }
+      };
+
+      // 初期化
+      updateTheme(darkModeMediaQuery.matches);
 
       // モードの変化を監視する
       darkModeMediaQuery.addEventListener("change", (event) => {
-        if (event.matches) {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
+        updateTheme(event.matches);
+      });
+      document.addEventListener("shikosai33:updateTheme", () => {
+        console.log("updateTheme listened");
+        updateTheme(darkModeMediaQuery.matches);
       });
     </script>
   </head>
