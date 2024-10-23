@@ -4,6 +4,8 @@ import Layout from "@/layouts/Layout.astro";
 import type { CollectionEntry } from "astro:content";
 import { BookOpen, MapPinned } from "lucide-astro";
 import EventCard from "@/components/EventCard.astro";
+import { ArrowLeft } from "lucide-astro";
+import ButtonLink from "@/components/ButtonLink.astro";
 import ColoredContainer from "@/components/ColoredContainer.astro";
 import ColoredHeading from "@/components/ColoredHeading.astro";
 import SubHeading from "@/components/SubHeading.astro";
@@ -284,4 +286,7 @@ const SLUGS_OTHERS_DAY2 = [
       </div>
     </ColoredContainer>
   </main>
+  <ButtonLink href="/" color="violet">
+    <ArrowLeft />トップページに戻る
+  </ButtonLink>
 </Layout>
