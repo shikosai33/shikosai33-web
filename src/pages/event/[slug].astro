@@ -68,7 +68,7 @@ const { Content } = await render();
 export const prerender = true;
 ---
 
-<Layout title={name}>
+<Layout title={name} description={summary} image={new URL(image.src, import.meta.env.SITE).href} imageAlt={`${name}のアーティスト写真またはサムネイル`} imageWidth={image.width} imageHeight={image.height}>
     <main class="flex flex-col w-full gap-6">
       <div
         class="p-6 w-full relative flex flex-col gap-3 justify-center items-center overflow-hidden bg-gradient-to-b from-violet-a-9 to-mauve-a-1 -mx-1 mt-[-88px] px-1 pt-[88px] md:mx-0 md:mt-0 md:px-0 md:pt-0 md:rounded-3xl"
