@@ -8,6 +8,7 @@ import { EventStatus } from '@/components/EventStatus.tsx';
 import ColoredContainer from '@/components/ColoredContainer.astro';
 import ButtonLink from '@/components/ButtonLink.astro';
 import {
+  MessageCircleWarning,
   Clock,
   LayoutGrid,
   Globe,
@@ -57,6 +58,7 @@ const {
 
 const { startsAtText, endsAtText } = formatDateTimeRange(startsAt, endsAt);
 const hasExternalLinks = (urls && urls?.length > 0) || !!youtube;
+const youtubeWatchId = youtube ? new URL(youtube).searchParams.get('v') : null;
 
 const isFireworks = (slug === "fireworks");
 const { Content } = await render();
@@ -67,13 +69,13 @@ export const prerender = true;
 ---
 
 <Layout title={name}>
-    <main class="w-full flex flex-col gap-6">
+    <main class="flex flex-col w-full gap-6">
       <div
         class="p-6 w-full relative flex flex-col gap-3 justify-center items-center overflow-hidden bg-gradient-to-b from-violet-a-9 to-mauve-a-1 -mx-1 mt-[-88px] px-1 pt-[88px] md:mx-0 md:mt-0 md:px-0 md:pt-0 md:rounded-3xl"
       >
         <p
           aria-hidden
-          class="select-none absolute font-Dela text-2xl whitespace-nowrap mix-blend-color-burn top-16 mx-auto text-center origin-center -rotate-12 text-transparent text-stroke-2 text-stroke-violet-9"
+          class="absolute mx-auto text-2xl text-center text-transparent origin-center select-none font-Dela whitespace-nowrap mix-blend-color-burn top-16 -rotate-12 text-stroke-2 text-stroke-violet-9"
         >
           カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
           />
@@ -90,7 +92,7 @@ export const prerender = true;
           カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
           />
         </p>
-        <div class="m-6 flex justify-center items-center relative">
+        <div class="relative flex items-center justify-center m-6">
           <Image aria-hidden
             src={image}
             alt={`${name}のアーティスト写真またはサムネイル`}
@@ -105,7 +107,7 @@ export const prerender = true;
             class="w-full max-w-[300px] lg:max-w-[450px] aspect-square rounded-xl relative"
           />
         </div>
-        <h2 class="w-full text-center relative">
+        <h2 class="relative w-full text-center">
           <span
             data-pagefind-meta="title"
             data-text=`${name}`
@@ -216,12 +218,21 @@ export const prerender = true;
         }
       </ColoredContainer>
 
+      {
+        youtubeWatchId && (
+          <ColoredContainer class="!p-0 aspect-video relative">
+          <small class="absolute pointer-events-none select-none flex px-2 py-1 mx-auto text-sm font-bold text-right rounded-2xl max-w-[50%] top-16 right-2 bg-mauve-a-11 text-mauve-1"><MessageCircleWarning class="w-4 h-4 stroke-[3px] shrink-0 mt-1"/>この動画配信は学生有志により行われているものであるため、<wbr />茨香祭実行委員会の管理下にはありません</small>
+          <iframe width="560" height="315" class="w-full h-full overflow-hidden rounded-3xl" src={`https://www.youtube.com/embed/${youtubeWatchId}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </ColoredContainer>
+        )
+      }
+
       <ButtonLink
         href="/event"
         class="mx-auto"
       >
         <LayoutGrid class="inline w-6 h-6 stroke-[2px] stroke-mauve-11" />
-        <p class="text-mauve-11 text-center font-Dela text-base">
+        <p class="text-base text-center text-mauve-11 font-Dela">
           イベントの一覧へ戻る
         </p>
       </ButtonLink>
