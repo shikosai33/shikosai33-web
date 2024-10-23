@@ -3,6 +3,8 @@ import Layout from "@/layouts/Layout.astro";
 
 import { BookOpen, MapPinned } from "lucide-astro";
 import EventCard from "@/components/EventCard.astro";
+import { ArrowLeft } from "lucide-astro";
+import ButtonLink from "@/components/ButtonLink.astro";
 
 const SLUGS_INDOOR_DAY1 = [
   "dance-club",
@@ -356,5 +358,8 @@ const SLUGS_OTHERS = [
         }
       </div>
     </div>
+    <ButtonLink href="/" color="violet">
+      <ArrowLeft />トップページに戻る
+    </ButtonLink>
   </main>
 </Layout>
