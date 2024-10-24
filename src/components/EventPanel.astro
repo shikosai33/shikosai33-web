@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import { LayoutGrid } from 'lucide-astro';
+import ButtonLink from './ButtonLink.astro';
+import ColoredContainer from './ColoredContainer.astro';
+import ColoredHeading from './ColoredHeading.astro';
+import EventCard from './EventCard.astro';
+
+const EventSlugs = (await getCollection('events'))
+  .sort((a, b) => {
+    return a.data['starts-at'].getTime() - b.data['starts-at'].getTime();
+  })
+  .map(event => {
+    return event.slug;
+  }) satisfies string[];
+---
+
+<ColoredContainer color="violet" class="flex-col">
+  <div class="w-full flex justify-between items-center">
+    <ColoredHeading as="h3" class="text-3xl" text="イベント" color="violet" />
+    <p
+      class="text-lg font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-8 paint-sfm drop-shadow-bump shadow-mauve-6"
+    >
+      この時限りの演奏と催しを楽しもう
+    </p>
+    <ButtonLink color="violet" href="/event">
+      <LayoutGrid class="w-6 h-6 stroke-[2px] stroke-mauve-3" />
+      一覧を開く
+    </ButtonLink>
+  </div>
+  <div id="eventCarousel" class="swiper w-full">
+    <div class="swiper-wrapper">
+      {
+        EventSlugs.map((slug) => {
+        <div class="swiper-slide">
+          <EventCard type="grid" slug={slug} class="w-48" />
+        </div>
+        })
+      }
+    </div>
+  </div>
+</ColoredContainer>
+
+<script>
+  import Swiper from 'swiper/bundle';
+  import 'swiper/css/bundle';
+  //@ts-ignore TS6133: ts(6133): 'swiper' is declared but its value is never read.
+  const eventCarousel = new Swiper('#eventCarousel', {
+    spaceBetween: 24,
+    slidesPerView: 7,
+  });
+</script>

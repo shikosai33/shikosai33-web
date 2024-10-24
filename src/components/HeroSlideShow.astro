@@ -20,6 +20,7 @@ const { class: className, ...props } = Astro.props;
 ---
 
 <div
+  id="HeroSlideShow"
   class:list={[
     "swiper flex justify-center items-center overflow-hidden",
     className,
@@ -108,7 +109,7 @@ const { class: className, ...props } = Astro.props;
   import { Pagination } from "swiper/modules";
   import "swiper/css/bundle";
   //@ts-ignore TS6133: ts(6133): 'swiper' is declared but its value is never read.
-  const swiper = new Swiper(".swiper", {
+  const HeroSlideShow = new Swiper("#HeroSlideShow", {
     modules: [Pagination],
     loop: true,
     pagination: {
