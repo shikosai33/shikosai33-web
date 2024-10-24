@@ -4,6 +4,7 @@ import { Image } from 'astro:assets';
 import Niticlogo from '@/assets/kosen_logo.svg';
 import Shikosai33 from '@/assets/shikosai33_logo.png';
 import type { HTMLAttributes } from 'astro/types';
+import { UIThemeSelect } from './UIThemeSelect';
 
 const SPONSORS = [
   ['株式会社ミリオンスポーツ', null],
@@ -83,6 +84,11 @@ const { class: className, ...props } = Astro.props;
   <nav
     class="relative z-10 flex flex-col items-stretch self-stretch gap-6 xl:flex-row"
   >
+    <UIThemeSelect
+      client:visible
+      transition:persist
+      className="absolute top-0 right-0"
+    />
     <div class="flex flex-col items-center">
       <a href="/">
         <Image
@@ -176,7 +182,7 @@ const { class: className, ...props } = Astro.props;
           スタッフ
         </a>
         <br />
-        <a class="text-sm underline text-mauve-4 font-Dela" href="/">
+        <a class="text-sm text-mauve-4 font-Dela underline" href="/access">
           アクセス
         </a>
         <br />
