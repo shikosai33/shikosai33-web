@@ -6,6 +6,8 @@ import CircleCard from "@/components/CircleCard.astro";
 import ColoredContainer from "@/components/ColoredContainer.astro";
 import ColoredHeading from "@/components/ColoredHeading.astro";
 import SubHeading from "@/components/SubHeading.astro";
+import { ArrowLeft } from "lucide-astro";
+import ButtonLink from "@/components/ButtonLink.astro";
 
 const SLUGS_GRADE1 = [
   "1-1",
@@ -287,4 +289,7 @@ const SLUGS_OTHERS = [
       </div>
     </ColoredContainer>
   </main>
+  <ButtonLink href="/" color="yellow">
+    <ArrowLeft />トップページに戻る
+  </ButtonLink>
 </Layout>

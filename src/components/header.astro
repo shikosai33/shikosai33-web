@@ -1,15 +1,15 @@
 ---
-import '@/styles/global.css';
-import { Image } from 'astro:assets';
-import Shikosai33 from '@/assets/shikosai33_logo.png';
-import type { HTMLAttributes } from 'astro/types';
-import { Search } from 'lucide-astro';
-import { UIThemeSelect } from './UIThemeSelect';
+import "@/styles/global.css";
+import { Image } from "astro:assets";
+import Shikosai33 from "@/assets/shikosai33_logo.png";
+import type { HTMLAttributes } from "astro/types";
+import { Search } from "lucide-astro";
+import { UIThemeSelect } from "./UIThemeSelect";
 
 /**
  * 各ページへのリンクを含むヘッダー。
  */
-export interface Props extends HTMLAttributes<'header'> {
+export interface Props extends HTMLAttributes<"header"> {
   /**
    * 表示位置や大きさを柔軟に変えるためのクラス名。
    * @example "w-36 lg:w-48"
