@@ -8,7 +8,7 @@ image: ./_images/shichimi-mayonnaise.png
 name: 七味マヨネーず
 
 # イベントの開催者の名前 (団体の名前) - バンドの場合は省略
-# organizer-name: 
+# organizer-name:
 
 # イベントの概要 (バンドからのコメント)
 summary: 「七味マヨネーズ」は、ボーカルとピアノのデュオが織りなす、独特な味わいの音楽ユニットです。七つのスパイスのように多彩なジャンルを取り入れ、まろやかなマヨネーズのように心に染み渡るメロディをお届けします。日常にちょっとした刺激と癒やしを添える音楽を、一緒に楽しみませんか?
@@ -28,5 +28,5 @@ ends-at: 2024-10-27T11:30:00+0900
 # - https://instagram.com/example
 
 # Youtubeの動画もしくはライブ配信のURL
-# youtube: https://www.youtube.com/watch?v=
+youtube: https://www.youtube.com/watch?v=BDPy6tS1sIA&list=PLdpcRcn46OU2jYBH1avFa-3bWXt__99Sj&index=4
 ---

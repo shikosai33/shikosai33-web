@@ -1,12 +1,14 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
-import { Image } from 'astro:assets';
-import { getLocationLocale } from '@/utils/location/getLocationLocale';
-import Layout from '@/layouts/Layout.astro';
-import ColoredContainer from '@/components/ColoredContainer.astro';
-import ButtonLink from '@/components/ButtonLink.astro';
-import KawaiiText from '@/assets/kawaii_text_yellow.png';
-import SchoolMap from '@/content/locations/_maps/school_map.svg';
+import { getCollection, getEntry } from "astro:content";
+import { Image } from "astro:assets";
+import { getLocationLocale } from "@/utils/location/getLocationLocale";
+import Layout from "@/layouts/Layout.astro";
+import ColoredContainer from "@/components/ColoredContainer.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
+import KawaiiContainer from "@/components/KawaiiContainer.astro";
+import ColoredHeading from "@/components/ColoredHeading.astro";
+import SubHeading from "@/components/SubHeading.astro";
+import SchoolMap from "@/content/locations/_maps/school_map.svg";
 
 import {
   LayoutGrid,
@@ -16,10 +18,10 @@ import {
   PartyPopper,
   MapPinned,
   Settings,
-} from 'lucide-astro';
+} from "lucide-astro";
 
 export async function getStaticPaths() {
-  return (await getCollection('circles')).map((entry) => ({
+  return (await getCollection("circles")).map((entry) => ({
     params: { slug: entry.slug },
     props: entry,
   }));
@@ -30,7 +32,7 @@ const {
   data: {
     name,
     image,
-    'organizer-name': organizerName,
+    "organizer-name": organizerName,
     location: { id: locationSlug },
     category,
     summary,
@@ -38,7 +40,7 @@ const {
   },
 } = circleEntry;
 const { Content } = await circleEntry.render();
-const { data: location } = await getEntry('locations', locationSlug);
+const { data: location } = await getEntry("locations", locationSlug);
 
 const hasExternalLinks = urls && urls?.length > 0;
 const isOrganizerNameUnique = organizerName !== name;
@@ -48,67 +50,84 @@ const isOrganizerNameUnique = organizerName !== name;
 export const prerender = true;
 ---
 
-<Layout title="イベント">
-  <main class="w-full flex flex-col gap-6">
-    <div
-      class="relative flex flex-col gap-3 justify-center items-center overflow-hidden bg-gradient-to-b from-yellow-a-9 to-mauve-a-1 -mx-1 mt-[-88px] px-1 pt-[88px] md:mx-0 md:mt-0 md:px-0 md:pt-0 md:rounded-t-3xl"
+<Layout
+  title={isOrganizerNameUnique ? `${name} (${organizerName})` : name}
+  description={summary}
+  image={new URL(image.src, import.meta.env.SITE).href}
+  imageAlt={`${name}のサークルカット`}
+  imageWidth={image.width}
+  imageHeight={image.height}
+>
+  <main class="flex flex-col w-full gap-6">
+    <KawaiiContainer
+      class="flex-col gap-6 !w-auto -mx-1 -mt-20 pt-24 md:mx-0 md:mt-0 md:pt-6"
+      color="yellow"
     >
-      <Image
-        src={KawaiiText}
-        alt={'カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ'}
-        loading="lazy"
-        class="absolute top-0 left-0 w-full h-full object-cover mix-blend-color-burn"
-      />
-      <div class="m-6 flex justify-center items-center relative">
+      <div
+        class="relative w-full max-w-[320px] lg:max-w-[450px] aspect-square flex items-center justify-center overflow-visible md:m-6"
+      >
         <Image
           aria-hidden
           src={image}
           alt={`${name}のサークルカット`}
-          loading="lazy"
-          class="w-full max-w-[320px] lg:max-w-[470px] aspect-square rounded-xl absolute justify-self-center blur-lg opacity-50"
+          widths={[320, 450, 640, 900, 960, 1350, image.width]}
+          sizes="(min-width: 1024px) 450px, 320px"
+          loading="eager"
+          class="absolute w-full opacity-50 aspect-square rounded-xl justify-self-center blur-2xl saturate-150 brightness-125"
         />
+        <div
+          aria-hidden
+          class="absolute -inset-px bg-gradient-to-b from-yellow-1 to-yellow-a-1 rounded-[13px]"
+        >
+        </div>
         <Image
+          data-pagefind-meta="image[src], image_alt[alt]"
           src={image}
           alt={`${name}のサークルカット`}
-          loading="lazy"
-          class="w-full max-w-[300px] lg:max-w-[450px] aspect-square rounded-xl relative"
+          widths={[320, 450, 640, 900, 960, 1350, image.width]}
+          sizes="(min-width: 1024px) 450px, 320px"
+          loading="eager"
+          class="relative w-full shadow-md aspect-square rounded-xl shadow-mauve-a-3"
         />
       </div>
-      <h2 class="relative text-center">
-        <span
-          data-text=`${name}`
-          class:list={[
-            'inline-block text-4xl font-Dela text-yellow-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6 md:text-5xl',
-            "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-yellow-11 before:to-yellow-12 before:bg-clip-text before:pointer-events-none",
-          ]}
-        >
-          {name}
-        </span>
-      </h2>
+      <ColoredHeading
+        data-pagefind-meta="title"
+        as="h2"
+        class="text-4xl text-center md:text-5xl"
+        color="yellow"
+        text={name}
+      />
       <div class="flex gap-1.5">
         {
           organizerName && isOrganizerNameUnique && (
-            <p class="text-sm font-bold text-mauve-11 line-clamp-1 shrink-0 leading-tight">
+            <p
+              data-pagefind-meta="開催団体"
+              class="text-sm font-bold leading-tight text-mauve-11 line-clamp-1 shrink-0"
+            >
               <PartyPopper class="w-4 h-4 inline stroke-[3px] mr-1.5" />
               {organizerName}
             </p>
           )
         }
-        <p class="text-sm font-bold text-mauve-11">
+        <p data-pagefind-meta="場所" class="text-sm font-bold text-mauve-11">
           <MapPinned class="w-4 h-4 inline stroke-[3px] mr-1.5" />{
             getLocationLocale(location)
           }
         </p>
-        <p class="text-sm font-bold text-mauve-11">
+        <p data-pagefind-meta="区分" class="text-sm font-bold text-mauve-11">
           <Settings class="w-4 h-4 inline stroke-[3px] mr-1.5" />{category}
         </p>
       </div>
-    </div>
+    </KawaiiContainer>
 
-    <ColoredContainer color="yellow" class="relative flex-col">
+    <ColoredContainer
+      data-pagefind-body
+      color="yellow"
+      class="relative flex-col"
+    >
       <p
         class:list={[
-          'text-lg  font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11 paint-sfm flex-shrink',
+          "text-lg  font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11 paint-sfm flex-shrink",
         ]}
       >
         {summary}
@@ -121,7 +140,7 @@ export const prerender = true;
           >
             {urls?.sort().map((url) => {
               const hostname = new URL(url).hostname;
-              if (hostname.endsWith('x.com')) {
+              if (hostname.endsWith("x.com")) {
                 return (
                   <a
                     href={url}
@@ -134,7 +153,7 @@ export const prerender = true;
                   </a>
                 );
               }
-              if (hostname.endsWith('instagram.com')) {
+              if (hostname.endsWith("instagram.com")) {
                 return (
                   <a
                     href={url}
@@ -162,43 +181,25 @@ export const prerender = true;
         )
       }
       <div class="text-base font-Dela text-mauve-11 empty:hidden">
-        <hr class="text-yellow-9 last:hidden" />
+        <hr class="mb-4 text-yellow-9 last:hidden" />
         <Content />
       </div>
     </ColoredContainer>
 
     <ColoredContainer color="yellow" class="relative flex-col">
-      <h2 id="class" class="relative whitespace-nowrap lg:self-start">
-        <span
-          data-text="出展場所"
-          class:list={[
-            'inline-block text-4xl font-Dela text-yellow-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6',
-            "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-yellow-11 before:to-yellow-12 before:bg-clip-text before:pointer-events-none",
-          ]}
-        >
-          出展場所
-        </span>
-      </h2>
-      <h3 class="relative inline-block mx-auto rounded-lg bg-mauve-a-3">
-        <span
-          data-text=`${getLocationLocale(location)}`
-          class:list={[
-            'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-4 paint-sfm drop-shadow-bump shadow-mauve-6',
-            "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
-          ]}
-        >
-          {getLocationLocale(location)}
-        </span>
-      </h3>
-      <div class="w-full h-auto grid gap-6 2xl:grid-cols-2">
-        <Image src={SchoolMap} alt="茨城高専構内地図" />
-        <Image src={location.map} alt="茨城高専構内地図" />
+      <ColoredHeading as="h3" color="yellow" class="text-4xl" text="出展場所" />
+      <SubHeading as="h3" class="self-center"
+        >{getLocationLocale(location)}</SubHeading
+      >
+      <div class="grid w-full h-auto gap-6 2xl:grid-cols-2 dark:invert">
+        <Image src={SchoolMap} alt="茨城高専の構内地図" />
+        <Image src={location.map} alt={`${location["building-name"]}の地図`} />
       </div>
     </ColoredContainer>
 
-    <ButtonLink href="/circle" class="mx-auto">
+    <ButtonLink href="/circle" class="self-center">
       <LayoutGrid class="inline w-6 h-6 stroke-[2px] stroke-mauve-11" />
-      <p class="text-mauve-11 text-center font-Dela text-base">
+      <p class="text-base text-center text-mauve-11 font-Dela">
         サークルの一覧へ戻る
       </p>
     </ButtonLink>
