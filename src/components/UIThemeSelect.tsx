@@ -16,10 +16,16 @@ export type UIThemeSelectProps = Omit<
   ComponentPropsWithoutRef<typeof Select.Root>,
   'value' | 'onValueChange' | 'defaultValue'
 > & {
+  variant?: 'default' | 'ghost';
   className?: string;
 };
 
-export const UIThemeSelect = ({ children, className, ...props }: UIThemeSelectProps): ReactNode => {
+export const UIThemeSelect = ({
+  children,
+  className,
+  variant = 'default',
+  ...props
+}: UIThemeSelectProps): ReactNode => {
   const [isMounted, setIsMounted] = useState(false);
   const isSystemDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [theme, setTheme] = useLocalStorage<Theme>(LOCAL_STORAGE_THEME_KEY, 'default');
@@ -40,7 +46,7 @@ export const UIThemeSelect = ({ children, className, ...props }: UIThemeSelectPr
     <Select.Root value={theme} onValueChange={onValueChangeHandler} defaultValue={'default' satisfies Theme} {...props}>
       <Select.Trigger
         aria-label='色テーマを選ぶ'
-        className={`flex items-center justify-center p-2 transition-colors aspect-square shrink rounded-xl text-mauve-3 bg-mauve-12 border-t shadow-xl shadow-mauve-a-3 border-mauve-11 hover:text-mauve-12 hover:bg-mauve-3 active:bg-mauve-4 ${className}`}
+        className={`flex items-center justify-center p-2 transition-colors aspect-square shrink rounded-xl hover:text-mauve-12 hover:bg-mauve-3 active:bg-mauve-4 ${variant === 'default' ? 'text-mauve-3 bg-mauve-12 border-t shadow-xl shadow-mauve-a-3 border-mauve-11' : 'text-mauve-11'} ${className}`}
       >
         <Select.Value>{isMounted ? undefined : <Loader className='animate-spin' />}</Select.Value>
       </Select.Trigger>
