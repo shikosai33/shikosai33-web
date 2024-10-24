@@ -1,9 +1,10 @@
 ---
-import '../styles/global.css';
+import '@/styles/global.css';
 import { Image } from 'astro:assets';
+import Shikosai33 from '@/assets/shikosai33_logo.png';
 import type { HTMLAttributes } from 'astro/types';
 import { Search } from 'lucide-astro';
-import Shikosai33 from '../assets/shikosai33_logo.png';
+import { UIThemeSelect } from './UIThemeSelect';
 
 /**
  * 各ページへのリンクを含むヘッダー。
@@ -75,10 +76,16 @@ const { class: className, ...props } = Astro.props;
       <li
         class="flex flex-row justify-end items-center border-b-8 border-blue-9 pt-1.5 pr-2"
       >
+        <UIThemeSelect
+          client:visible
+          transition:persist
+          variant="ghost"
+          className="max-lg:hidden"
+        />
         <a
           href="/search"
           aria-label="検索"
-          class="shrink flex justify-center items-center p-2 rounded-xl text-mauve-11 hover:text-mauve-12 hover:bg-mauve-3 active:bg-mauve-4 transition-colors"
+          class="flex items-center justify-center p-2 transition-colors shrink rounded-xl text-mauve-11 hover:text-mauve-12 hover:bg-mauve-3 active:bg-mauve-4"
         >
           <h2><Search /></h2>
         </a>
