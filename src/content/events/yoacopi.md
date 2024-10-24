@@ -8,11 +8,10 @@ image: ./_images/yoacopi.jpg
 name: YOACOPI
 
 # イベントの開催者の名前 (団体の名前) - バンドの場合は省略
-# organizer-name: 
+# organizer-name:
 
 # イベントの概要 (バンドからのコメント)
 summary: YOASOBIの楽曲を3曲演奏します！ぜひともお越しください！
-
 
 # イベントの場所 (ステージ名)
 location: indoor-stage
@@ -29,5 +28,5 @@ ends-at: 2024-10-27T14:55:00+0900
 # - https://instagram.com/example
 
 # Youtubeの動画もしくはライブ配信のURL
-# youtube: https://www.youtube.com/watch?v=
+youtube: https://www.youtube.com/watch?v=1IY6DPk5eEc&list=PLdpcRcn46OU2jYBH1avFa-3bWXt__99Sj&index=1
 ---

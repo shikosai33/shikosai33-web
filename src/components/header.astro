@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { Image } from 'astro:assets';
 import type { HTMLAttributes } from 'astro/types';
+import { Search } from 'lucide-astro';
 import Shikosai33 from '../assets/shikosai33_logo.png';
 
 /**
@@ -25,7 +26,7 @@ const { class: className, ...props } = Astro.props;
   ]}
   {...props}
 >
-  <nav class="grid grid-cols-1 grid-rows-1 w-full h-full">
+  <nav class="grid w-full h-full grid-cols-1 grid-rows-1">
     <ul class="grid grid-cols-5">
       <li
         class="flex justify-center items-center border-b-8 border-pink-9 pt-1.5"
@@ -40,7 +41,7 @@ const { class: className, ...props } = Astro.props;
       >
         <a href="/circle">
           <h2
-            class="bg-gradient-to-b from-yellow-12 to-yellow-11 bg-clip-text text-transparent"
+            class="text-transparent bg-gradient-to-b from-yellow-12 to-yellow-11 bg-clip-text"
           >
             サークル
           </h2>
@@ -52,7 +53,7 @@ const { class: className, ...props } = Astro.props;
       >
         <a href="/event">
           <h2
-            class="bg-gradient-to-b from-violet-12 to-violet-11 bg-clip-text text-transparent"
+            class="text-transparent bg-gradient-to-b from-violet-12 to-violet-11 bg-clip-text"
           >
             イベント
           </h2>
@@ -64,7 +65,7 @@ const { class: className, ...props } = Astro.props;
       >
         <a href="/staff">
           <h2
-            class="bg-gradient-to-b from-orange-12 to-orange-11 bg-clip-text text-transparent"
+            class="text-transparent bg-gradient-to-b from-orange-12 to-orange-11 bg-clip-text"
           >
             スタッフ
           </h2>
@@ -72,14 +73,15 @@ const { class: className, ...props } = Astro.props;
       </li>
 
       <li
-        class="flex justify-center items-center border-b-8 border-blue-9 pt-1.5"
+        class="flex flex-row justify-end items-center border-b-8 border-blue-9 pt-1.5 pr-2"
       >
-        <a href="/access">
-          <h2
-            class="bg-gradient-to-b from-blue-12 to-blue-11 bg-clip-text text-transparent"
-          >
-            アクセス
-          </h2>
+
+        <a
+          href="/search"
+          aria-label="検索"
+          class="shrink flex justify-center items-center p-2 rounded-xl text-mauve-11 hover:text-mauve-12 hover:bg-mauve-3 active:bg-mauve-4 transition-colors"
+        >
+          <h2><Search /></h2>
         </a>
       </li>
     </ul>
