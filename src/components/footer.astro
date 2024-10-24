@@ -84,7 +84,11 @@ const { class: className, ...props } = Astro.props;
   <nav
     class="relative z-10 flex flex-col items-stretch self-stretch gap-6 xl:flex-row"
   >
-    <UIThemeSelect client:visible className="absolute top-0 right-0" />
+    <UIThemeSelect
+      client:visible
+      transition:persist
+      className="absolute top-0 right-0"
+    />
     <div class="flex flex-col items-center">
       <a href="/">
         <Image
