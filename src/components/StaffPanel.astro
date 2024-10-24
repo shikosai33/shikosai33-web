@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import StaffPhoto from '@/assets/staff.jpg';
+import { LayoutGrid } from 'lucide-astro';
+import ButtonLink from './ButtonLink.astro';
+import ColoredContainer from './ColoredContainer.astro';
+import ColoredHeading from './ColoredHeading.astro';
+---
+
+<ColoredContainer color="orange" class="flex-col">
+  <div class="w-full flex justify-between">
+    <ColoredHeading as="h3" class="text-4xl" text="スタッフ" color="orange" />
+    <ButtonLink color="orange" href="/staff">
+      <LayoutGrid class="w-6 h-6 stroke-[2px] stroke-mauve-3" />
+      詳細を開く
+    </ButtonLink>
+  </div>
+  <p
+    class="ml-6 text-xl font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-8 paint-sfm drop-shadow-bump shadow-mauve-6"
+  >
+    実行委員会の人たちの感想と紹介
+  </p>
+  <Image
+    src={StaffPhoto}
+    alt="実行委員長と部署長の集合写真"
+    loading="lazy"
+    class="w-full h-auto max-h-[370px] object-cover"
+  />
+</ColoredContainer>
