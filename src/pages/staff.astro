@@ -3,7 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import ButtonLink from "@/components/ButtonLink.astro";
 import { ArrowLeft } from "lucide-astro";
 import { Image } from "astro:assets";
-import LaughingGuysImage from "@/assets/LaughingGuys.png";
+import StaffImage from "@/assets/staff.jpg";
 import MapPinned from "@/assets/map-pinned.svg";
 import KawaiiContainer from "@/components/KawaiiContainer.astro";
 import ColoredHeading from "@/components/ColoredHeading.astro";
@@ -153,9 +153,13 @@ const STAFF = [
 
 <Layout title="スタッフ">
   <main class="flex flex-col justify-center items-center gap-6">
-    <KawaiiContainer color="orange">
+    <KawaiiContainer color="orange" class="relative flex flex-col items-center">
       <div class="relative flex flex-col items-center">
-        <Image src={LaughingGuysImage} alt="茨香祭実行委員の集合写真" />
+        <Image
+          src={StaffImage}
+          alt="茨香祭実行委員の集合写真"
+          class="w-auto h-[450px] rounded-xl shadow border border-[#f9feff]"
+        />
         <ColoredHeading
           as="h1"
           class="text-4xl"
