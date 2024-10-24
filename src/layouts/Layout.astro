@@ -1,6 +1,7 @@
 ---
 import '@/styles/global.css';
 import '@/styles/colors.css';
+import { ViewTransitions } from 'astro:transitions';
 import HeroSlideShow from '@/components/HeroSlideShow.astro';
 import Footer from '@/components/footer.astro';
 import Header from '@/components/header.astro';
@@ -46,6 +47,18 @@ export interface Props {
   imageAlt?: string;
 
   /**
+   * Opengraphで使用する画像の幅。
+   * @default 1200
+   */
+  imageWidth?: number;
+
+  /**
+   * Opengraphで使用する画像の高さ。
+   * @default 675
+   */
+  imageHeight?: number;
+
+  /**
    * このページのコンテンツを作成したTwitterアカウントのユーザー名。
    * このサイト全体のアカウントではなく、このページのコンテンツを作成したアカウント - つまりサークルやバンドのアカウントを指定する。
    * @example "@potus"
@@ -63,6 +76,8 @@ const DEFAULT_DESCRIPTION =
 const DEFAULT_OPENGRAPH_IMAGE_URL = new URL('/opengraph-image.png', import.meta.env.SITE).href;
 const DEFAULT_OPENGRAPH_IMAGE_ALT =
   '第33回茨香祭のパンフレットの表紙をあしらった、かわいらしい、ちゃあみぃ！なサムネイル。' as const;
+const DEFAULT_OPENGRAPH_IMAGE_WIDTH = 1200 as const;
+const DEFAULT_OPENGRAPH_IMAGE_HEIGHT = 675 as const;
 const DEFAULT_TWITTER_CREATOR = '@shikosai33' as const;
 
 const {
@@ -70,6 +85,8 @@ const {
   description = DEFAULT_DESCRIPTION,
   image = DEFAULT_OPENGRAPH_IMAGE_URL,
   imageAlt = DEFAULT_OPENGRAPH_IMAGE_ALT,
+  imageWidth = DEFAULT_OPENGRAPH_IMAGE_WIDTH,
+  imageHeight = DEFAULT_OPENGRAPH_IMAGE_HEIGHT,
   twitterCreator = DEFAULT_TWITTER_CREATOR,
   hasHero = false,
 } = Astro.props;
@@ -95,8 +112,8 @@ const {
         image: {
           url: image,
           alt: imageAlt,
-          width: 1200,
-          height: 675,
+          width: imageWidth,
+          height: imageHeight,
         },
         optional: {
           locale: "ja_JP",
@@ -120,26 +137,77 @@ const {
     <GoogleFontsOptimizer
       url="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap"
     />
+    <ViewTransitions />
+    <script is:inline>
+      // NOTE: ページ読み込み時のチラつきを防ぐために、必ず`<head>`タグ内にインラインでこのスクリプトを配置すること
+      // 参照: https://docs.astro.build/ja/tutorial/6-islands/2/
+
+      // ダークモードかどうかを判定するメディアクエリ
+      const darkModeMediaQuery = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      );
+
+      /**
+       * テーマを更新する。
+       * @param {boolean} isDarkModeMediaQueryMatched - デバイスの設定がダークモードかどうか
+       */
+      const updateTheme = (isDarkModeMediaQueryMatched) => {
+        const theme =
+          JSON.parse(localStorage.getItem("shikosai33:theme")) || "default";
+        switch (theme) {
+          case "light":
+            document.documentElement.classList.remove("dark");
+            break;
+          case "dark":
+            document.documentElement.classList.add("dark");
+            break;
+          case "default":
+          default:
+            if (isDarkModeMediaQueryMatched) {
+              document.documentElement.classList.add("dark");
+            } else {
+              document.documentElement.classList.remove("dark");
+            }
+            break;
+        }
+      };
+
+      // 初期化
+      updateTheme(darkModeMediaQuery.matches);
+
+      // モードの変化を監視する
+      darkModeMediaQuery.addEventListener("change", (event) => {
+        updateTheme(event.matches);
+      });
+      document.addEventListener("shikosai33:updateTheme", () => {
+        updateTheme(darkModeMediaQuery.matches);
+      });
+      document.addEventListener("astro:after-swap", () => {
+        updateTheme(darkModeMediaQuery.matches);
+      });
+    </script>
   </head>
   <body
-    class="relative bg-mauve-1 text-mauve-12 flex flex-col md:flex-row justify-start items-center md:items-start p-0 md:p-6"
+    class="relative flex flex-col items-center justify-start p-0 bg-mauve-1 text-mauve-12 md:flex-row md:items-start md:!p-6"
   >
     <div
-      class="md:sticky md:top-6 pb-16 -mb-16 flex flex-col gap-6 w-full md:w-[calc((100svh-64px-32px-24px*3)*0.7071)] md:max-w-[40vw] shrink-0 grow-0 overflow-x-hidden overflow-y-visible md:overflow-visible"
+      data-no-hero={!hasHero}
+      class="group md:sticky md:top-6 pb-16 -mb-16 flex flex-col gap-6 w-full md:w-[calc((100svh-64px-32px-24px*3)*0.7071)] md:max-w-[40vw] shrink-0 grow-0 overflow-x-hidden overflow-y-visible md:overflow-visible"
     >
       <Header
-        class="w-full fixed z-50 top-0 left-0 right-0 md:sticky md:top-6"
+        class="fixed top-0 left-0 right-0 z-50 w-full md:sticky md:top-6"
       />
       <div aria-hidden class="w-full h-16 md:hidden"></div>
       <HeroSlideShow
-        class:list={["w-full mb-8", !hasHero && "!hidden md:!flex"]}
+        transition:persist
+        class="w-full mb-8 group-data-[no-hero]:max-md:hidden"
       />
     </div>
     <div
       class="relative px-1 md:px-0 z-10 flex flex-col gap-6 w-full md:w-auto grow justify-start min-h-[calc(100svh-24px*2)] mt-6 md:mt-0 md:ml-6"
     >
       <slot />
-      <Footer class="-mx-1 md:mx-0 justify-self-end mt-auto" />
+      <Footer class="mt-auto -mx-1 md:mx-0 justify-self-end" />
     </div>
   </body>
 </html>

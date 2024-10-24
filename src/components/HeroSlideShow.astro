@@ -22,14 +22,14 @@ const { class: className, ...props } = Astro.props;
 <div
   id="HeroSlideShow"
   class:list={[
-    "swiper flex justify-center items-center overflow-hidden",
+    "light swiper flex justify-center items-center overflow-hidden",
     className,
   ]}
   style={{ overflow: "visible" }}
   {...props}
 >
-  <div class="swiper-wrapper overflow-visible">
-    <figure class="swiper-slide relative overflow-visible">
+  <div class="overflow-visible swiper-wrapper">
+    <figure class="relative overflow-visible swiper-slide">
       <Image
         aria-hidden
         src={Cover}
@@ -48,7 +48,7 @@ const { class: className, ...props } = Astro.props;
         alt="第33回茨香祭パンフレットの表紙"
       />
       <figcaption
-        class="absolute w-full bottom-0 left-0 right-0 flex flex-col justify-end items-center p-2 gap-4 text-center font-Dela text-orange-10 text-stroke-mauve-1 text-stroke-8 paint-sfm tracking-widest drop-shadow-bump shadow-mauve-6"
+        class="absolute bottom-0 left-0 right-0 flex flex-col items-center justify-end w-full gap-4 p-2 tracking-widest text-center font-Dela text-orange-10 text-stroke-mauve-1 text-stroke-8 paint-sfm drop-shadow-bump shadow-mauve-6"
       >
         <span class="text-2xl">茨城工業高等専門学校<br />第33回 茨香祭</span>
         <span>2024年10月26日(土) ~ 10月27日(日)</span>
@@ -76,7 +76,7 @@ const { class: className, ...props } = Astro.props;
         alt="第33回茨香祭のポスター"
       />
       <figcaption
-        class="absolute w-full bottom-0 left-0 right-0 flex flex-col justify-end items-center p-2 gap-4 text-center font-Dela text-pink-10 text-stroke-mauve-1 text-stroke-8 paint-sfm tracking-widest drop-shadow-bump shadow-mauve-6"
+        class="absolute bottom-0 left-0 right-0 flex flex-col items-center justify-end w-full gap-4 p-2 tracking-widest text-center font-Dela text-pink-10 text-stroke-mauve-1 text-stroke-8 paint-sfm drop-shadow-bump shadow-mauve-6"
       >
         <span class="text-2xl">茨城工業高等専門学校<br />第33回 茨香祭</span>
         <span>2024年10月26日(土) ~ 10月27日(日)</span>

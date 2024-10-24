@@ -6,8 +6,12 @@ import Layout from '@/layouts/Layout.astro';
 import EventCard from '@/components/EventCard.astro';
 import { EventStatus } from '@/components/EventStatus.tsx';
 import ColoredContainer from '@/components/ColoredContainer.astro';
+import KawaiiContainer from '@/components/KawaiiContainer.astro';
+import ColoredHeading from '@/components/ColoredHeading.astro';
+import SubHeading from '@/components/SubHeading.astro';
 import ButtonLink from '@/components/ButtonLink.astro';
 import {
+  MessageCircleWarning,
   Clock,
   LayoutGrid,
   Globe,
@@ -57,6 +61,7 @@ const {
 
 const { startsAtText, endsAtText } = formatDateTimeRange(startsAt, endsAt);
 const hasExternalLinks = (urls && urls?.length > 0) || !!youtube;
+const youtubeWatchId = youtube ? new URL(youtube).searchParams.get('v') : null;
 
 const isFireworks = (slug === "fireworks");
 const { Content } = await render();
@@ -66,66 +71,41 @@ const { Content } = await render();
 export const prerender = true;
 ---
 
-<Layout title="イベント">
-    <main class="w-full flex flex-col gap-6">
-      <div
-        class="p-6 w-full relative flex flex-col gap-3 justify-center items-center overflow-hidden bg-gradient-to-b from-violet-a-9 to-mauve-a-1 -mx-1 mt-[-88px] px-1 pt-[88px] md:mx-0 md:mt-0 md:px-0 md:pt-0 md:rounded-3xl"
-      >
-        <p
-          aria-hidden
-          class="select-none absolute font-Dela text-2xl whitespace-nowrap mix-blend-color-burn top-16 mx-auto text-center origin-center -rotate-12 text-transparent text-stroke-2 text-stroke-violet-9"
-        >
-          カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
-          />
-          カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
-          />
-          カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
-          />
-          カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
-          />
-          カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
-          />
-          カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
-          />
-          カワイイ ♡ ≧A≦ ♡ キュルキュル ♡ トキメキ ♡ ドキドキ ♡ アコガレ ♡ オモイデ<br
-          />
-        </p>
-        <div class="m-6 flex justify-center items-center relative">
+<Layout title={name} description={summary} image={new URL(image.src, import.meta.env.SITE).href} imageAlt={`${name}のアーティスト写真またはサムネイル`} imageWidth={image.width} imageHeight={image.height}>
+    <main class="flex flex-col w-full gap-6">
+      <KawaiiContainer class="flex-col gap-6 !w-auto -mx-1 -mt-20 pt-24 md:mx-0 md:mt-0 md:pt-6" color='violet'>
+        <div class="relative w-full max-w-[320px] lg:max-w-[450px] aspect-square flex items-center justify-center overflow-visible md:m-6">
           <Image aria-hidden
             src={image}
             alt={`${name}のアーティスト写真またはサムネイル`}
-            loading="lazy"
-            class="w-full max-w-[320px] lg:max-w-[470px] aspect-square rounded-xl absolute justify-self-center blur-lg opacity-50"
+            widths={[320, 450, 640, 900, 960, 1350, image.width]}
+            sizes="(min-width: 1024px) 450px, 320px"
+            loading="eager"
+            class="absolute w-full opacity-50 aspect-square rounded-xl justify-self-center blur-2xl saturate-150 brightness-125"
           />
+          <div aria-hidden class="absolute -inset-px bg-gradient-to-b from-violet-1 to-violet-a-1 rounded-[13px]"/>
           <Image
+            data-pagefind-meta="image[src], image_alt[alt]"
             src={image}
             alt={`${name}のアーティスト写真またはサムネイル`}
-            loading="lazy"
-            class="w-full max-w-[300px] lg:max-w-[450px] aspect-square rounded-xl relative"
+            widths={[320, 450, 640, 900, 960, 1350, image.width]}
+            sizes="(min-width: 1024px) 450px, 320px"
+            loading="eager"
+            class="relative w-full shadow-md aspect-square rounded-xl shadow-mauve-a-3"
           />
         </div>
-        <h2 class="w-full text-center relative">
-          <span
-            data-text=`${name}`
-            class:list={[
-              'inline-block text-4xl font-Dela text-violet-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6 md:text-5xl',
-              "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:from-[#6C4DB6] before:to-[#371B6B] before:bg-clip-text before:pointer-events-none",
-            ]}
-          >
-            {name}
-          </span>
-        </h2>
+        <ColoredHeading data-pagefind-meta="title" as="h2" class="text-4xl text-center md:text-5xl" color="violet" text={name} />
         {
         organizerName != undefined &&
           <div class="flex gap-1.5">
-            <p class="text-sm font-bold text-mauve-11">
+            <p data-pagefind-meta="開催団体" class="text-sm font-bold text-mauve-11">
               <PartyPopper class="w-4 h-4 inline stroke-[3px] mr-1.5" />
               {organizerName}
             </p>
           </div>
         }
         <div class="flex gap-1.5">
-          <p class="text-sm font-bold text-mauve-11">
+          <p data-pagefind-meta="開催日時" class="text-sm font-bold text-mauve-11">
             <Clock class="w-4 h-4 inline stroke-[3px] mr-1.5" />
             <time datetime={startsAt.toISOString()}>
               {startsAt.getMonth() + 1}月{startsAt.getDate()}日({["日","月","火","水","木","金","土"][startsAt.getDay()]}) {startsAtText}
@@ -135,10 +115,9 @@ export const prerender = true;
           </p>
           <EventStatus startsAt={startsAt} endsAt={endsAt} />
         </div>
-      </div>
+      </KawaiiContainer>
 
-
-      <ColoredContainer color='violet' class="flex-col">
+      <ColoredContainer data-pagefind-body color='violet' class="flex-col">
         <p
           class:list={[
             'text-lg  font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11 paint-sfm flex-shrink',
@@ -214,12 +193,21 @@ export const prerender = true;
         }
       </ColoredContainer>
 
+      {
+        youtubeWatchId && (
+          <ColoredContainer class="!p-0 aspect-video relative">
+          <small class="absolute pointer-events-none select-none flex px-2 py-1 mx-auto text-sm font-bold text-right rounded-2xl max-w-[50%] top-16 right-2 bg-mauve-a-11 text-mauve-1"><MessageCircleWarning class="w-4 h-4 stroke-[3px] shrink-0 mt-1"/>この動画配信は学生有志により行われているものであるため、<wbr />茨香祭実行委員会の管理下にはありません</small>
+          <iframe width="560" height="315" class="w-full h-full overflow-hidden rounded-3xl" src={`https://www.youtube.com/embed/${youtubeWatchId}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </ColoredContainer>
+        )
+      }
+
       <ButtonLink
         href="/event"
         class="mx-auto"
       >
         <LayoutGrid class="inline w-6 h-6 stroke-[2px] stroke-mauve-11" />
-        <p class="text-mauve-11 text-center font-Dela text-base">
+        <p class="text-base text-center text-mauve-11 font-Dela">
           イベントの一覧へ戻る
         </p>
       </ButtonLink>
@@ -228,17 +216,7 @@ export const prerender = true;
         {
           nextEvent != null && nextEvent != undefined?
             <ColoredContainer color="violet" class="flex-col xl:order-2">
-              <h3 class="relative inline-block mx-auto rounded-lg bg-mauve-a-3">
-                <span
-                  data-text="次のイベント→"
-                  class:list={[
-                    'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-8 paint-sfm drop-shadow-bump shadow-mauve-6',
-                    "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
-                  ]}
-                  >
-                  次のイベント→
-                </span>
-              </h3>
+              <SubHeading as='h3' class='self-center'>次のイベント→</SubHeading>
               <EventCard type="list" slug={nextEvent} class="w-full" />
             </ColoredContainer>
           :<></>
@@ -247,17 +225,7 @@ export const prerender = true;
         {
           previousEvent!=null&&previousEvent!=undefined?
             <ColoredContainer color="violet" class="flex-col xl:order-1">
-              <h3 class="relative inline-block mx-auto rounded-lg bg-mauve-a-3">
-                <span
-                  data-text="←前のイベント"
-                  class:list={[
-                    'inline-block text-lg text-center font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-8 paint-sfm drop-shadow-bump shadow-mauve-6',
-                    "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-11 before:bg-clip-text before:pointer-events-none",
-                  ]}
-                >
-                  ←前のイベント
-                </span>
-              </h3>
+              <SubHeading as='h3' class='self-center'>←前のイベント</SubHeading>
               <EventCard type="list" slug={previousEvent} class="w-full" />
             </ColoredContainer>
         :<></>

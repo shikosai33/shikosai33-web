@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "bunx --bun astro dev",
-    "build": "bunx --bun astro check && bunx --bun astro build",
+    "build": "bunx --bun astro check && bunx --bun astro build && bunx --bun pagefind --site dist",
     "sync": "bunx --bun astro sync",
     "preview": "bunx wrangler pages dev ./dist",
     "check": "bun biome check .",
@@ -19,15 +19,19 @@
     "@astrojs/react": "3.6.0",
     "@astrojs/sitemap": "3.1.6",
     "@astrojs/tailwind": "5.1.0",
+    "@pagefind/default-ui": "1.1.1",
+    "@radix-ui/react-select": "2.1.2",
     "astro": "4.11.6",
     "astro-google-fonts-optimizer": "0.2.2",
     "astro-seo": "0.8.4",
     "lucide-astro": "0.452.0",
     "lucide-react": "0.453.0",
+    "pagefind": "1.1.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "schema-dts": "1.1.2",
-    "swiper": "11.1.14"
+    "swiper": "11.1.14",
+    "usehooks-ts": "3.1.0"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.4",

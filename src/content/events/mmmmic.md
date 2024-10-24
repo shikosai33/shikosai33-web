@@ -8,7 +8,7 @@ image: ./_images/mmmmic.JPG
 name: mmmmic
 
 # イベントの開催者の名前 (団体の名前) - バンドの場合は省略
-# organizer-name: 
+# organizer-name:
 
 # イベントの概要 (バンドからのコメント)
 summary: mmmmicと書いてミミックと読みます。メンバー増えたのでm増やしました。頑張ります。
@@ -28,5 +28,5 @@ ends-at: 2024-10-27T12:55:00+0900
 # - https://instagram.com/example
 
 # Youtubeの動画もしくはライブ配信のURL
-# youtube: https://www.youtube.com/watch?v=
+youtube: https://www.youtube.com/watch?v=AfBbxpEcUW4&list=PLdpcRcn46OU2jYBH1avFa-3bWXt__99Sj&index=3
 ---
