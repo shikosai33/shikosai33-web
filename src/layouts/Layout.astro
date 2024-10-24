@@ -182,7 +182,7 @@ const {
       document.addEventListener("shikosai33:updateTheme", () => {
         updateTheme(darkModeMediaQuery.matches);
       });
-      document.addEventListener("astro:page-load", () => {
+      document.addEventListener("astro:after-swap", () => {
         updateTheme(darkModeMediaQuery.matches);
       });
     </script>
