@@ -8,7 +8,7 @@ image: ./_images/plushie.png
 name: PLUSHIE
 
 # イベントの開催者の名前 (団体の名前) - バンドの場合は省略
-# organizer-name: 
+# organizer-name:
 
 # イベントの概要 (バンドからのコメント)
 summary: ダンス部OGを中心としたメンバーによる、数年間の全てをかけた最高クオリティを保証するダンスパフォーマンスです 現地に来れない方にも楽しんでいただけるステージの生配信も準備中です！詳細は公式SNSへ @official_plushie
@@ -24,9 +24,9 @@ ends-at: 2024-10-27T14:25:00+0900
 
 # X, Instagramなどの外部リンク
 urls:
-# - https://x.com/example
-- https://instagram.com/official_plushie
+  # - https://x.com/example
+  - https://instagram.com/official_plushie
 
 # Youtubeの動画もしくはライブ配信のURL
-# youtube: https://www.youtube.com/watch?v=
+youtube: https://www.youtube.com/watch?v=3DAWdjaUGEk&list=PLdpcRcn46OU2jYBH1avFa-3bWXt__99Sj&index=2
 ---

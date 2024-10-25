@@ -1,0 +1,228 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import ColoredContainer from '@/components/ColoredContainer.astro';
+import KawaiiContainer from '@/components/KawaiiContainer.astro';
+import ColoredHeading from '@/components/ColoredHeading.astro';
+import SubHeading from '@/components/SubHeading.astro';
+import ButtonLink from '@/components/ButtonLink.astro';
+import { Image } from 'astro:assets';
+import TaxiImage from '@/assets/access_taxi.png';
+import BusImage from '@/assets/access_bus.png';
+import SchoolMap from '@/content/locations/_maps/school_map.svg';
+import { LayoutGrid, MapPinned, ExternalLink } from 'lucide-astro';
+---
+
+<Layout title="アクセス">
+  <main class="flex flex-col gap-6">
+    <KawaiiContainer color="blue" class="flex-col gap-6">
+      <div class="relative rounded-3xl overflow-hidden">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4022.053516903501!2d140.55073074446793!3d36.39699021221313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60222faa16bfeb1b%3A0x8ee69992b50722b8!2z6Iyo5Z-O5bel5qWt6auY562J5bCC6ZaA5a2m5qCh!5e0!3m2!1sja!2sjp!4v1729150639038!5m2!1sja!2sjp"
+          width="450"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="w-full aspect-square md:aspect-video"></iframe>
+      </div>
+      <ColoredHeading
+        as="h1"
+        class="text-4xl md:text-5xl"
+        text="アクセス"
+        color="blue"
+      />
+      <div class="flex gap-1.5 justify-center">
+        <MapPinned class="inline w-4 h-4 stroke-[2px] stroke-mauve-11" />
+        <p class="text-mauve-11 text-center text-sm">
+          〒312-8508 茨城県 ひたちなか市 中根866
+        </p>
+      </div>
+    </KawaiiContainer>
+
+    <div class="flex gap-6 justify-center lg:hidden">
+      <ButtonLink
+        href="https://maps.app.goo.gl/ZqS8dawqKPTDENz19"
+        class="mx-auto"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <LayoutGrid class="inline w-6 h-6 stroke-[2px] stroke-mauve-11" />
+        <p class="text-mauve-11 text-center font-Dela text-base">Google Map</p>
+        <ExternalLink class="inline w-4 h-4 stroke-[2px] stroke-mauve-11" />
+      </ButtonLink>
+
+      <ButtonLink
+        href="https://maps.apple.com/?address=%E3%80%92312-0011,%20%E8%8C%A8%E5%9F%8E%E7%9C%8C%E3%81%B2%E3%81%9F%E3%81%A1%E3%81%AA%E3%81%8B%E5%B8%82,%20%E4%B8%AD%E6%A0%B9866&auid=7819629652125356506&ll=36.400508,140.551520&lsp=9902&q=%E8%8C%A8%E5%9F%8E%E5%B7%A5%E6%A5%AD%E9%AB%98%E7%AD%89%E5%B0%82%E9%96%80%E5%AD%A6%E6%A0%A1"
+        class="mx-auto"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <LayoutGrid class="inline w-4 h-4 stroke-[2px] stroke-mauve-11" />
+        <p class="text-mauve-11 text-center font-Dela text-base">Apple Map</p>
+        <ExternalLink class="inline w-4 h-4 stroke-[2px] stroke-mauve-11" />
+      </ButtonLink>
+    </div>
+
+    <ColoredContainer color="blue" class="flex-col">
+      <ColoredHeading
+        as="h2"
+        class="text-center text-2xl relative"
+        text="バスでのご来校"
+        color="blue"
+      />
+      <p
+        class="text-lg font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11 paint-sfm flex-shrink"
+      >
+        JR勝田駅東口を出て左側にある、茨城交通バス2番乗り場から、いずれかのバスにお乗りください。茨城高専前で下車し、北へ進むと正門となります。
+        <br />
+        一般公開日の10月26日は茨城交通路線バスの臨時便を茨城高専スクールバスとして下記の通り運行いたします。通常のバス時刻表についてはこちらも併せてご確認ください。
+      </p>
+      <ul class="text-mauve-11 font-Dela underline">
+        <li>
+          <a
+            href="https://www.ibaraki-ct.ac.jp/access/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >アクセス（茨城高専ホームページ）
+            <ExternalLink class="inline w-4 h-4 stroke-[2px] stroke-mauve-11" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="http://bus.ibako.co.jp/timetable/result/?no=1052&de=2&week=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            >茨城交通路線バス時刻表 勝田駅（茨城高専方面）
+            <ExternalLink class="inline w-4 h-4 stroke-[2px] stroke-mauve-11" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="http://bus.ibako.co.jp/timetable/result/?no=436&de=1&week=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            >茨城交通路線バス時刻表 茨城高専前（勝田駅方面）
+            <ExternalLink class="inline w-4 h-4 stroke-[2px] stroke-mauve-11" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="http://bus.ibako.co.jp/timetable/result/?no=436&de=1&week=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            >茨城交通路線バス時刻表 茨城高専前（海浜公園方面）
+            <ExternalLink class="inline w-4 h-4 stroke-[2px] stroke-mauve-11" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="http://bus.ibako.co.jp/timetable/result/?no=3710&de=2&f_from_type=1&f_from_genre=&f_from=%E6%B7%B1%E8%B0%B7%E6%B4%A5"
+            target="_blank"
+            rel="noopener noreferrer"
+            >茨城交通路線バス時刻表 深谷津（勝田駅方面）
+            <ExternalLink class="inline w-4 h-4 stroke-[2px] stroke-mauve-11" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="http://bus.ibako.co.jp/timetable/result/?no=3710&de=1&f_from_type=1&f_from_genre=&f_from=%E6%B7%B1%E8%B0%B7%E6%B4%A5"
+            target="_blank"
+            rel="noopener noreferrer"
+            >茨城交通路線バス時刻表 深谷津（足崎団地方面）
+            <ExternalLink class="inline w-4 h-4 stroke-[2px] stroke-mauve-11" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="http://bus.ibako.co.jp/timetable/result/?no=20280&de=1&f_from_type=1&f_from_genre=&f_from=%E6%B7%B1%E8%B0%B7%E6%B4%A5"
+            target="_blank"
+            rel="noopener noreferrer"
+            >ひたちなかコミュニティバス時刻表 深谷津<ExternalLink
+              class="inline w-4 h-4 stroke-[2px] stroke-mauve-11"
+            />
+          </a>
+        </li>
+      </ul>
+      <div class="grid lg:grid-cols-2 gap-6">
+        <Image src={BusImage} alt="勝田駅バスロータリー" class="mx-auto" />
+
+        <div class="flex flex-col gap-3 items-center">
+          <SubHeading as="h2" class="text-lg text-center">
+            茨城高専スクールバス時刻表<br />(茨城交通路線バス 臨時便)
+          </SubHeading>
+          <div class="text-mauve-11 font-Dela grid gap-3 grid-cols-2">
+            <div>
+              <h4 class="text-lg">勝田駅→茨城高専前</h4>
+              <ul class="list-none">
+                <li>9:35~9:45</li>
+                <li>10:00~10:10</li>
+                <li>10:25~10:35</li>
+                <li>11:00~11:10</li>
+                <li>11:30~11:40</li>
+                <li>12:00~12:10</li>
+                <li>12:30~12:40</li>
+                <li>13:00~13:10</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="text-lg">茨城高専前→勝田駅</h4>
+              <ul class="list-none">
+                <li>15:00~15:10</li>
+                <li>15:30~15:45</li>
+                <li>16:10~16:20</li>
+                <li>16:50~17:00</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ColoredContainer>
+
+    <div class="grid gap-6 lg:grid-cols-2">
+      <ColoredContainer color="blue" class="flex-col">
+        <ColoredHeading
+          as="h2"
+          class="text-center text-2xl relative"
+          text="車・タクシーでのご来校"
+          color="blue"
+        />
+        <p
+          class="text-lg font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11 paint-sfm flex-shrink"
+        >
+          今年度は一般参加者駐車場を<span
+            class="text-stroke-4 text-stroke-pink-11">設置いたしません</span
+          >。お車でのお越しはお控え頂き、上記の茨城交通路線バスなどの利用をご検討ください。タクシーでお越しの方は、構内は<span
+            class="text-stroke-4 text-stroke-pink-11">自動車進入禁止</span
+          >となりますので正門の前で降車するようお願い申し上げます。
+        </p>
+        <Image src={TaxiImage} alt="タクシーでのアクセス" class="mx-auto" />
+      </ColoredContainer>
+
+      <ColoredContainer color="blue" class="flex-col">
+        <ColoredHeading
+          as="h2"
+          class="text-center text-2xl relative"
+          text="自転車でのご来校"
+          color="blue"
+        />
+        <p
+          class="text-lg font-Dela text-mauve-3 text-stroke-2 text-stroke-mauve-11 paint-sfm flex-shrink"
+        >
+          低学年駐輪場を一般参加者の方々へ開放いたします。構内では、安全のため必ず自転車を降り、スタッフの指示に従って駐輪してください。
+        </p>
+        <Image src={SchoolMap} alt="校内地図" class="mx-auto" />
+      </ColoredContainer>
+    </div>
+
+    <div class="flex justify-center lg:hidden">
+      <ButtonLink href="/" class="mx-auto">
+        <LayoutGrid class="inline w-6 h-6 stroke-[2px] stroke-mauve-11" />
+        <p class="text-mauve-11 text-center font-Dela text-base">
+          トップページへ戻る
+        </p>
+      </ButtonLink>
+    </div>
+  </main>
+</Layout>

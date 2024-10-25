@@ -38,7 +38,7 @@ const { class: className, color = 'mauve', as: As, text, ...props } = Astro.prop
   <span
     data-text={text}
     class:list={[
-      "block relative text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6 whitespace-nowrap", // HACK: WebKit で縁がboxの大きさで切り取られてしまうため、boxを広げて負のmarginを設定
+      "block relative text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6", // HACK: WebKit で縁がboxの大きさで切り取られてしまうため、boxを広げて負のmarginを設定
       "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:text-stroke-[0px] before:text-transparent before:bg-gradient-to-b before:bg-clip-text before:pointer-events-none",
       color === "mauve" &&
         "text-mauve-11 before:from-mauve-11 before:to-mauve-12",

@@ -8,7 +8,7 @@ image: ./_images/i-scream.png
 name: 愛SCREAM
 
 # イベントの開催者の名前 (団体の名前) - バンドの場合は省略
-# organizer-name: 
+# organizer-name:
 
 # イベントの概要 (バンドからのコメント)
 summary: 「愛scream」— 闇から生まれし音の化身。絶望と狂気を解き放ち、世界を終焉へと誘う破滅の旋律を聴け。 by田中隼生
@@ -28,5 +28,5 @@ ends-at: 2024-10-26T18:30:00+0900
 # - https://instagram.com/example
 
 # Youtubeの動画もしくはライブ配信のURL
-# youtube: https://www.youtube.com/watch?v=
+youtube: https://www.youtube.com/watch?v=FrNoBf7SOQg&list=PLdpcRcn46OU2jYBH1avFa-3bWXt__99Sj&index=6
 ---

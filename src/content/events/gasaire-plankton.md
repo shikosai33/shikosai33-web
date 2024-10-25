@@ -24,10 +24,10 @@ ends-at: 2024-10-26T14:05:00+0900
 
 # X, Instagramなどの外部リンク
 urls:
-- https://x.com/gasaireplankton
+  - https://x.com/gasaireplankton
 # - https://x.com/example
 # - https://instagram.com/example
 
 # Youtubeの動画もしくはライブ配信のURL
-# youtube: https://www.youtube.com/watch?v=
+youtube: https://www.youtube.com/watch?v=NQAN_C7bmC8&list=PLdpcRcn46OU2jYBH1avFa-3bWXt__99Sj&index=7
 ---
