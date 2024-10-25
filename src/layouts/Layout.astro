@@ -2,11 +2,13 @@
 import '@/styles/global.css';
 import '@/styles/colors.css';
 import { ViewTransitions } from 'astro:transitions';
+import ButtonLink from '@/components/ButtonLink.astro';
 import HeroSlideShow from '@/components/HeroSlideShow.astro';
 import Footer from '@/components/footer.astro';
 import Header from '@/components/header.astro';
 import { GoogleFontsOptimizer } from 'astro-google-fonts-optimizer';
 import { SEO } from 'astro-seo';
+import { CloudDownload } from 'lucide-astro';
 
 /**
  *メタデータやOpengraph、Twitterカードの情報を設定するためのレイアウト。
@@ -144,7 +146,7 @@ const {
 
       // ダークモードかどうかを判定するメディアクエリ
       const darkModeMediaQuery = window.matchMedia(
-        "(prefers-color-scheme: dark)"
+        "(prefers-color-scheme: dark)",
       );
 
       /**
@@ -202,7 +204,32 @@ const {
         transition:persist
         class="w-full mb-8 group-data-[no-hero]:max-md:hidden"
       />
+      {
+        hasHero && (
+          <div class="grid justify-around grid-cols-2 gap-5">
+            <ButtonLink
+              color="pink"
+              target="_black"
+              rel="noopener noreferrer"
+              href="https://bucket.33.shikosai.net/brochure.pdf"
+            >
+              <CloudDownload />
+              <span class="text-base">パンフレット (11.5MB)</span>
+            </ButtonLink>
+            <ButtonLink
+              color="mauve"
+              target="_black"
+              rel="noopener noreferrer"
+              href="https://bucket.33.shikosai.net/poster.png"
+            >
+              <CloudDownload />
+              <span class="text-base">ポスター (13.4MB)</span>
+            </ButtonLink>
+          </div>
+        )
+      }
     </div>
+
     <div
       class="relative px-1 md:px-0 z-10 flex flex-col gap-6 w-full md:w-[calc(100%-(100svh-64px-32px-24px*3)*0.7071-24px*3)] md:min-w-[calc(100%-40vw-24px*3)] grow justify-start min-h-[calc(100svh-24px*2)] mt-6 md:mt-0 md:ml-6"
     >
