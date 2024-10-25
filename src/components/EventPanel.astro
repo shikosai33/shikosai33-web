@@ -28,16 +28,27 @@ const EventSlugs = (await getCollection('events'))
       一覧を開く
     </ButtonLink>
   </div>
-    <div class="flex gap-10 overflow-x-scroll">
-      {
-        EventSlugs.map((slug) => {
-
-          return (
-            <span class="self-stretch w-36">
-              <EventCard type="grid" slug={slug} class="w-36" />
-            </span>
-          );
-        })
-      }
-    </div>
+  <div class="flex gap-10 overflow-x-scroll hidden-scrollbar">
+    {
+      EventSlugs.map((slug) => {
+        return (
+          <span class="self-stretch w-36">
+            <EventCard type="grid" slug={slug} class="w-36" />
+          </span>
+        );
+      })
+    }
+  </div>
 </ColoredContainer>
+
+<style>
+  .hidden-scrollbar {
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hidden-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+</style>
