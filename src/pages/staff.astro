@@ -20,8 +20,6 @@ import {
 import StudentCard from "@/components/StudentCard.astro";
 
 const STAFF_HEAD = [
-  ["林 実央", "はやし みお", "部署長", "本部"],
-  ["川崎 准也", "かわさき じゅんや", "副部署長", "本部"],
   ["有坂 和大", "ありさか かずひろ", null, "本部"],
   ["塩田 倫太郎", "しおだ りんたろう", null, "本部"],
   ["小池 奏人", "こいけ かなと", null, "本部"],
@@ -45,8 +43,6 @@ const STAFF_HEAD = [
 ] as const satisfies [string, string | null, string | null, string | null][];
 
 const STAFF_EQUIPMENT = [
-  ["舟生 凛々子", "ふにゅう りりこ", "部署長", "機材部"],
-  ["國井 真帆", "くにい まはん", "副部署長", "機材部"],
   ["金浦 昇汰", "かねうら しょうた", null, "機材部"],
   ["鈴木 巧磨", "すずき たくま", null, "機材部"],
   ["小原 壮太", "おばら そうた", null, "機材部"],
@@ -77,7 +73,6 @@ const STAFF_EQUIPMENT = [
 ] as const satisfies [string, string | null, string | null, string | null][];
 
 const STAFF_DESIGN = [
-  ["須澤 龍星", "すざわ りゅうせい", "部署長", "デザイン部"],
   ["木内 裕太", "きうち ゆうた", null, "デザイン部"],
   ["S.R.", null, null, "デザイン部"],
   ["K.S.", null, null, "デザイン部"],
@@ -89,7 +84,6 @@ const STAFF_DESIGN = [
 ] as const satisfies [string, string | null, string | null, string | null][];
 
 const STAFF_DECO = [
-  ["笹原 ひより", "ささはら ひより", "部署長", "装飾部"],
   ["ツン 鵬臣", "つん ともおみ", null, "装飾部"],
   ["佐藤 大悟", "さとう だいご", null, "装飾部"],
   ["矢野 小春", "やの こはる", null, "装飾部"],
@@ -116,7 +110,6 @@ const STAFF_DECO = [
 ] as const satisfies [string, string | null, string | null, string | null][];
 
 const STAFF_EVENT = [
-  ["小泉 柚奈", "こいずみ ゆうな", "部署長", "イベント部"],
   ["伊藤 諒", "いとう まこと", null, "イベント部"],
   ["小森 裕真", "こもり やすまさ", null, "イベント部"],
   ["ニワ", null, null, "イベント部"],
@@ -140,8 +133,6 @@ const STAFF_EVENT = [
 ] as const satisfies [string, string | null, string | null, string | null][];
 
 const STAFF_FINANCE = [
-  ["杉田 和奏", "すぎた わかな", "部署長", "会計・渉外部"],
-  ["大貫 翔", "おおぬき かける", "副部署長", "会計・渉外部"],
   ["関 晴仁", "せき はるひと", null, "会計・渉外部"],
   ["小松崎 奈央", "こまつざき なお", null, "会計・渉外部"],
   ["濵本 夏芽", "はまもと なつめ", null, "会計・渉外部"],
@@ -161,8 +152,6 @@ const STAFF_FINANCE = [
 ] as const satisfies [string, string | null, string | null, string | null][];
 
 const STAFF_DEV = [
-  ["佐野 友樹", "さの ともき", "部署長", "情報部"],
-  ["小口 魁琉", "おぐち かいる", "副部署長", "情報部"],
   ["白田 連大", "はくた れおお", null, "情報部"],
   ["関口 佳汰", "せきぐち けいた", null, "情報部"],
   ["shio", null, null, "情報部"],
@@ -299,6 +288,18 @@ const STAFF_DEV = [
           >今回で第33回となる茨香祭を今年度も無事開催することができました！前回から対面での開催を「再開」しましたがまだまだ制限が厳しい状況でした...ですが、今年度は制限の緩和それに伴い飲食に関するイベントやサークルが解禁となります。完全復活した茨香祭を学生の皆様もご来場いただいた皆様もどうぞ存分に楽しんでください！！</StudentCard
         >
       </div>
+      <div class="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
+        <StudentCard
+          name="林 実央"
+          pronounciation="はやし みお"
+          title="部署長"
+        />
+        <StudentCard
+          name="川崎 准也"
+          pronounciation="かわさき じゅんや"
+          title="副部所長"
+        />
+      </div>
       <div class="grid w-full grid-cols-2 gap-3 md:grid-cols-3">
         {
           STAFF_HEAD.map((staff) => {
@@ -339,6 +340,18 @@ const STAFF_DEV = [
         >
           主にこのWebサイトの作成を担当しています！メンバーが多忙な中なんとかサイトを公開できました。茨香祭当日はTwitterでステージの様子などをアップしていく予定なのでお楽しみに！
         </span>
+      </div>
+      <div class="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
+        <StudentCard
+          name="佐野 友樹"
+          pronounciation="さの ともき"
+          title="部署長"
+        />
+        <StudentCard
+          name="小口 魁琉"
+          pronounciation="おぐち かいる"
+          title="副部所長"
+        />
       </div>
       <div class="grid w-full grid-cols-2 gap-3 md:grid-cols-3">
         {
@@ -381,6 +394,18 @@ const STAFF_DEV = [
           器材部部署長の舟生です。主にステージ発表を担当しています。みなさんが素敵な茨香祭をすごせるよう、また、ステージ発表がより華々しいものになるようにがんばります！
         </span>
       </div>
+      <div class="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
+        <StudentCard
+          name="舟生 凛々子"
+          pronounciation="ふにゅう りりこ"
+          title="部署長"
+        />
+        <StudentCard
+          name="國井 真帆"
+          pronounciation="くにい まはん"
+          title="副部所長"
+        />
+      </div>
       <div class="grid w-full grid-cols-2 gap-3 md:grid-cols-3">
         {
           STAFF_EQUIPMENT.map((staff) => {
@@ -422,6 +447,13 @@ const STAFF_DEV = [
           デザイン部です。パンフレットやロゴなどの作成を担当しています。今年度スローガンの「ちゃあみぃ！」に相応しい作品群が、部署員や有志学生の力を借りて完成いたしました。
         </span>
       </div>
+      <div class="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
+        <StudentCard
+          name="須澤 龍星"
+          pronounciation="すざわ りゅうせい"
+          title="部署長"
+        />
+      </div>
       <div class="grid w-full grid-cols-2 gap-3 md:grid-cols-3">
         {
           STAFF_DESIGN.map((staff) => {
@@ -450,7 +482,7 @@ const STAFF_DEV = [
           text="SpecialThanks"
           color="orange"
         />
-        <div class="mt-5 grid w-full grid-cols-2 gap-3">
+        <div class="mt-5 grid w-full grid-cols-1 gap-3 md:grid-cols-2">
           <StudentCard
             name="安田 れん"
             pronounciation="やすだ れん"
@@ -478,6 +510,13 @@ const STAFF_DEV = [
         >
           装飾部です。学校内の『ちゃあみぃ！』な装飾をしました！ちゃあみぃ！な装飾を楽しんでください！
         </span>
+      </div>
+      <div class="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
+        <StudentCard
+          name="笹原 ひより"
+          pronounciation="ささはら ひより"
+          title="部署長"
+        />
       </div>
       <div class="grid w-full grid-cols-2 gap-3 md:grid-cols-3">
         {
@@ -526,6 +565,13 @@ const STAFF_DEV = [
           さあ、一緒に最高の思い出を作りましょう！！
         </span>
       </div>
+      <div class="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
+        <StudentCard
+          name="小泉 柚奈"
+          pronounciation="こいずみ ゆうな"
+          title="部署長"
+        />
+      </div>
       <div class="grid w-full grid-cols-2 gap-3 md:grid-cols-3">
         {
           STAFF_EVENT.map((staff) => {
@@ -566,6 +612,18 @@ const STAFF_DEV = [
         >
           今回の茨香祭は36社もの企業様からご支援いただいています。予算は約400万円！400万以上の価値を皆さんに見いだしていただければ光栄です。ぜひお金をたくさん動かしていってください
         </span>
+      </div>
+      <div class="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
+        <StudentCard
+          name="杉田 和奏"
+          pronounciation="すぎた わかな"
+          title="部署長"
+        />
+        <StudentCard
+          name="大貫 翔"
+          pronounciation="おおぬき かける"
+          title="副部所長"
+        />
       </div>
       <div class="grid w-full grid-cols-2 gap-3 md:grid-cols-3">
         {
