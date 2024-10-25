@@ -15,7 +15,7 @@ const EventSlugs = (await getCollection('events'))
   }) satisfies string[];
 ---
 
-<ColoredContainer color="violet" class="flex-col">
+<ColoredContainer color="violet" class="max-w-[1250px] flex-col">
   <div class="w-full flex justify-between items-center">
     <ColoredHeading as="h3" class="text-3xl" text="イベント" color="violet" />
     <p
@@ -28,25 +28,16 @@ const EventSlugs = (await getCollection('events'))
       一覧を開く
     </ButtonLink>
   </div>
-  <div id="eventCarousel" class="swiper w-full">
-    <div class="swiper-wrapper">
+    <div class="flex gap-10 overflow-x-scroll">
       {
         EventSlugs.map((slug) => {
-        <div class="swiper-slide">
-          <EventCard type="grid" slug={slug} class="w-48" />
-        </div>
+
+          return (
+            <span class="self-stretch w-36">
+              <EventCard type="grid" slug={slug} class="w-36" />
+            </span>
+          );
         })
       }
     </div>
-  </div>
 </ColoredContainer>
-
-<script>
-  import Swiper from 'swiper/bundle';
-  import 'swiper/css/bundle';
-  //@ts-ignore TS6133: ts(6133): 'swiper' is declared but its value is never read.
-  const eventCarousel = new Swiper('#eventCarousel', {
-    spaceBetween: 24,
-    slidesPerView: 7,
-  });
-</script>
