@@ -1,0 +1,65 @@
+---
+import { LayoutGrid } from 'lucide-astro';
+import ButtonLink from './ButtonLink.astro';
+import CircleCard from './CircleCard.astro';
+import ColoredContainer from './ColoredContainer.astro';
+---
+
+<ColoredContainer
+  color="yellow"
+  class="relative flex flex-col p-6 gap-6 z-[-50] w-full md:w-[70vw] md:min-w-[640px] "
+>
+  <div class="relative flex flex-row items-center justify-between">
+    <span
+      data-text="サークル"
+      class:list={[
+        "text-4xl font-Dela whitespace-nowrap text-mauve-1 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6 text-center",
+        "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:text-stroke-[0px] before:z-30 before:text-transparent before:bg-gradient-to-b before:from-[#8B7809] before:to-[#413C25] before:bg-clip-text",
+      ]}
+    >
+      サークル
+    </span>
+    <span
+      class="text-2xl font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-[8px] paint-sfm drop-shadow-bump shadow-mauve-6 text-center"
+    >
+      色々な出し物を回ってみよう
+    </span>
+    <ButtonLink color="yellow" href="/circle">
+      <LayoutGrid class="w-6 h-6 stroke-[2px]" />
+      一覧を開く
+    </ButtonLink>
+  </div>
+
+  <div class="flex gap-10 overflow-x-scroll">
+    <div class="self-stretch w-36">
+      <CircleCard type="grid" slug="1-1" class="w-36" />
+    </div>
+    <div class="self-stretch w-36">
+      <CircleCard type="grid" slug="1-2" class="w-36" />
+    </div>
+    <div class="self-stretch w-36">
+      <CircleCard type="grid" slug="1-3" class="w-36" />
+    </div>
+    <div class="self-stretch w-36">
+      <CircleCard type="grid" slug="1-4" class="w-36" />
+    </div>
+    <div class="self-stretch w-36">
+      <CircleCard type="grid" slug="1-5" class="w-36" />
+    </div>
+    <div class="self-stretch w-36">
+      <CircleCard type="grid" slug="1-5" class="w-36" />
+    </div>
+    <div class="self-stretch w-36">
+      <CircleCard type="grid" slug="1-5" class="w-36" />
+    </div>
+    <div class="self-stretch w-36">
+      <CircleCard type="grid" slug="1-5" class="w-36" />
+    </div>
+    <div class="self-stretch w-36">
+      <CircleCard type="grid" slug="1-5" class="w-36" />
+    </div>
+    <div class="self-stretch w-36">
+      <CircleCard type="grid" slug="1-5" class="w-36" />
+    </div>
+  </div>
+</ColoredContainer>
