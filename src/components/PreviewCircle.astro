@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import { LayoutGrid } from 'lucide-astro';
+import ButtonLink from './ButtonLink.astro';
+import CircleCard from './CircleCard.astro';
+import ColoredContainer from './ColoredContainer.astro';
+import ColoredHeading from './ColoredHeading.astro';
+
+const CircleSlugs = (await getCollection('circles')).map(Circle => {
+  return Circle.slug;
+}) satisfies string[];
+---
+
+<ColoredContainer color="yellow" class="flex-col w-full">
+  <div class="flex items-center justify-between w-full">
+    <ColoredHeading as="h3" class="text-4xl" text="イベント" color="yellow" />
+    <p
+      class="hidden text-2xl font-Dela text-mauve-11 text-stroke-mauve-1 text-stroke-8 paint-sfm drop-shadow-bump shadow-mauve-6 md:block"
+    >
+      色々な出し物を回ってみよう
+    </p>
+    <ButtonLink color="yellow" href="/circle">
+      <LayoutGrid class="w-6 h-6 stroke-[2px]" />
+      一覧を開く
+    </ButtonLink>
+  </div>
+  <div class="flex gap-10 overflow-x-scroll hidden-scrollbar">
+    {
+      CircleSlugs.map((slug) => {
+        return (
+          <span class="self-stretch w-36">
+            <CircleCard type="grid" slug={slug} class="w-36" />
+          </span>
+        );
+      })
+    }
+  </div>
+</ColoredContainer>
+
+<style>
+  .hidden-scrollbar {
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hidden-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+</style>
