@@ -1,0 +1,596 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
+import { Image } from "astro:assets";
+import StaffImage from "@/assets/staff.jpg";
+import KawaiiContainer from "@/components/KawaiiContainer.astro";
+import ColoredHeading from "@/components/ColoredHeading.astro";
+import ColoredContainer from "@/components/ColoredContainer.astro";
+import {
+  BookOpen,
+  ArrowLeft,
+  Heart,
+  PenTool,
+  QrCode,
+  Speaker,
+  Ribbon,
+  PartyPopper,
+  Handshake,
+} from "lucide-astro";
+import StudentCard from "@/components/StudentCard.astro";
+
+const STAFF_HEAD = [
+  ["林 実央", "はやし みお", "部署長", "本部"],
+  ["川崎 准也", "かわさき じゅんや", "副部署長", "本部"],
+  ["有坂 和大", "ありさか かずひろ", null, "本部"],
+  ["塩田 倫太郎", "しおだ りんたろう", null, "本部"],
+  ["小池 奏人", "こいけ かなと", null, "本部"],
+  ["大津 悠叶", "おおつ はると", null, "本部"],
+  ["トミー", null, null, "本部"],
+  ["ちゃなぎ", null, null, "本部"],
+  ["S.K.", null, null, "本部"],
+  ["S.J.", null, null, "本部"],
+  ["F.T.", null, null, "本部"],
+  ["J.K.", null, null, "本部"],
+  ["O.K.", null, null, "本部"],
+  ["S.R.", null, null, "本部"],
+  ["Y.N.", null, null, "本部"],
+  ["U.A.", null, null, "本部"],
+  ["W.R.", null, null, "本部"],
+  ["A.K.", null, null, "本部"],
+  ["O.E.", null, null, "本部"],
+  ["O.A.", null, null, "本部"],
+  ["O.E.", null, null, "本部"],
+  ["K.H.", null, null, "本部"],
+] as const satisfies [string, string | null, string | null, string | null][];
+
+const STAFF_EQUIPMENT = [
+  ["舟生 凛々子", "ふにゅう りりこ", "部署長", "機材部"],
+  ["國井 真帆", "くにい まはん", "副部署長", "機材部"],
+  ["金浦 昇汰", "かねうら しょうた", null, "機材部"],
+  ["鈴木 巧磨", "すずき たくま", null, "機材部"],
+  ["小原 壮太", "おばら そうた", null, "機材部"],
+  ["中垣 陽斗", "なかがき はると", null, "機材部"],
+  ["富岡 直映", "とみおか なおあき", null, "機材部"],
+  ["ふかやっち", null, null, "機材部"],
+  ["あ", null, null, "機材部"],
+  ["蒙古斑勢", null, null, "機材部"],
+  ["ふぃじ", null, null, "機材部"],
+  ["S.S.", null, null, "機材部"],
+  ["T.R.", null, null, "機材部"],
+  ["T.S.", null, null, "機材部"],
+  ["T.T.", null, null, "機材部"],
+  ["K.T.", null, null, "機材部"],
+  ["N.S.", null, null, "機材部"],
+  ["K.K.", null, null, "機材部"],
+  ["T.A.", null, null, "機材部"],
+  ["U.Y.", null, null, "機材部"],
+  ["O.A.", null, null, "機材部"],
+  ["A.T.", null, null, "機材部"],
+  ["O.K.", null, null, "機材部"],
+  ["S.S.", null, null, "機材部"],
+  ["S.N.", null, null, "機材部"],
+  ["T.T.", null, null, "機材部"],
+  ["H.T.", null, null, "機材部"],
+  ["K.N.", null, null, "機材部"],
+  ["I.H.", null, null, "機材部"],
+] as const satisfies [string, string | null, string | null, string | null][];
+
+const STAFF_DESIGN = [
+  ["須澤 龍星", "すざわ りゅうせい", "部署長", "デザイン部"],
+  ["木内 裕太", "きうち ゆうた", null, "デザイン部"],
+  ["S.R.", null, null, "デザイン部"],
+  ["K.S.", null, null, "デザイン部"],
+  ["S.H.", null, null, "デザイン部"],
+  ["T.K.", null, null, "デザイン部"],
+  ["O.S.", null, null, "デザイン部"],
+  ["K.Y.", null, null, "デザイン部"],
+  ["S.A.", null, null, "デザイン部"],
+] as const satisfies [string, string | null, string | null, string | null][];
+
+const STAFF_DECO = [
+  ["笹原 ひより", "ささはら ひより", "部署長", "装飾部"],
+  ["ツン 鵬臣", "つん ともおみ", null, "装飾部"],
+  ["佐藤 大悟", "さとう だいご", null, "装飾部"],
+  ["矢野 小春", "やの こはる", null, "装飾部"],
+  [" SHA", null, null, "装飾部"],
+  ["かためちゃん", null, null, "装飾部"],
+  ["A.R.", null, null, "装飾部"],
+  ["H.T.", null, null, "装飾部"],
+  ["K.K.", null, null, "装飾部"],
+  ["I.M.", null, null, "装飾部"],
+  ["S.H.", null, null, "装飾部"],
+  ["M.A.", null, null, "装飾部"],
+  ["N.Y.", null, null, "装飾部"],
+  ["S.A.", null, null, "装飾部"],
+  ["A.K.", null, null, "装飾部"],
+  ["K.I.", null, null, "装飾部"],
+  ["M.H.", null, null, "装飾部"],
+  ["K.A.", null, null, "装飾部"],
+  ["M.Y.", null, null, "装飾部"],
+  ["I.K.", null, null, "装飾部"],
+  ["K.R.", null, null, "装飾部"],
+  ["M.H.", null, null, "装飾部"],
+  ["M.R.", null, null, "装飾部"],
+  ["Y.I.", null, null, "装飾部"],
+] as const satisfies [string, string | null, string | null, string | null][];
+
+const STAFF_EVENT = [
+  ["小泉 柚奈", "こいずみ ゆうな", "部署長", "イベント部"],
+  ["伊藤 諒", "いとう まこと", null, "イベント部"],
+  ["小森 裕真", "こもり やすまさ", null, "イベント部"],
+  ["ニワ", null, null, "イベント部"],
+  ["もっふー", null, null, "イベント部"],
+  ["S.S.", null, null, "イベント部"],
+  ["K.Y.", null, null, "イベント部"],
+  ["O.N.", null, null, "イベント部"],
+  ["O.K.", null, null, "イベント部"],
+  ["W.H.", null, null, "イベント部"],
+  ["G.Y.", null, null, "イベント部"],
+  ["O.K.", null, null, "イベント部"],
+  ["I.J.", null, null, "イベント部"],
+  ["H.S.", null, null, "イベント部"],
+  ["T.R.", null, null, "イベント部"],
+  ["T.T.", null, null, "イベント部"],
+  ["W.K.", null, null, "イベント部"],
+  ["K.K.", null, null, "イベント部"],
+  ["S.A.", null, null, "イベント部"],
+  ["H.W.", null, null, "イベント部"],
+  ["U.Y.", null, null, "イベント部"],
+] as const satisfies [string, string | null, string | null, string | null][];
+
+const STAFF_FINANCE = [
+  ["杉田 和奏", "すぎた わかな", "部署長", "会計・渉外部"],
+  ["大貫 翔", "おおぬき かける", "副部署長", "会計・渉外部"],
+  ["関 晴仁", "せき はるひと", null, "会計・渉外部"],
+  ["小松崎 奈央", "こまつざき なお", null, "会計・渉外部"],
+  ["濵本 夏芽", "はまもと なつめ", null, "会計・渉外部"],
+  ["中田 陽仁", "なかた はると", null, "会計・渉外部"],
+  ["S.R.", null, null, "会計・渉外部"],
+  ["M.H.", null, null, "会計・渉外部"],
+  ["N.H.", null, null, "会計・渉外部"],
+  ["S.T.", null, null, "会計・渉外部"],
+  ["S.R.", null, null, "会計・渉外部"],
+  ["W.S.", null, null, "会計・渉外部"],
+  ["W.F.", null, null, "会計・渉外部"],
+  ["J.R.", null, null, "会計・渉外部"],
+  ["Y.G.", null, null, "会計・渉外部"],
+  ["Y.T.", null, null, "会計・渉外部"],
+  ["O.F.", null, null, "会計・渉外部"],
+  ["W.H.", null, null, "会計・渉外部"],
+] as const satisfies [string, string | null, string | null, string | null][];
+
+const STAFF_DEV = [
+  ["佐野 友樹", "さの ともき", "部署長", "情報部"],
+  ["小口 魁琉", "おぐち かいる", "副部署長", "情報部"],
+  ["白田 連大", "はくた れおお", null, "情報部"],
+  ["関口 佳汰", "せきぐち けいた", null, "情報部"],
+  ["shio", null, null, "情報部"],
+  ["G.K.", null, null, "情報部"],
+  ["NagaimoDON", null, null, "情報部"],
+  ["A.N.", null, null, "情報部"],
+  ["M.A.", null, null, "情報部"],
+  ["石川 太一", "いしかわ たいち", null, "情報部"],
+  ["佐藤 匠", "さとう たくみ", null, "情報部"],
+  ["A.K.", null, null, "情報部"],
+  ["W.A.", null, null, "情報部"],
+] as const satisfies [string, string | null, string | null, string | null][];
+---
+
+<Layout title="スタッフ">
+  <main class="flex flex-col justify-center items-center gap-6">
+    <KawaiiContainer color="orange" class="relative flex flex-col items-center">
+      <div class="relative flex flex-col items-center">
+        <Image
+          src={StaffImage}
+          alt="茨香祭実行委員の集合写真"
+          class="w-[787px] h-auto rounded-xl shadow border border-[#f9feff]"
+        />
+        <ColoredHeading
+          as="h1"
+          class="text-4xl mt-6"
+          text="スタッフ"
+          color="orange"
+        />
+      </div>
+    </KawaiiContainer>
+    <ColoredContainer class="flex-col w-full" color="orange">
+      <div class="flex items-center justify-between w-full">
+        <ColoredHeading
+          as="h2"
+          class="text-2xl"
+          text="スタッフ"
+          color="orange"
+        />
+        <div class="flex items-center gap-1.5">
+          <BookOpen class="inline w-4 h-4 stroke-[2px] stroke-mauve-11" />
+          <p class="text-sm font-bold text-mauve-11">このページの目次</p>
+        </div>
+      </div>
+
+      <div class="grid w-full grid-cols-2 gap-3 md:grid-cols-3">
+        <!-- hrefにColoredHeadingのidを指定してください -->
+        <!-- classのcol-spanは本部だけ、表の要素2・3個分の幅取らせるためのやつです -->
+        <a
+          href="#HeadQuarters"
+          class="col-span-2 md:col-span-3 w-full font-Dela text-sm text-center text-orange-11 p-2.5 rounded-lg bg-orange-3"
+        >
+          <Heart class="inline w-4 h-4 stroke-[2px] stroke-orange-11" />
+          本部
+        </a>
+        <a
+          href="#Development"
+          class="w-full font-Dela text-sm text-center text-orange-11 p-2.5 rounded-lg bg-orange-3"
+        >
+          <QrCode class="inline w-4 h-4 stroke-[2px] stroke-orange-11" />
+          情報部
+        </a>
+        <a
+          href="#Equipment"
+          class="w-full font-Dela text-sm text-center text-orange-11 p-2.5 rounded-lg bg-orange-3"
+        >
+          <Speaker class="inline w-4 h-4 stroke-[2px] stroke-orange-11" />
+          機材部
+        </a>
+        <a
+          href="#Design"
+          class="w-full font-Dela text-sm text-center text-orange-11 p-2.5 rounded-lg bg-orange-3"
+        >
+          <PenTool class="inline w-4 h-4 stroke-[2px] stroke-orange-11" />
+          デザイン部
+        </a>
+        <a
+          href="#Decolation"
+          class="w-full font-Dela text-sm text-center text-orange-11 p-2.5 rounded-lg bg-orange-3"
+        >
+          <Ribbon class="inline w-4 h-4 stroke-[2px] stroke-orange-11" />
+          装飾部
+        </a>
+        <a
+          href="#Event"
+          class="w-full font-Dela text-sm text-center text-orange-11 p-2.5 rounded-lg bg-orange-3"
+        >
+          <PartyPopper class="inline w-4 h-4 stroke-[2px] stroke-orange-11" />
+          イベント部
+        </a>
+        <a
+          href="#Finance"
+          class="w-full font-Dela text-sm text-center text-orange-11 p-2.5 rounded-lg bg-orange-3"
+        >
+          <Handshake class="inline w-4 h-4 stroke-[2px] stroke-orange-11" />
+          会計･渉外部
+        </a>
+      </div>
+    </ColoredContainer>
+    <ColoredContainer color="orange" class="w-full flex-col">
+      <ColoredHeading
+        as="h2"
+        class="text-4xl"
+        text="本部"
+        color="orange"
+        id="HeadQuarters"
+      />
+      <div class="relative">
+        <span
+          data-text="茨香祭の何でも屋！運営を務めております本部です！皆さんに楽しんでもらうため部署員一同、精魂込めて活動してまいりました茨香祭を是非お楽しみください！"
+          class:list={[
+            "inline-block text-lg font-Dela text-mauve-3 text-stroke-mauve-11 text-stroke-2 paint-sfm",
+            "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-3 before:bg-clip-text before:pointer-events-none",
+          ]}
+        >
+          茨香祭の何でも屋！運営を務めております本部です！皆さんに楽しんでもらうため部署員一同、精魂込めて活動してまいりました茨香祭を是非お楽しみください！
+        </span>
+      </div>
+      <div class="grid w-full grid-cols-2 gap-3">
+        <StudentCard
+          name="大貫 ひまり"
+          pronounciation="おおぬき ひまり"
+          title="実行委員長"
+          >今年度はコロナ禍を抜けて行動制限のない、飲食の提供もできる茨香祭です。以前は当たり前だったことがコロナ禍で出来なくなり、従来型の茨香祭を知っている人がおらず、部署長の人たちと分からないことを手探りで進めてきました。
+          テーマを「ちゃあみぃ！」にしたので、チャーミングな愛嬌いっぱいの可愛いらしい文化祭にします。
+          またチャーミングには魅力的な、可愛らしいという意味があります。
+          これからも茨城高専が愛される学校であり続けてほしいです。
+          茨香祭楽しんでください！</StudentCard
+        >
+        <StudentCard
+          name="姫野 そうた"
+          pronounciation="ひめの そうた"
+          title="副実行委員長"
+          >今回で第33回となる茨香祭を今年度も無事開催することができました！前回から対面での開催を「再開」しましたがまだまだ制限が厳しい状況でした...ですが、今年度は制限の緩和それに伴い飲食に関するイベントやサークルが解禁となります。完全復活した茨香祭を学生の皆様もご来場いただいた皆様もどうぞ存分に楽しんでください！！</StudentCard
+        >
+      </div>
+      <div class="grid w-full grid-cols-2 gap-3 md:grid-cols-3">
+        {
+          STAFF_HEAD.map((staff) => {
+            return (
+              (staff[1] && staff[2] && (
+                <StudentCard
+                  name={staff[0]}
+                  pronounciation={staff[1]}
+                  title={staff[2]}
+                />
+              )) ||
+              (staff[1] && (
+                <StudentCard name={staff[0]} pronounciation={staff[1]} />
+              )) ||
+              (staff[2] && (
+                <StudentCard name={staff[0]} title={staff[2]} />
+              )) || <StudentCard name={staff[0]} />
+            );
+          })
+        }
+      </div>
+    </ColoredContainer>
+    <ColoredContainer color="orange" class="w-full flex-col">
+      <ColoredHeading
+        as="h2"
+        class="text-4xl"
+        text="情報部"
+        color="orange"
+        id="Development"
+      />
+      <div class="relative">
+        <span
+          data-text="主にこのWebサイトの作成を担当しています！メンバーが多忙な中なんとかサイトを公開できました。茨香祭当日はTwitterでステージの様子などをアップしていく予定なのでお楽しみに！"
+          class:list={[
+            "inline-block text-lg font-Dela text-mauve-3 text-stroke-mauve-11 text-stroke-2 paint-sfm",
+            "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-3 before:bg-clip-text before:pointer-events-none",
+          ]}
+        >
+          主にこのWebサイトの作成を担当しています！メンバーが多忙な中なんとかサイトを公開できました。茨香祭当日はTwitterでステージの様子などをアップしていく予定なのでお楽しみに！
+        </span>
+      </div>
+      <div class="grid w-full grid-cols-2 gap-3 md:grid-cols-3">
+        {
+          STAFF_DEV.map((staff) => {
+            return (
+              (staff[1] && staff[2] && (
+                <StudentCard
+                  name={staff[0]}
+                  pronounciation={staff[1]}
+                  title={staff[2]}
+                />
+              )) ||
+              (staff[1] && (
+                <StudentCard name={staff[0]} pronounciation={staff[1]} />
+              )) ||
+              (staff[2] && (
+                <StudentCard name={staff[0]} title={staff[2]} />
+              )) || <StudentCard name={staff[0]} />
+            );
+          })
+        }
+      </div>
+    </ColoredContainer>
+    <ColoredContainer color="orange" class="w-full flex-col">
+      <ColoredHeading
+        as="h2"
+        class="text-4xl"
+        text="機材部"
+        color="orange"
+        id="Equipment"
+      />
+      <div class="relative">
+        <span
+          data-text="器材部部署長の舟生です。主にステージ発表を担当しています。みなさんが素敵な茨香祭をすごせるよう、また、ステージ発表がより華々しいものになるようにがんばります！"
+          class:list={[
+            "inline-block text-lg font-Dela text-mauve-3 text-stroke-mauve-11 text-stroke-2 paint-sfm",
+            "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-3 before:bg-clip-text before:pointer-events-none",
+          ]}
+        >
+          器材部部署長の舟生です。主にステージ発表を担当しています。みなさんが素敵な茨香祭をすごせるよう、また、ステージ発表がより華々しいものになるようにがんばります！
+        </span>
+      </div>
+      <div class="grid w-full grid-cols-2 gap-3 md:grid-cols-3">
+        {
+          STAFF_EQUIPMENT.map((staff) => {
+            return (
+              (staff[1] && staff[2] && (
+                <StudentCard
+                  name={staff[0]}
+                  pronounciation={staff[1]}
+                  title={staff[2]}
+                />
+              )) ||
+              (staff[1] && (
+                <StudentCard name={staff[0]} pronounciation={staff[1]} />
+              )) ||
+              (staff[2] && (
+                <StudentCard name={staff[0]} title={staff[2]} />
+              )) || <StudentCard name={staff[0]} />
+            );
+          })
+        }
+      </div>
+    </ColoredContainer>
+    <ColoredContainer color="orange" class="w-full flex-col">
+      <ColoredHeading
+        as="h2"
+        class="text-4xl"
+        text="デザイン部"
+        color="orange"
+        id="Design"
+      />
+      <div class="relative">
+        <span
+          data-text="デザイン部です。パンフレットやロゴなどの作成を担当しています。今年度スローガンの「ちゃあみぃ！」に相応しい作品群が、部署員や有志学生の力を借りて完成いたしました。"
+          class:list={[
+            "inline-block text-lg font-Dela text-mauve-3 text-stroke-mauve-11 text-stroke-2 paint-sfm",
+            "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-3 before:bg-clip-text before:pointer-events-none",
+          ]}
+        >
+          デザイン部です。パンフレットやロゴなどの作成を担当しています。今年度スローガンの「ちゃあみぃ！」に相応しい作品群が、部署員や有志学生の力を借りて完成いたしました。
+        </span>
+      </div>
+      <div class="grid w-full grid-cols-2 gap-3 md:grid-cols-3">
+        {
+          STAFF_DESIGN.map((staff) => {
+            return (
+              (staff[1] && staff[2] && (
+                <StudentCard
+                  name={staff[0]}
+                  pronounciation={staff[1]}
+                  title={staff[2]}
+                />
+              )) ||
+              (staff[1] && (
+                <StudentCard name={staff[0]} pronounciation={staff[1]} />
+              )) ||
+              (staff[2] && (
+                <StudentCard name={staff[0]} title={staff[2]} />
+              )) || <StudentCard name={staff[0]} />
+            );
+          })
+        }
+      </div>
+      <div>
+        <ColoredHeading
+          as="h3"
+          class="text-2xl"
+          text="SpecialThanks"
+          color="orange"
+        />
+        <div class="mt-5 grid w-full grid-cols-2 gap-3">
+          <StudentCard
+            name="安田 れん"
+            pronounciation="やすだ れん"
+            title="ポスターデザイン"
+          />
+          <StudentCard name="ちくわ" title="マスコットキャラクターデザイン" />
+        </div>
+      </div>
+    </ColoredContainer>
+    <ColoredContainer color="orange" class="w-full flex-col">
+      <ColoredHeading
+        as="h2"
+        class="text-4xl"
+        text="装飾部"
+        color="orange"
+        id="Decolation"
+      />
+      <div class="relative">
+        <span
+          data-text="装飾部です。学校内の『ちゃあみぃ！』な装飾をしました！ちゃあみぃ！な装飾を楽しんでください！"
+          class:list={[
+            "inline-block text-lg font-Dela text-mauve-3 text-stroke-mauve-11 text-stroke-2 paint-sfm",
+            "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-3 before:bg-clip-text before:pointer-events-none",
+          ]}
+        >
+          装飾部です。学校内の『ちゃあみぃ！』な装飾をしました！ちゃあみぃ！な装飾を楽しんでください！
+        </span>
+      </div>
+      <div class="grid w-full grid-cols-2 gap-3 md:grid-cols-3">
+        {
+          STAFF_DECO.map((staff) => {
+            return (
+              (staff[1] && staff[2] && (
+                <StudentCard
+                  name={staff[0]}
+                  pronounciation={staff[1]}
+                  title={staff[2]}
+                />
+              )) ||
+              (staff[1] && (
+                <StudentCard name={staff[0]} pronounciation={staff[1]} />
+              )) ||
+              (staff[2] && (
+                <StudentCard name={staff[0]} title={staff[2]} />
+              )) || <StudentCard name={staff[0]} />
+            );
+          })
+        }
+      </div>
+    </ColoredContainer>
+    <ColoredContainer color="orange" class="w-full flex-col">
+      <ColoredHeading
+        as="h2"
+        class="text-4xl"
+        text="イベント部"
+        color="orange"
+        id="Event"
+      />
+      <div class="relative">
+        <span
+          data-text="イベント企画部部署長の小泉です！
+私たちは、今回の茨香祭に向けて沢山のワクワクするイベントを用意しました！
+短い時間ではありますが、皆さんにとって楽しいひとときとなることを願っています✩.*˚
+さあ、一緒に最高の思い出を作りましょう！！"
+          class:list={[
+            "inline-block text-lg font-Dela text-mauve-3 text-stroke-mauve-11 text-stroke-2 paint-sfm",
+            "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-3 before:bg-clip-text before:pointer-events-none",
+          ]}
+        >
+          イベント企画部部署長の小泉です！
+          私たちは、今回の茨香祭に向けて沢山のワクワクするイベントを用意しました！
+          短い時間ではありますが、皆さんにとって楽しいひとときとなることを願っています✩.*˚
+          さあ、一緒に最高の思い出を作りましょう！！
+        </span>
+      </div>
+      <div class="grid w-full grid-cols-2 gap-3 md:grid-cols-3">
+        {
+          STAFF_EVENT.map((staff) => {
+            return (
+              (staff[1] && staff[2] && (
+                <StudentCard
+                  name={staff[0]}
+                  pronounciation={staff[1]}
+                  title={staff[2]}
+                />
+              )) ||
+              (staff[1] && (
+                <StudentCard name={staff[0]} pronounciation={staff[1]} />
+              )) ||
+              (staff[2] && (
+                <StudentCard name={staff[0]} title={staff[2]} />
+              )) || <StudentCard name={staff[0]} />
+            );
+          })
+        }
+      </div>
+    </ColoredContainer>
+    <ColoredContainer color="orange" class="w-full flex-col">
+      <ColoredHeading
+        as="h2"
+        class="text-4xl"
+        text="会計･渉外部"
+        color="orange"
+        id="Finance"
+      />
+      <div class="relative">
+        <span
+          data-text="今回の茨香祭は36社もの企業様からご支援いただいています。予算は約400万円！400万以上の価値を皆さんに見いだしていただければ光栄です。ぜひお金をたくさん動かしていってください"
+          class:list={[
+            "inline-block text-lg font-Dela text-mauve-3 text-stroke-mauve-11 text-stroke-2 paint-sfm",
+            "before:content-[attr(data-text)/''] before:absolute before:inset-0 before:z-1 before:text-stroke-[0px] before:text-transparent before:bg-mauve-3 before:bg-clip-text before:pointer-events-none",
+          ]}
+        >
+          今回の茨香祭は36社もの企業様からご支援いただいています。予算は約400万円！400万以上の価値を皆さんに見いだしていただければ光栄です。ぜひお金をたくさん動かしていってください
+        </span>
+      </div>
+      <div class="grid w-full grid-cols-2 gap-3 md:grid-cols-3">
+        {
+          STAFF_FINANCE.map((staff) => {
+            return (
+              (staff[1] && staff[2] && (
+                <StudentCard
+                  name={staff[0]}
+                  pronounciation={staff[1]}
+                  title={staff[2]}
+                />
+              )) ||
+              (staff[1] && (
+                <StudentCard name={staff[0]} pronounciation={staff[1]} />
+              )) ||
+              (staff[2] && (
+                <StudentCard name={staff[0]} title={staff[2]} />
+              )) || <StudentCard name={staff[0]} />
+            );
+          })
+        }
+      </div>
+    </ColoredContainer>
+  </main>
+  <ButtonLink href="/" color="orange">
+    <ArrowLeft />トップページに戻る
+  </ButtonLink>
+</Layout>
