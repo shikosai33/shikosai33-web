@@ -28,5 +28,5 @@ ends-at: 2024-10-27T14:55:00+0900
 # - https://instagram.com/example
 
 # Youtubeの動画もしくはライブ配信のURL
-youtube: https://www.youtube.com/watch?v=1IY6DPk5eEc&list=PLdpcRcn46OU2jYBH1avFa-3bWXt__99Sj&index=1
+youtube: https://www.youtube.com/watch?v=9RTj0sfbqkY
 ---
