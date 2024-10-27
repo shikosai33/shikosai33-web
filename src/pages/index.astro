@@ -1,25 +1,20 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Theme from "../components/theme.astro"
+import Layout from "@/layouts/Layout.astro";
+import Theme from "@/components/theme.astro"
+import CirclePanel from "@/components/PreviewCircle.astro";
+import EventPanel from "@/components/EventPanel.astro";
+import StaffPanel from "@/components/StaffPanel.astro";
+import AccessPanel from "@/components/AccessPanel.astro";
 ---
 
 <Layout title="トップページ" hasHero>
-  <Theme />
-  <h1 class="font-Dela text-5xl">現在準備中です</h1>
-  <a
-    href="https://x.com/shikosai33/"
-    class="text-mauve-11 font-Dela underline"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    X(Twitter) で最新情報をチェック
-  </a>
-  <a
-    href="https://instagram.com/shikosai33/"
-    class="text-mauve-11 font-Dela underline"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Instagram で最新情報をチェック
-  </a>
+  <div class="flex flex-col gap-6">
+    <Theme />
+    <CirclePanel />
+    <EventPanel />
+    <div class="grid gap-6 md:grid-cols-2">
+      <StaffPanel />
+      <AccessPanel />
+    </div>
+  </div>
 </Layout>
