@@ -28,5 +28,5 @@ urls:
   - https://instagram.com/official_plushie
 
 # Youtubeの動画もしくはライブ配信のURL
-youtube: https://www.youtube.com/watch?v=3DAWdjaUGEk&list=PLdpcRcn46OU2jYBH1avFa-3bWXt__99Sj&index=2
+youtube: https://youtube.com/live/78iM5CYgYHc
 ---
