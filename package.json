@@ -44,7 +44,7 @@
     "tailwindcss-animate": "1.0.7",
     "tailwindcss-text-fill-stroke": "2.0.0-beta.1",
     "typescript": "5.6.3",
-    "wrangler": "3.81.0"
+    "wrangler": "3.114.17"
   },
   "module": "index.ts"
 }
