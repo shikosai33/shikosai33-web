@@ -21,7 +21,7 @@
     "@astrojs/tailwind": "5.1.0",
     "@pagefind/default-ui": "1.1.1",
     "@radix-ui/react-select": "2.1.2",
-    "astro": "4.11.6",
+    "astro": "7.2.8",
     "astro-google-fonts-optimizer": "0.2.2",
     "astro-seo": "0.8.4",
     "lucide-astro": "0.452.0",
